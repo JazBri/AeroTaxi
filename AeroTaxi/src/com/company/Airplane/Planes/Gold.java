@@ -1,6 +1,6 @@
-package com.company.Services;
+package com.company.Planes;
 
-public class ServiceGold {
+public class Gold {
     private String catering;
     private String wifi;
 }
