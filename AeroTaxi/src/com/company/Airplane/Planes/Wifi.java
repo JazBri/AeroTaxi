@@ -1,4 +1,4 @@
-package com.company.Planes;
+package com.company.Airplane.Planes;
 
 public interface Wifi {
 }

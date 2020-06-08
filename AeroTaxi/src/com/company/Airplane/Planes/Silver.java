@@ -1,5 +1,5 @@
-package com.company.Planes;
+package com.company.Airplane.Planes;
 
-public class Silver {
-    private String catering;
+public class Silver implements Catering{
+    private int cost;
 }

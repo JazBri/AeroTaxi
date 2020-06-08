@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f95c7af-121c-4b05-8961-c44d63bde80a" name="Default Changelist" comment="" />
+    <list default="true" id="2f95c7af-121c-4b05-8961-c44d63bde80a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/Airplane/Planes/Bronze.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Airplane/Planes/Catering.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Airplane/Planes/Silver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Airplane/Planes/Wifi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Flight/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Airplane/Airplane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Airplane/Airplane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Airplane/Cost.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Services/Service.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Services/ServiceBronze.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Services/ServiceGold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Airplane/Planes/Gold.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Services/ServiceSilver.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,14 +24,22 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1cuF20TuqP0v4q3TvXl5BiGLe0e" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -46,9 +67,21 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1591371703165">
+    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1591630140815">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1591371703165" />
+    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1591630140815" />
+    <state x="951" y="300" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591629837485">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="951" y="300" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1591629837485" />
+    <state x="883" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591629880582">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="883" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1591629880582" />
+    <state x="94" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1591629262143">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="94" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1591629262143" />
   </component>
 </project>
