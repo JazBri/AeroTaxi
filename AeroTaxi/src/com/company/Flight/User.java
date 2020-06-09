@@ -3,11 +3,11 @@ package com.company.Flight;
 public class User {
     private String name;
     private String lastName;
-    private String DNI;
+    private int DNI;
     private int age;
     private boolean isRegistered;
 
-    public User(String name, String lastName, String DNI, int age) {
+    public User(String name, String lastName, int DNI, int age) {
         this.name = name;
         this.lastName = lastName;
         this.DNI = DNI;
@@ -33,11 +33,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getDNI() {
+    public int getDNI() {
         return DNI;
     }
 
-    public void setDNI(String DNI) {
+    public void setDNI(int DNI) {
         this.DNI = DNI;
     }
 

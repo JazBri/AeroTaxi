@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f95c7af-121c-4b05-8961-c44d63bde80a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/register$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/verifyUser$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Airplane/Airplane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Airplane/Airplane.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Airplane/Planes/Bronze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Airplane/Planes/Bronze.class" afterDir="false" />
@@ -11,19 +13,20 @@
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/register$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/register.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/register.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/verifyUser$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/verifyUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/verifyUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/verifyUser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Airplane/Airplane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Airplane/Airplane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Airplane/Planes/Bronze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Airplane/Planes/Bronze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Airplane/Planes/Gold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Airplane/Planes/Gold.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Airplane/Planes/Silver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Airplane/Planes/Silver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Airplane/PropulsionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Airplane/PropulsionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Flight/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Flight/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/JFrames/register.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/register.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/JFrames/register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/JFrames/verifyUser.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/verifyUser.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/JFrames/verifyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/verifyUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/register.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/register.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/verifyUser.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/verifyUser.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/verifyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/verifyUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,11 +92,11 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1591714564661">
+    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1591727359441">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1591630140815" />
-    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1591714564661" />
+    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1591727359441" />
     <state x="951" y="300" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591629837485">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -103,43 +106,43 @@
     </state>
     <state x="883" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1591629880582" />
     <state x="883" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1591664661294" />
-    <state width="1493" height="212" key="GridCell.Tab.0.bottom" timestamp="1591714776886">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1591732663938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="212" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591714776886" />
-    <state width="1493" height="212" key="GridCell.Tab.0.center" timestamp="1591714776886">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591732663938" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1591732663938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="212" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591714776886" />
-    <state width="1493" height="212" key="GridCell.Tab.0.left" timestamp="1591714776885">
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591732663938" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1591732663938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="212" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591714776885" />
-    <state width="1493" height="212" key="GridCell.Tab.0.right" timestamp="1591714776886">
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591732663938" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1591732663938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="212" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591714776886" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1591666306053">
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591732663938" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1591732663938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591666306053" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1591666306053">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591732663938" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1591732663938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1591666306053" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1591666306053">
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1591732663938" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1591732663938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1591666306053" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1591666306053">
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1591732663938" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1591732663938">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1591666306053" />
-    <state x="94" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1591713643100">
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1591732663938" />
+    <state x="94" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1591725033536">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="94" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1591633294146" />
-    <state x="94" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1591713643100" />
+    <state x="94" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1591725033536" />
     <state x="555" y="293" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1591661405525">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
