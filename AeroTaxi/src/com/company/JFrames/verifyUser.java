@@ -23,9 +23,8 @@ public class verifyUser extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-
                     setDniField(Integer.parseInt(dniField.getText()));
-
+                    //Lo tomaría del Archivo
                     User user = new User("Usuario", "De Prueba", getDniField(), 12);
                     System.out.println(user.toString());
                     // dniShowLabel.setText(user.getDNI());
