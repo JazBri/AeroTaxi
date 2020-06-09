@@ -1,4 +1,6 @@
-package com.company;
+package com.company.JFrames;
+
+import com.company.Flight.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,8 +26,20 @@ public class register extends JFrame{
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try{
 
-                JOptionPane.showMessageDialog(null, nombreTextField.getText());
+                    int dni = Integer.parseInt(dniTextField.getText());
+                    int edad = Integer.parseInt(edadTextField.getText());
+
+                    User user1 = new User (nombreTextField.getText(), apellidoTextField.getText(), dni, edad);
+                    user1.setRegistered(true);
+                    JOptionPane.showMessageDialog(null, user1.toString());
+
+                }catch (NumberFormatException e1){
+                    JOptionPane.showMessageDialog(null, " Por favor introduzca valores válidos ");
+                    System.out.println("No se puede convertir a número.");
+                    e1.getMessage();
+                }
 
             }
         });
