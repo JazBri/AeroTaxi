@@ -1,10 +1,23 @@
 package com.company;
 
+import com.company.Airplane.Planes.Bronze;
+import com.company.Airplane.PropulsionType;
+import com.company.JFrames.register;
+import com.company.JFrames.verifyUser;
+
 import javax.swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
+        PropulsionType p = PropulsionType.HELICE;
+        //System.out.println(p.name());
+        //p.values();
+
+        Bronze bronze = new Bronze(200, 200, 200, p, true);
+        System.out.println(bronze.toString());
+
+
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

@@ -1,13 +1,13 @@
 package com.company.Airplane;
 
-public class Airplane {
+public abstract class Airplane {
     private float fuelCapacity;
     private int costPerKilometer;
     private int passengerCapacity;
-    private int propulsionType;
+    private PropulsionType propulsionType;
     private boolean available;
 
-    public Airplane(float fuelCapacity, int costPerKilometer, int passengerCapacity, int propulsionType, boolean available) {
+    public Airplane(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available) {
         this.fuelCapacity = fuelCapacity;
         this.costPerKilometer = costPerKilometer;
         this.passengerCapacity = passengerCapacity;
@@ -42,11 +42,11 @@ public class Airplane {
         this.passengerCapacity = passengerCapacity;
     }
 
-    public int getPropulsionType() {
+    public PropulsionType getPropulsionType() {
         return propulsionType;
     }
 
-    public void setPropulsionType(int propulsionType) {
+    public void setPropulsionType(PropulsionType propulsionType) {
         this.propulsionType = propulsionType;
     }
 
