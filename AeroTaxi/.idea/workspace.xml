@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f95c7af-121c-4b05-8961-c44d63bde80a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_8_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_8_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_8_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jackson-annotations-2.8.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jackson-core-2.8.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jackson-databind-2.8.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mi_archivo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/ActualFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mi_archivo.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AeroTaxi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AeroTaxi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Flight/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Flight/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/cuestionario$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/cuestionario$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/cuestionario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/cuestionario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Flight/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Flight/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/JFrames/cuestionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/cuestionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miArchivo.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
