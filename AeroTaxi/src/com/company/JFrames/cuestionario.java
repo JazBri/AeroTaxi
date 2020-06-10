@@ -39,6 +39,18 @@ public class cuestionario extends JFrame {
                         JOptionPane.showMessageDialog(null, "Vuelo reservado\nBuen viaje!!");
                     }
 
+                    if(option == 1){
+                        JOptionPane.showMessageDialog(null, "Volviendo, no se ha registrado ningún viaje");
+                       /* cuestionario.setVisible(false);
+                        verifyUser v = new verifyUser(" ");
+                        v.setVisible(true);*/
+                    }
+
+                    if(option == 2){
+                        JOptionPane.showMessageDialog(null, "Cancel");
+                    }
+
+
                 } catch (Exception e1) {
                     e1.getMessage();
                     JOptionPane.showMessageDialog(null, "Alguno de los datos ingresados es incorrecto, por favor revíselos");

@@ -1,0 +1,19 @@
+[ {
+  "name" : "Jazmin",
+  "lastName" : "Briasco",
+  "age" : 23,
+  "registered" : false,
+  "dni" : 36987412
+}, {
+  "name" : "Jose",
+  "lastName" : "Velez",
+  "age" : 11,
+  "registered" : false,
+  "dni" : 32147896
+}, {
+  "name" : "Matias",
+  "lastName" : "Gonzalez",
+  "age" : 58,
+  "registered" : false,
+  "dni" : 35789651
+} ]
