@@ -5,12 +5,18 @@ import com.company.Airplane.PropulsionType;
 import com.company.Flight.User;
 import com.company.JFrames.register;
 import com.company.JFrames.verifyUser;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import javax.swing.*;
+import java.io.*;
+import java.util.Date;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        ActualFile.archivos();
+
         PropulsionType p = PropulsionType.HELICE;
         //System.out.println(p.name());
         //p.values();
@@ -20,8 +26,10 @@ public class Main {
 
 
         SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
+                  @Override
+               public void run() {
+
+
 
 
                 //Toma el dni, lo buscaría, si lo encuentra va al cuestionario, si no al registro
@@ -38,7 +46,7 @@ public class Main {
                 JFrame.setBounds(650, 180, 500, 500);
                 JFrame.setVisible(true);*/
             }
-        });
+       });
 
     }
 

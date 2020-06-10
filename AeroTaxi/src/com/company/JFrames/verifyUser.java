@@ -23,9 +23,8 @@ public class verifyUser extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-
                     setDniField(Integer.parseInt(dniField.getText()));
-
+                    //Lo tomaría del Archivo
                     User user = new User("Usuario", "De Prueba", getDniField(), 12);
                     System.out.println(user.toString());
                     // dniShowLabel.setText(user.getDNI());
@@ -33,6 +32,11 @@ public class verifyUser extends JFrame {
                     //if (getDniField() == user.getDNI()) {
                     if (getDniField() == 1) {
                         JOptionPane.showMessageDialog(null, "Bienvenido/a " + user.getName() + " " + user.getLastName() + " !!! ");
+                        verifyUser.setVisible(false);
+                        cuestionario questionary = new cuestionario("Cuestionario");
+                        questionary.setBounds(650, 180, 500, 500);
+                        questionary.setVisible(true);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "DNI: " + dniField.getText() + "\nUsted no se encuentra registrado.");
                         verifyUser.setVisible(false);
