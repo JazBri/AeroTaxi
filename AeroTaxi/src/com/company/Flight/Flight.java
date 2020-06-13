@@ -1,6 +1,8 @@
 package com.company.Flight;
 
 import com.company.Airplane.Airplane;
+import com.company.Questionary;
+import com.company.User;
 
 import java.util.HashMap;
 

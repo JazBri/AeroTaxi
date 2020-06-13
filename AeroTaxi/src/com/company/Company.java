@@ -2,7 +2,7 @@ package com.company;
 
 import com.company.Airplane.Airplane;
 import com.company.Flight.Flight;
-import com.company.Flight.User;
+
 
 import java.util.HashSet;
 

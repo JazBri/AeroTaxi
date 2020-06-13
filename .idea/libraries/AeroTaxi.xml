@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="AeroTaxi">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/AeroTaxi/jackson-core-2.8.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AeroTaxi/jackson-annotations-2.8.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/AeroTaxi/jackson-databind-2.8.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,4 +1,4 @@
-package com.company.Flight;
+package com.company;
 
 public class City {
     private String origin;
