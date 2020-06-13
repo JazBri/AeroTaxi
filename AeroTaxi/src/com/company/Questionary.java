@@ -1,4 +1,4 @@
-package com.company.Flight;
+package com.company;
 
 import java.time.LocalDate;
 

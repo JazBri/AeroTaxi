@@ -1,11 +1,11 @@
 package com.company.JFrames;
 
-import com.company.Airplane.Airplane;
+
 import com.company.Airplane.Planes.Gold;
 import com.company.Airplane.PropulsionType;
 import com.company.Company;
-import com.company.Flight.Flight;
-import com.company.Flight.User;
+import com.company.User;
+
 
 import javax.swing.*;
 import java.awt.*;

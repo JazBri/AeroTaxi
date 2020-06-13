@@ -2,15 +2,10 @@ package com.company;
 
 import com.company.Airplane.Planes.Bronze;
 import com.company.Airplane.PropulsionType;
-import com.company.Flight.User;
-import com.company.JFrames.register;
 import com.company.JFrames.verifyUser;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import javax.swing.*;
-import java.io.*;
-import java.util.Date;
+import java.io.IOException;
 
 public class Main {
 

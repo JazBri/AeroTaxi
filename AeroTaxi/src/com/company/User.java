@@ -1,4 +1,4 @@
-package com.company.Flight;
+package com.company;
 
 import java.io.Serializable;
 
@@ -18,6 +18,10 @@ public class User implements Serializable {
     }
 
     public User() {
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public String getName() {
@@ -71,3 +75,4 @@ public class User implements Serializable {
                 '}';
     }
 }
+

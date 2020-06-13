@@ -1,6 +1,6 @@
 package com.company.JFrames;
 
-import com.company.Flight.Questionary;
+import com.company.Questionary;
 
 import javax.swing.*;
 import java.awt.*;
