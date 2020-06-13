@@ -42,13 +42,18 @@ public class register extends JFrame{
                     PropulsionType pt =  PropulsionType.HELICE;
                     Gold a = new Gold(1321, 321, 321, pt, true);
 
-                    Company c = new Company();
+                    Company company = Company.getSingletonInstance();
+                    System.out.println("Company: " + company.toString());
+                    company.addToCollection(user1);
+                    company.showCollection(user1);
+
+                    /* Company c = new Company();
                     c.addToCollection(user1);
                     c.addToCollection(user2);
                     c.showCollection(user1);
 
                     c.addToCollection(a);
-                    c.showCollection(a);
+                    c.showCollection(a);*/
 
                     JOptionPane.showMessageDialog(null, user1.toString());
 

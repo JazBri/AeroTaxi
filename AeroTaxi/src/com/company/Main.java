@@ -17,6 +17,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
         ActualFile.archivos();
 
+        User u = new User("Sin", "gleton", 23, 45);
+
+        Company company = Company.getSingletonInstance();
+        company.addToCollection(u);
+        Company company1 = Company.getSingletonInstance();
+
+
         PropulsionType p = PropulsionType.HELICE;
         //System.out.println(p.name());
         //p.values();
