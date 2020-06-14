@@ -32,30 +32,20 @@ public class register extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-
+                    //Parseamos los valores TextField del documento y edad.
                     int dni = Integer.parseInt(dniTextField.getText());
                     int edad = Integer.parseInt(edadTextField.getText());
 
-                    User user1 = new User (nombreTextField.getText(), apellidoTextField.getText(), dni, edad);
-                    User user2 = new User ("juan", apellidoTextField.getText(), dni, edad);
-                    user1.setRegistered(true);
-                    PropulsionType pt =  PropulsionType.HELICE;
-                    Gold a = new Gold(1321, 321, 321, pt, true);
+                    /**FALTARÍA QUE EL USUARIO CONFIRME LOS DATOS.*/
+                    /**FALTARÍA REDIRIGIR, UNA VEZ CONFIRME DATOS A CUENTIONARIO, SI NO QUE LOS VUELVA A CARGAR.*/
+                    /**VER DE VOLVER A BUSCAR EL USUARIO EN EL ARCHIVO ANTES DE AGREGARLO.*/
+                    User user = new User (nombreTextField.getText(), apellidoTextField.getText(), dni, edad);
+                    user.setRegistered(true);
 
-                    Company company = Company.getSingletonInstance();
-                    System.out.println("Company: " + company.toString());
-                    company.addToCollection(user1);
-                    company.showCollection(user1);
+                    //Agregamos a la colección d eusuarios del objeto instanciado en el main.
+                    Company.getSingletonInstance().addToCollection(user);
 
-                    /* Company c = new Company();
-                    c.addToCollection(user1);
-                    c.addToCollection(user2);
-                    c.showCollection(user1);
-
-                    c.addToCollection(a);
-                    c.showCollection(a);*/
-
-                    JOptionPane.showMessageDialog(null, user1.toString());
+                    JOptionPane.showMessageDialog(null, user.showMessageRegistered(), "Nuevo Usuario", JOptionPane.INFORMATION_MESSAGE);
 
                 }catch (NumberFormatException e1){
                     JOptionPane.showMessageDialog(null, " Por favor introduzca valores válidos ");

@@ -7,6 +7,7 @@ public  class Airplane {
     private PropulsionType propulsionType;
     private boolean available;
     protected int cost;
+    protected String service;
 
     public Airplane(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available) {
         this.fuelCapacity = fuelCapacity;
@@ -14,6 +15,7 @@ public  class Airplane {
         this.passengerCapacity = passengerCapacity;
         this.propulsionType = propulsionType;
         this.available = available;
+        this.service = service;
 
     }
 
@@ -68,9 +70,15 @@ public  class Airplane {
         this.cost = cost;
     }
 
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
     @Override
-
-
     public String toString() {
         return "Airplane{" +
                 "fuelCapacity=" + fuelCapacity +
@@ -79,6 +87,7 @@ public  class Airplane {
                 ", propulsionType=" + propulsionType +
                 ", available=" + available +
                 ", cost=" + cost +
+                ", service='" + service + '\'' +
                 '}';
     }
 }

@@ -38,12 +38,14 @@ public class City {
         this.km = km;
     }
 
+
     @Override
     public String toString() {
-        return "City{" +
+       /* return "City{" +
                 "origin='" + origin + '\'' +
                 ", destination='" + destination + '\'' +
                 ", km=" + km +
-                '}';
+                '}';*/
+        return origin + " - " + destination;
     }
 }

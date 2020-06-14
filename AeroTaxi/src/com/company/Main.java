@@ -10,12 +10,15 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-/*      User u = new User("Sin", "gleton", 23, 45);
-        Company company = Company.getSingletonInstance();
+      User u = new User("Sin", "gleton", 23, 45);
+/*        Company company = Company.getSingletonInstance();
         company.addToCollection(u);
         Company company1 = Company.getSingletonInstance();
 */
 
+        //Se instancia un objeto de tipo  Company, que será usada por todas las clases que lo requieran
+        Company company = Company.getSingletonInstance();
+        company.addToCollection(u);
         //System.out.println(p.name());
         //p.values();
 

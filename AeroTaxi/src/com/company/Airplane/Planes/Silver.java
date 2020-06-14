@@ -9,6 +9,7 @@ public class Silver extends Airplane implements Catering{
     public Silver(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available) {
         super(fuelCapacity, costPerKilometer, passengerCapacity, propulsionType, available);
         this.cost = 2000;
+        this.service = "Silver";
     }
 
     public Silver() {
@@ -16,11 +17,11 @@ public class Silver extends Airplane implements Catering{
     }
 
 
-
     @Override
     public String toString() {
-        return "Silver{" + super.toString() +
+        return "Silver{" +
                 "cost=" + cost +
+                ", service='" + service + '\'' +
                 '}';
     }
 }

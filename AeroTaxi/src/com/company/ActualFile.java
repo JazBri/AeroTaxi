@@ -31,6 +31,7 @@ public class ActualFile {
         userArray.add(user2);
         userArray.add(user3);
 
+
         String pathUser = "usuarios.json";
         File myFileUser = new File(pathUser);
 
@@ -55,15 +56,24 @@ public class ActualFile {
         File myFileCity = new File(pathCities);
 
         //Se cargan aviones al archivo
-        PropulsionType p = PropulsionType.HELICE;
+        PropulsionType p = PropulsionType.PISTONES;
+        PropulsionType h = PropulsionType.HELICE;
+        PropulsionType r = PropulsionType.REACTION;
         Bronze bronze = new Bronze(2154, 200, 123, p, true);
         Silver silver = new Silver(2874, 158, 78, p, true);
-        Gold gold = new Gold(200, 300, 15, p, true);
+        Silver silver2 = new Silver(2874, 158, 78, h, true);
+        Gold gold = new Gold(700, 541, 854, r, true);
+        Gold gold2 = new Gold(540, 542, 563, r, true);
 
         ArrayList<Airplane> airplaneArray = new ArrayList<Airplane>();
         airplaneArray.add(bronze);
         airplaneArray.add(silver);
         airplaneArray.add(gold);
+        airplaneArray.add(silver2);
+        airplaneArray.add(gold2);
+
+
+
 
         String pathAirplane = "aviones.json";
         File myFileAiplane = new File(pathAirplane);
@@ -98,6 +108,27 @@ public class ActualFile {
 
 
 
+                //Usamos Company.getInstance() para usar el objeto global, agregamos los usuarios, ciudades y aviones a las colecciones de Company.
+                /**Estas colecciones deberán estar relacionadas con los archivos.*/
+                Company.getSingletonInstance().addToCollection(user1);
+                Company.getSingletonInstance().addToCollection(user2);
+                Company.getSingletonInstance().addToCollection(user3);
+                Company.getSingletonInstance().addToCollection(silver);
+                Company.getSingletonInstance().addToCollection(bronze);
+                Company.getSingletonInstance().addToCollection(gold);
+                Company.getSingletonInstance().addToCollection(silver2);
+                Company.getSingletonInstance().addToCollection(gold2);
+                Company.getSingletonInstance().addToCollection(city1);
+                Company.getSingletonInstance().addToCollection(city2);
+                Company.getSingletonInstance().addToCollection(city3);
+                Company.getSingletonInstance().addToCollection(city4);
+                Company.getSingletonInstance().addToCollection(city5);
+                Company.getSingletonInstance().addToCollection(city6);
+                Company.getSingletonInstance().showCollection(user1);
+                Company.getSingletonInstance().showCollection(silver);
+                Company.getSingletonInstance().showCollection(city1);
+
+
                 //Escritura del archivo, se guardan los usuarios
                 ObjectMapper mapperUser = new ObjectMapper();
                 mapperUser.writerWithDefaultPrettyPrinter().writeValue(new File(pathUser), userArray);
@@ -115,10 +146,10 @@ public class ActualFile {
                 //Lectura del archivo, se levantan los datos de los usuarios
                 ObjectMapper mapperReaderUser = new ObjectMapper();
                 ArrayList<User> us = mapperUser.readValue(myFileUser, mapperReaderUser.getTypeFactory().constructCollectionType(ArrayList.class, User.class));
-                for (User u: us            ) {
+             /*   for (User u: us            ) {
                     System.out.println(u.toString());
                 }
-
+*/
                 //Lectura del archivo, se levantan los datos de las iudades
                 ObjectMapper mapperReaderCities = new ObjectMapper();
 
@@ -133,10 +164,10 @@ public class ActualFile {
 
                 /**Acá no sé manejar el tema de la clase Airplane que es abstracta en realidad, cómo guardamos los aviones?*/
                 ArrayList<Airplane> air = mapperAirplane.readValue(myFileAiplane, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Airplane.class));
-                for (Airplane u: air  ) {
+                /*for (Airplane u: air  ) {
                     System.out.println(u.toString());
                 }
-
+*/
 
 
             }
