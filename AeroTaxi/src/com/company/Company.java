@@ -1,15 +1,13 @@
 package com.company;
-
 import com.company.Airplane.Airplane;
 import com.company.Flight.Flight;
-
-
 import java.util.HashSet;
 
 public class Company <T>{
     private HashSet <T> userHashSet;
     private HashSet <T> flightHashSet;
     private HashSet <T> airplaneHashSet;
+    //Atributo estático para usar singleton.
     private static Company miCompany;
 
     //El constructor privado no permite que se genere uno por defecto.
@@ -19,6 +17,7 @@ public class Company <T>{
         this.airplaneHashSet = new HashSet<T>();
     }
 
+    //getSingletonInstance devuelve la instancia del objeto, de esta manera se puede llamar en distintas clases.
     public static Company getSingletonInstance(){
         if( miCompany == null ){
             miCompany = new Company();

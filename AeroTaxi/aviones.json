@@ -1,0 +1,22 @@
+[ {
+  "fuelCapacity" : 2154.0,
+  "costPerKilometer" : 200,
+  "passengerCapacity" : 123,
+  "propulsionType" : "HELICE",
+  "available" : true,
+  "cost" : 3000.0
+}, {
+  "fuelCapacity" : 2874.0,
+  "costPerKilometer" : 158,
+  "passengerCapacity" : 78,
+  "propulsionType" : "HELICE",
+  "available" : true,
+  "cost" : 2000.0
+}, {
+  "fuelCapacity" : 200.0,
+  "costPerKilometer" : 300,
+  "passengerCapacity" : 15,
+  "propulsionType" : "HELICE",
+  "available" : true,
+  "cost" : 4000.0
+} ]

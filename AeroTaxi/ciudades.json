@@ -1,0 +1,32 @@
+{
+  "1" : {
+    "origin" : "Buenos Aires",
+    "destination" : "Córdoba",
+    "km" : 695
+  },
+  "2" : {
+    "origin" : "Buenos Aires",
+    "destination" : "Santiago",
+    "km" : 1400
+  },
+  "3" : {
+    "origin" : "Buenos Aires",
+    "destination" : "Montevideo",
+    "km" : 950
+  },
+  "4" : {
+    "origin" : "Córdoba",
+    "destination" : "Montevideo",
+    "km" : 1190
+  },
+  "5" : {
+    "origin" : "Córdoba",
+    "destination" : "Santiago",
+    "km" : 1050
+  },
+  "6" : {
+    "origin" : "Montevideo",
+    "destination" : "Santiago",
+    "km" : 2100
+  }
+}

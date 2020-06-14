@@ -10,46 +10,31 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        ActualFile.archivos();
-
-        User u = new User("Sin", "gleton", 23, 45);
-
+/*      User u = new User("Sin", "gleton", 23, 45);
         Company company = Company.getSingletonInstance();
         company.addToCollection(u);
         Company company1 = Company.getSingletonInstance();
+*/
 
-
-        PropulsionType p = PropulsionType.HELICE;
         //System.out.println(p.name());
         //p.values();
 
-        Bronze bronze = new Bronze(200, 200, 200, p, true);
        // System.out.println(bronze.toString());
+//////////////////////////////////////////////////////////////
 
 
+        //Creamos el archivo.
+        ActualFile.archivos();
+
+        //Swing
         SwingUtilities.invokeLater(new Runnable() {
-                  @Override
+               @Override
                public void run() {
-
-
-
-
-                //Toma el dni, lo buscaría, si lo encuentra va al cuestionario, si no al registro
-                //JFrame verifyUser = new verifyUser("Verificar Usuario");
+                //Lo primero que se hace es verificar si el usuario que quiere ingresar esta regitrado, esta misma clase se encargará de agregarlo al archivo en cado de no estarlo.
                 verifyUser verifyUser = new verifyUser("Aero Taxi Usuario ->");
                 verifyUser.setBounds(650, 180, 500, 500);
                 verifyUser.setVisible(true);
-                //verifyUser v = new verifyUser(" ");
-                //System.out.println("DNI: " + verifyUser.getDniField());
-
-
-                //Registro
-              /*  JFrame JFrame = new register("Registro de usuario");
-                JFrame.setBounds(650, 180, 500, 500);
-                JFrame.setVisible(true);*/
             }
        });
-
     }
-
 }
