@@ -3,25 +3,24 @@ import com.company.Airplane.Airplane;
 import com.company.Airplane.PropulsionType;
 
 public class Bronze extends Airplane {
-    private int cost;
+
 
     public Bronze(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available) {
         super(fuelCapacity, costPerKilometer, passengerCapacity, propulsionType, available);
         this.cost = 3000;
+        this.service = "Bronze";
     }
 
     public Bronze() {
         super();
     }
 
-    public int getCost() {
-        return cost;
-    }
 
     @Override
     public String toString() {
-        return "Bronze{" + super.toString() +
+        return "Bronze{" +
                 "cost=" + cost +
+                ", service='" + service + '\'' +
                 '}';
     }
 }

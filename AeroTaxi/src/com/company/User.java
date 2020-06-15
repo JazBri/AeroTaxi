@@ -64,6 +64,14 @@ public class User implements Serializable {
         isRegistered = registered;
     }
 
+    public String showMessageRegistered() {
+        return "Nombre: " + name +
+                "\nApellido: " + lastName  +
+                "\nDNI: " + DNI  +
+                "\nEdad: " + age;
+
+    }
+
     @Override
     public String toString() {
         return "User{" +

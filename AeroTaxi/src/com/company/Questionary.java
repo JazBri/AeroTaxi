@@ -1,18 +1,30 @@
 package com.company;
 
+import com.company.Airplane.Airplane;
+
 import java.time.LocalDate;
 
 public class Questionary {
     private LocalDate date;
-    private String destination;
-    private String origin;
+    private String recorrido;
     private int companionsNumbers;
+    private String airplane;
 
-    public Questionary(LocalDate date, String destination, String origin, int companionsNumbers) {
+    public Questionary(LocalDate date, String recorrido, int companionsNumbers, String airplane) {
         this.date = date;
-        this.destination = destination;
-        this.origin = origin;
+        this.recorrido = recorrido;
         this.companionsNumbers = companionsNumbers;
+        this.airplane = airplane;
+    }
+
+
+
+    public String getAirplane() {
+        return airplane;
+    }
+
+    public void setAirplane(String airplane) {
+        this.airplane = airplane;
     }
 
     public Questionary() {
@@ -26,20 +38,12 @@ public class Questionary {
         this.date = date;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getRecorrido() {
+        return recorrido;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    public String getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
+    public void setRecorrido(String recorrido) {
+        this.recorrido = recorrido;
     }
 
     public int getCompanionsNumbers() {
@@ -52,11 +56,17 @@ public class Questionary {
 
     @Override
     public String toString() {
-        return "Questionary{" +
+        /*return "Questionary{" +
                 "date=" + date +
-                ", destination='" + destination + '\'' +
-                ", origin='" + origin + '\'' +
+                ", recorrido='" + recorrido + '\'' +
                 ", companionsNumbers=" + companionsNumbers +
                 '}';
+    */
+        return "Fecha: " + date +
+                "\nDestino - origen: " + recorrido +
+                "\nCantidad de ocupantes: " + companionsNumbers +
+                "\nServicio: " + airplane ;
+
     }
+
 }
