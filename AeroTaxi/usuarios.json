@@ -1,4 +1,10 @@
 [ {
+  "name" : "Sin",
+  "lastName" : "gleton",
+  "age" : 45,
+  "registered" : false,
+  "dni" : 23
+}, {
   "name" : "Jazmin",
   "lastName" : "Briasco",
   "age" : 23,

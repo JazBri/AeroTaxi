@@ -3,6 +3,7 @@ package com.company.JFrames;
 import com.company.Airplane.Airplane;
 import com.company.City;
 import com.company.Company;
+import com.company.Flight.Flight;
 import com.company.Questionary;
 import com.company.User;
 
@@ -10,8 +11,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -33,12 +36,11 @@ public class cuestionario extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(cuestionario);
         this.pack();
-        verifyUser verifyUser = new verifyUser("Aero Taxi Usuario ->");
 
-    //Agregamos las opciones de las ciudades
-    for (Object c : Company.getSingletonInstance().returnCities()){
-        origenComboBox.addItem(c.toString());
-    }
+        //Agregamos las opciones de las ciudades
+        for (Object c : Company.getSingletonInstance().getCitiesArrayList()){
+            origenComboBox.addItem(c.toString());
+        }
 
         okButton.addActionListener(new ActionListener() {
             @Override
@@ -62,8 +64,8 @@ public class cuestionario extends JFrame {
                             }
                         }
                     }
-                    if(recorrido == null) {
 
+                    if(recorrido == null) {
                         JOptionPane.showMessageDialog(null, "Ingrese un recorrido");
                     }else {
                         Questionary q = new Questionary(localDate1, recorrido, ocupantes, servicio);
@@ -72,6 +74,16 @@ public class cuestionario extends JFrame {
 
                         //0 si, 1 no, 2 cancel
                         if (option == 0) {
+                        //Al aceptar se crea un Flight que deberá guardarse en un archivo.
+                            /**HACER MÉTODOS DE GUARDADO Y LEVANTE EN LA CLASE FILE*/
+
+
+                            Flight flight = new Flight(recorrido, verifyUser.getSingletonInstance().getUser() , 123, q, true);
+                            Company.getSingletonInstance().addToCollection(flight);
+                            System.out.println("\n\n VUELOS \n");
+                            Company.getSingletonInstance().showCollection(flight);
+                            /*******************************************************/
+
                             JOptionPane.showMessageDialog(null, "Vuelo reservado\nBuen viaje!!");
                         }
 
@@ -131,8 +143,10 @@ public class cuestionario extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 /**ESTO TAMBIÉN HAY QUE CAMBIARLO, NO SÉ COMO OCULTAR LOS OTROS FRAMES. */
                 cuestionario.setVisible(false);
-                verifyUser.setBounds(650, 180, 500, 500);
-                verifyUser.setVisible(true);
+            /*    verifyUser.setBounds(650, 180, 500, 500);
+                verifyUser.setVisible(true);*/
+                verifyUser.getSingletonInstance().setBounds(650,180,500,500);
+            verifyUser.getSingletonInstance().setVisible(true);
             }
         });
     }

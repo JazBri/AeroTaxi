@@ -1,4 +1,5 @@
 package com.company.JFrames;
+import com.company.Company;
 import com.company.User;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -13,15 +14,18 @@ public class verifyUser extends JFrame {
     private JPanel verifyUser;
     private JTextField dniField;
     private JButton okButton;
-
+    private User user;
     private int dni;
+    private static verifyUser vu;
 
-    public verifyUser(String title) throws HeadlessException {
+
+    private verifyUser(String title) throws HeadlessException {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(verifyUser);
         this.pack();
-        okButton.addActionListener(e -> {
+
+            okButton.addActionListener(e -> {
             String path = "usuarios.json";
             File myFile = new File(path);
 
@@ -38,6 +42,7 @@ public class verifyUser extends JFrame {
                     if (usuario.getDNI() == getDniField() && usuario.isRegistered()) {
                         //En caso de encontrarlo se abre el cuestionario del vuelo
                         found = true;
+                        setUser(usuario);
                         JOptionPane.showMessageDialog(null, "Bienvenido/a " + usuario.getName() + " " + usuario.getLastName() + " !!! ");
                         verifyUser.setVisible(false);
                         cuestionario questionary = new cuestionario("Vuelo");
@@ -68,6 +73,18 @@ public class verifyUser extends JFrame {
         });
     }
 
+    //getSingletonInstance devuelve la instancia del objeto, de esta manera se puede llamar en distintas clases.
+    public static verifyUser getSingletonInstance(){
+        if( vu == null ){
+            vu = new verifyUser("Aero Taxi");
+            System.out.println("Objeto Company creado exitosamente!");
+        }else{
+            //   System.out.println("El objeto Company ya se encuentra instanciado.");
+        }
+        return vu;
+    }
+
+
     //Getters y setters del JFrame
     public int getDniField() {
         return dni;
@@ -75,5 +92,13 @@ public class verifyUser extends JFrame {
 
     public void setDniField(int dni) {
         this.dni = dni;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

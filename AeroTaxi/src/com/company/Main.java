@@ -34,9 +34,11 @@ public class Main {
                @Override
                public void run() {
                 //Lo primero que se hace es verificar si el usuario que quiere ingresar esta regitrado, esta misma clase se encargará de agregarlo al archivo en cado de no estarlo.
-                verifyUser verifyUser = new verifyUser("Aero Taxi Usuario ->");
+                /*verifyUser verifyUser = new verifyUser("Aero Taxi Usuario ->");
                 verifyUser.setBounds(650, 180, 500, 500);
-                verifyUser.setVisible(true);
+                verifyUser.setVisible(true);*/
+                verifyUser.getSingletonInstance().setBounds(650,180,500,500);
+                verifyUser.getSingletonInstance().setVisible(true);
             }
        });
     }
