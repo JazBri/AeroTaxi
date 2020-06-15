@@ -19,6 +19,7 @@ public class Questionary {
 
 
 
+
     public String getAirplane() {
         return airplane;
     }

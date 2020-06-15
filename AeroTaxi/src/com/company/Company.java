@@ -1,23 +1,21 @@
 package com.company;
 import com.company.Airplane.Airplane;
 import com.company.Flight.Flight;
+
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Company <T>{
-    private HashSet <T> userHashSet;
-    private HashSet <T> flightHashSet;
-    private HashSet <T> airplaneHashSet;
-    private HashSet <T> citiesHashSet;
+    private ArrayList<T> userArrayList = new ArrayList<T>();
+    private ArrayList<T> flightArrayList = new ArrayList<T>();
+    private ArrayList<T> airplaneArrayList = new ArrayList<T>();
+    private ArrayList<T> citiesArrayList = new ArrayList<T>();
 
     //Atributo estático para usar singleton.
     private static Company miCompany;
 
     //El constructor privado no permite que se genere uno por defecto.
     private Company() {
-        this.userHashSet = new HashSet<T>();
-        this.flightHashSet = new HashSet<T>();
-        this.airplaneHashSet = new HashSet<T>();
-        this.citiesHashSet = new HashSet<T>();
     }
 
     //getSingletonInstance devuelve la instancia del objeto, de esta manera se puede llamar en distintas clases.
@@ -36,16 +34,16 @@ public class Company <T>{
     public void addToCollection(T t){
         try{
             if(t instanceof User) {
-                userHashSet.add(t);
+                userArrayList.add(t);
             }
              if(t instanceof Airplane) {
-                 airplaneHashSet.add(t);
+                 airplaneArrayList.add(t);
              }
              if(t instanceof Flight) {
-                 flightHashSet.add(t);
+                 flightArrayList.add(t);
              }
             if(t instanceof City) {
-                citiesHashSet.add(t);
+                citiesArrayList.add(t);
             }
     }catch (Exception e) {
             e.getStackTrace();
@@ -56,26 +54,26 @@ public class Company <T>{
     public void showCollection(T t){
         try {
             if (t instanceof User) {
-                System.out.println("\nUSER");
-                for (T c : userHashSet) {
+                System.out.println("\nUSER userArrayList");
+                for (T c : userArrayList) {
                     System.out.println(c.toString());
                 }
             }
             if (t instanceof Airplane) {
                 System.out.println("\nAIRPLANE");
-                for (T c : airplaneHashSet) {
+                for (T c : airplaneArrayList) {
                     System.out.println(c.toString());
                 }
             }
             if (t instanceof Flight) {
                 System.out.println("\nFLIGHT");
-                for (T c : flightHashSet) {
+                for (T c : flightArrayList) {
                     System.out.println(c.toString());
                 }
             }
             if (t instanceof City) {
                 System.out.println("\nCITIES");
-                for (T c : citiesHashSet) {
+                for (T c : citiesArrayList) {
                     System.out.println(c.toString());
                 }
             }
@@ -85,18 +83,53 @@ public class Company <T>{
         }
     }
 
-    public HashSet<T> returnCities(){
-        return citiesHashSet;
+    public ArrayList<T> getUserArrayList() {
+        return userArrayList;
     }
 
+    public void setUserArrayList(ArrayList<T> userArrayList) {
+        this.userArrayList = userArrayList;
+    }
+
+    public ArrayList<T> getFlightArrayList() {
+        return flightArrayList;
+    }
+
+    public void setFlightArrayList(ArrayList<T> flightArrayList) {
+        this.flightArrayList = flightArrayList;
+    }
+
+    public ArrayList<T> getAirplaneArrayList() {
+        return airplaneArrayList;
+    }
+
+    public void setAirplaneArrayList(ArrayList<T> airplaneArrayList) {
+        this.airplaneArrayList = airplaneArrayList;
+    }
+
+    public ArrayList<T> getCitiesArrayList() {
+        return citiesArrayList;
+    }
+
+    public void setCitiesArrayList(ArrayList<T> citiesArrayList) {
+        this.citiesArrayList = citiesArrayList;
+    }
+
+    public static Company getMiCompany() {
+        return miCompany;
+    }
+
+    public static void setMiCompany(Company miCompany) {
+        Company.miCompany = miCompany;
+    }
 
     @Override
     public String toString() {
         return "COMPANY:" +
-                "\nUSUARIOS: " + userHashSet +
-                "\n\nCIUDADES: " + citiesHashSet +
-                "\n\nVUELOS: " + flightHashSet +
-                "\n\nAVIONES: " + airplaneHashSet +
+                "\nUSUARIOS: " + userArrayList +
+                "\n\nCIUDADES: " + citiesArrayList +
+                "\n\nVUELOS: " + flightArrayList +
+                "\n\nAVIONES: " + airplaneArrayList +
                 '}';
     }
 }

@@ -1,0 +1,13 @@
+[ {
+  "citiesMap" : "recorrido",
+  "userM" : null,
+  "totalCost" : 123.0,
+  "questionary" : {
+    "date" : null,
+    "recorrido" : null,
+    "companionsNumbers" : 5,
+    "airplane" : "Ariplaneasdsads"
+  },
+  "airplane" : null,
+  "statusConfirm" : true
+} ]

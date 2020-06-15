@@ -1,12 +1,4 @@
 [ {
-  "fuelCapacity" : 2154.0,
-  "costPerKilometer" : 200,
-  "passengerCapacity" : 123,
-  "propulsionType" : "PISTONES",
-  "available" : true,
-  "cost" : 3000.0,
-  "service" : "Bronze"
-}, {
   "fuelCapacity" : 2874.0,
   "costPerKilometer" : 158,
   "passengerCapacity" : 78,
@@ -14,6 +6,14 @@
   "available" : true,
   "cost" : 2000.0,
   "service" : "Silver"
+}, {
+  "fuelCapacity" : 2154.0,
+  "costPerKilometer" : 200,
+  "passengerCapacity" : 123,
+  "propulsionType" : "PISTONES",
+  "available" : true,
+  "cost" : 3000.0,
+  "service" : "Bronze"
 }, {
   "fuelCapacity" : 700.0,
   "costPerKilometer" : 541,
