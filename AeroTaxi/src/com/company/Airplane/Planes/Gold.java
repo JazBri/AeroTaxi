@@ -14,14 +14,14 @@ public class Gold extends Airplane implements Wifi, Catering{
 
     public Gold() {
         super();
+        this.cost = 4000;
+        this.service = "Gold";
     }
 
 
     @Override
     public String toString() {
-        return "Gold{" +
-                "cost=" + cost +
-                ", service='" + service + '\'' +
-                '}';
+        return  "\n\nServicio: " + this.service +
+                "\nCosto del servicio: " + cost;
     }
 }

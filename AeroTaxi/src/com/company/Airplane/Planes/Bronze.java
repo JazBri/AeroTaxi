@@ -13,14 +13,14 @@ public class Bronze extends Airplane {
 
     public Bronze() {
         super();
+        this.cost = 3000;
+        this.service = "Bronze";
     }
 
 
     @Override
     public String toString() {
-        return "Bronze{" +
-                "cost=" + cost +
-                ", service='" + service + '\'' +
-                '}';
+        return  "\n\nServicio: " + this.service +
+                "\nCosto del servicio: " + cost;
     }
 }

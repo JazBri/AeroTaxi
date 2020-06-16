@@ -3,7 +3,6 @@ import com.company.Airplane.Airplane;
 import com.company.Flight.Flight;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class Company <T>{
     private ArrayList<T> userArrayList = new ArrayList<T>();
@@ -122,6 +121,8 @@ public class Company <T>{
     public static void setMiCompany(Company miCompany) {
         Company.miCompany = miCompany;
     }
+
+
 
     @Override
     public String toString() {

@@ -3,21 +3,9 @@
   "destination" : "Córdoba",
   "km" : 695
 }, {
-  "origin" : "Buenos Aires",
-  "destination" : "Santiago",
-  "km" : 1400
-}, {
-  "origin" : "Buenos Aires",
-  "destination" : "Montevideo",
-  "km" : 950
-}, {
   "origin" : "Córdoba",
   "destination" : "Montevideo",
   "km" : 1190
-}, {
-  "origin" : "Córdoba",
-  "destination" : "Santiago",
-  "km" : 1050
 }, {
   "origin" : "Montevideo",
   "destination" : "Santiago",
