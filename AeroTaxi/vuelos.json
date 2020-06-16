@@ -1,12 +1,24 @@
 [ {
-  "citiesMap" : "recorrido",
+  "citiesMap" : {
+    "origin" : "Buenos Aires",
+    "destination" : "Córdoba",
+    "km" : 695
+  },
   "userM" : null,
-  "totalCost" : 123.0,
+  "totalCost" : 221500.0,
   "questionary" : {
     "date" : null,
     "recorrido" : null,
     "companionsNumbers" : 5,
-    "airplane" : "Ariplaneasdsads"
+    "airplane" : {
+      "fuelCapacity" : 700.0,
+      "costPerKilometer" : 541,
+      "passengerCapacity" : 854,
+      "propulsionType" : "REACTION",
+      "available" : true,
+      "cost" : 4000.0,
+      "service" : "Gold"
+    }
   },
   "airplane" : null,
   "statusConfirm" : true

@@ -80,7 +80,7 @@ public  class Airplane {
 
     @Override
     public String toString() {
-        return "Airplane{" +
+        /*return "Airplane{" +
                 "fuelCapacity=" + fuelCapacity +
                 ", costPerKilometer=" + costPerKilometer +
                 ", passengerCapacity=" + passengerCapacity +
@@ -88,6 +88,7 @@ public  class Airplane {
                 ", available=" + available +
                 ", cost=" + cost +
                 ", service='" + service + '\'' +
-                '}';
+                '}';*/
+        return "Servicio: " + service;
     }
 }

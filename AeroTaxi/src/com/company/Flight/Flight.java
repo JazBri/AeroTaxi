@@ -5,18 +5,15 @@ import com.company.City;
 import com.company.Questionary;
 import com.company.User;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class Flight {
-    private String citiesMap;
+    private City citiesMap;
     private User userM;
     private float totalCost;
     private Questionary questionary;
     private Airplane airplane;
     private boolean statusConfirm;
 
-    public Flight(String citiesMap, User userM, float totalCost, Questionary questionary, boolean statusConfirm) {
+    public Flight(City citiesMap, User userM, Questionary questionary, boolean statusConfirm) {
         this.citiesMap = citiesMap;
         this.userM = userM;
         this.totalCost = totalCost;
@@ -28,11 +25,11 @@ public class Flight {
     public Flight() {
     }
 
-    public String getCitiesMap() {
+    public City getCitiesMap() {
         return citiesMap;
     }
 
-    public void setCitiesMap(String citiesMap) {
+    public void setCitiesMap(City citiesMap) {
         this.citiesMap = citiesMap;
     }
 
@@ -45,6 +42,9 @@ public class Flight {
     }
 
     public float getTotalCost() {
+        //float total = ((citiesMap.getKm() * 500) + (questionary.getCompanionsNumbers() * 3500) + airplane.getCost());
+        float total = ((400 * 500) + (questionary.getCompanionsNumbers() * 3500) + questionary.getAirplane().getCost());
+        setTotalCost(total);
         return totalCost;
     }
 
@@ -78,11 +78,9 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight{" +
-                "\nDatos del usuario: " + userM +
-                "\nCosto total: " + totalCost +
-                "\nDatos del cuestionairo: " + questionary +
-                "\nEstado: " + statusConfirm +
-                '}';
+        return  userM +
+                "\n\n" + questionary +
+                "\n\nCosto total: " + getTotalCost() +
+                "\n\n";
     }
 }

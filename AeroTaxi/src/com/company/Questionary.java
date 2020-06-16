@@ -6,11 +6,13 @@ import java.time.LocalDate;
 
 public class Questionary {
     private LocalDate date;
-    private String recorrido;
+    private City recorrido;
     private int companionsNumbers;
-    private String airplane;
+    private Airplane airplane;
 
-    public Questionary(LocalDate date, String recorrido, int companionsNumbers, String airplane) {
+
+
+    public Questionary(LocalDate date, City recorrido, int companionsNumbers, Airplane airplane) {
         this.date = date;
         this.recorrido = recorrido;
         this.companionsNumbers = companionsNumbers;
@@ -20,11 +22,11 @@ public class Questionary {
 
 
 
-    public String getAirplane() {
+    public Airplane getAirplane() {
         return airplane;
     }
 
-    public void setAirplane(String airplane) {
+    public void setAirplane(Airplane airplane) {
         this.airplane = airplane;
     }
 
@@ -39,11 +41,11 @@ public class Questionary {
         this.date = date;
     }
 
-    public String getRecorrido() {
+    public City getRecorrido() {
         return recorrido;
     }
 
-    public void setRecorrido(String recorrido) {
+    public void setRecorrido(City recorrido) {
         this.recorrido = recorrido;
     }
 
@@ -65,8 +67,8 @@ public class Questionary {
     */
         return "Fecha: " + date +
                 "\nDestino - origen: " + recorrido +
-                "\nCantidad de ocupantes: " + companionsNumbers +
-                "\nServicio: " + airplane ;
+                "\nCantidad de ocupantes: " + companionsNumbers;
+
 
     }
 

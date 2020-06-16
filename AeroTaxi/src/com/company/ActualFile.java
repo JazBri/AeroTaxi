@@ -8,17 +8,10 @@ import com.company.Flight.Flight;
 import com.company.JFrames.verifyUser;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.MapType;
-import com.fasterxml.jackson.databind.type.TypeFactory;
-import jdk.internal.org.objectweb.asm.TypeReference;
-import org.json.simple.JSONObject;
 
 import javax.swing.*;
 import java.io.*;
-import java.net.URL;
-import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ActualFile {
 
@@ -42,10 +35,10 @@ public class ActualFile {
 
         //Se cargan las ciudades al archivo
         City city1 = new City("Buenos Aires", "Córdoba", 695);
-        City city2 = new City("Buenos Aires", "Santiago", 1400);
-        City city3 = new City("Buenos Aires", "Montevideo", 950);
+      //  City city2 = new City("Buenos Aires", "Santiago", 1400);
+      //  City city3 = new City("Buenos Aires", "Montevideo", 950);
         City city4 = new City("Córdoba", "Montevideo", 1190);
-        City city5 = new City("Córdoba", "Santiago", 1050);
+      //  City city5 = new City("Córdoba", "Santiago", 1050);
         City city6 = new City("Montevideo", "Santiago", 2100);
 
 
@@ -112,18 +105,18 @@ public class ActualFile {
                 Company.getSingletonInstance().addToCollection(gold2);
 
                 Company.getSingletonInstance().addToCollection(city1);
-                Company.getSingletonInstance().addToCollection(city2);
-                Company.getSingletonInstance().addToCollection(city3);
+             //   Company.getSingletonInstance().addToCollection(city2);
+              //  Company.getSingletonInstance().addToCollection(city3);
                 Company.getSingletonInstance().addToCollection(city4);
-                Company.getSingletonInstance().addToCollection(city5);
+              //  Company.getSingletonInstance().addToCollection(city5);
                 Company.getSingletonInstance().addToCollection(city6);
 
 
                 /**ESTO ESTA PARA VERIFICAR SI ANDA EL TEMA DEL ARCHIVO, HAY QUE HACER ADDTOFILE***********************************************/
                 Questionary q = new Questionary();
                 q.setCompanionsNumbers(5);
-                q.setAirplane("Ariplaneasdsads");
-                Flight flight = new Flight("recorrido", verifyUser.getSingletonInstance().getUser() , 123, q, true);
+                q.setAirplane(gold);
+                Flight flight = new Flight(city1, verifyUser.getSingletonInstance().getUser() , q, true);
                 Company.getSingletonInstance().addToCollection(flight);
                 /*************************************************/
     /*            Company.getSingletonInstance().showCollection(user1);

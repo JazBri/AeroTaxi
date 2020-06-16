@@ -10,7 +10,10 @@ public class City {
         this.destination = destination;
         this.km = km;
     }
-
+    public City(String origin, String destination) {
+        this.origin = origin;
+        this.destination = destination;
+    }
     public City() {
     }
 

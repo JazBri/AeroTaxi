@@ -1,23 +1,22 @@
 package com.company.JFrames;
 
 import com.company.Airplane.Airplane;
+import com.company.Airplane.Planes.Bronze;
+import com.company.Airplane.Planes.Gold;
+import com.company.Airplane.Planes.Silver;
 import com.company.City;
 import com.company.Company;
 import com.company.Flight.Flight;
 import com.company.Questionary;
-import com.company.User;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
 
 public class cuestionario extends JFrame {
     private JPanel cuestionario;
@@ -27,20 +26,27 @@ public class cuestionario extends JFrame {
     private JCheckBox bronzeCheckBox;
     private JButton okButton;
     private JCheckBox silverCheckBox;
-    private JComboBox origenComboBox;
+    private JComboBox destinoCB;
     private JButton volverAInicioButton;
-    private String recorrido;
+    private JComboBox origenCB;
+    private String origen;
+    private String destino;
+    private Airplane avion;
 
-    public cuestionario(String title) throws HeadlessException {
+    public cuestionario(String title) throws HeadlessException, IOException {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(cuestionario);
         this.pack();
 
         //Agregamos las opciones de las ciudades
-        for (Object c : Company.getSingletonInstance().getCitiesArrayList()){
-            origenComboBox.addItem(c.toString());
-        }
+        /**VER CÓMO AGREGAR LAS CIUDADES DESDE LA COLECCIÓN*/
+        origenCB.addItem("Buenos Aires");
+        origenCB.addItem("Córdoba");
+        origenCB.addItem("Montevideo");
+        destinoCB.addItem("Córdoba");
+        destinoCB.addItem("Santiago");
+        destinoCB.addItem("Montevideo");
 
         okButton.addActionListener(new ActionListener() {
             @Override
@@ -50,41 +56,50 @@ public class cuestionario extends JFrame {
                     int ocupantes = Integer.parseInt(ocupantesField.getText());
                     LocalDate localDate1 = LocalDate.parse(fechaField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                     System.out.println("String -> java.time.LocalDate: " + localDate1);
-                    String servicio = null;
+
 
                     /**Esto esta HORRIBLE, pero por ahora es lo que se me ocurre.*/
                     if(goldCheckBox.isSelected()){
-                        servicio = "Gold";
+                        avion = new Gold();
                     }else{
                         if(silverCheckBox.isSelected()){
-                            servicio = "Silver";
+                            avion = new Silver();
                         }else{
                             if(bronzeCheckBox.isSelected()){
-                                servicio = "Bronze";
+                                avion = new Bronze();
                             }
                         }
                     }
 
-                    if(recorrido == null) {
-                        JOptionPane.showMessageDialog(null, "Ingrese un recorrido");
+                    if(origen == null || destino == null || origen == destino) {
+                        JOptionPane.showMessageDialog(null, "Ingrese un recorrido válido");
                     }else {
-                        Questionary q = new Questionary(localDate1, recorrido, ocupantes, servicio);
+                        City city = new City(origen, destino);
+
+
+                        Questionary q = new Questionary(localDate1, city, ocupantes, avion);
                         System.out.println("q:" + q.toString());
+
+
                         int option = JOptionPane.showConfirmDialog(null, q);
+
 
                         //0 si, 1 no, 2 cancel
                         if (option == 0) {
                         //Al aceptar se crea un Flight que deberá guardarse en un archivo.
                             /**HACER MÉTODOS DE GUARDADO Y LEVANTE EN LA CLASE FILE*/
-
-
-                            Flight flight = new Flight(recorrido, verifyUser.getSingletonInstance().getUser() , 123, q, true);
-                            Company.getSingletonInstance().addToCollection(flight);
+                            Flight flight = new Flight(city, verifyUser.getSingletonInstance().getUser() ,  q, true);
                             System.out.println("\n\n VUELOS \n");
                             Company.getSingletonInstance().showCollection(flight);
+                            int confirm = JOptionPane.showConfirmDialog(null, flight);
+                            if(confirm == 0){
+                                Company.getSingletonInstance().addToCollection(flight);
+                                JOptionPane.showMessageDialog(null, "Vuelo reservado\nBuen viaje!!");
+                            }
+
+
                             /*******************************************************/
 
-                            JOptionPane.showMessageDialog(null, "Vuelo reservado\nBuen viaje!!");
                         }
 
                         if (option == 1 || option == 2) {
@@ -131,10 +146,11 @@ public class cuestionario extends JFrame {
                 }
             }
         });
-        origenComboBox.addActionListener(new ActionListener() {
+        destinoCB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                recorrido = (String)origenComboBox.getSelectedItem();
+                origen = (String) origenCB.getSelectedItem();
+
                 }
         });
 
@@ -147,6 +163,12 @@ public class cuestionario extends JFrame {
                 verifyUser.setVisible(true);*/
                 verifyUser.getSingletonInstance().setBounds(650,180,500,500);
             verifyUser.getSingletonInstance().setVisible(true);
+            }
+        });
+        origenCB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                destino = (String) destinoCB.getSelectedItem();
             }
         });
     }

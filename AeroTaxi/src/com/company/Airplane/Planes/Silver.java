@@ -14,14 +14,14 @@ public class Silver extends Airplane implements Catering{
 
     public Silver() {
         super();
+        this.cost = 2000;
+        this.service = "Silver";
     }
 
 
     @Override
     public String toString() {
-        return "Silver{" +
-                "cost=" + cost +
-                ", service='" + service + '\'' +
-                '}';
+        return  "\n\nServicio: " + this.service +
+                "\nCosto del servicio: " + cost;
     }
 }
