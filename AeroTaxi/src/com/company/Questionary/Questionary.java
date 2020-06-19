@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.Airplane.Airplane;
+import com.company.City.City;
 
 import java.time.LocalDate;
 

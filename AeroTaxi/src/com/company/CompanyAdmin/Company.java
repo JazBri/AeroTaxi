@@ -1,14 +1,15 @@
 package com.company;
+
 import com.company.Airplane.Airplane;
 import com.company.Flight.Flight;
 
 import java.util.ArrayList;
 
-public class Company <T>{
-    private ArrayList<T> userArrayList = new ArrayList<T>();
-    private ArrayList<T> flightArrayList = new ArrayList<T>();
-    private ArrayList<T> airplaneArrayList = new ArrayList<T>();
-    private ArrayList<T> citiesArrayList = new ArrayList<T>();
+public class Company {
+    private ArrayList<Object> userArrayList = new ArrayList<>();
+    private ArrayList<Object> flightArrayList = new ArrayList<>();
+    private ArrayList<Object> airplaneArrayList = new ArrayList<>();
+    private ArrayList<Object> citiesArrayList = new ArrayList<>();
 
     //Atributo estático para usar singleton.
     private static Company miCompany;
@@ -18,99 +19,99 @@ public class Company <T>{
     }
 
     //getSingletonInstance devuelve la instancia del objeto, de esta manera se puede llamar en distintas clases.
-    public static Company getSingletonInstance(){
-        if( miCompany == null ){
+    public static Company getSingletonInstance() {
+        if (miCompany == null) {
             miCompany = new Company();
             System.out.println("Objeto Company creado exitosamente!");
-        }else{
-         //   System.out.println("El objeto Company ya se encuentra instanciado.");
+        } else {
+            System.out.println("El objeto Company ya se encuentra instanciado.");
         }
         return miCompany;
     }
 
 
     //Hacerlo generico
-    public void addToCollection(T t){
-        try{
-            if(t instanceof User) {
-                userArrayList.add(t);
-            }
-             if(t instanceof Airplane) {
-                 airplaneArrayList.add(t);
-             }
-             if(t instanceof Flight) {
-                 flightArrayList.add(t);
-             }
-            if(t instanceof City) {
-                citiesArrayList.add(t);
-            }
-    }catch (Exception e) {
-            e.getStackTrace();
-            e.getMessage();
-        }
-    }
-
-    public void showCollection(T t){
+    public void addToCollection(Object object) {
         try {
-            if (t instanceof User) {
+            if (object instanceof User) {
+                userArrayList.add(object);
+            }
+            if (object instanceof Airplane) {
+                airplaneArrayList.add(object);
+            }
+            if (object instanceof Flight) {
+                flightArrayList.add(object);
+            }
+            if (object instanceof City) {
+                citiesArrayList.add(object);
+            }
+        } catch (Exception e) {
+            e.getStackTrace();
+            e.getMessage();
+        }
+    }
+
+    public void showCollection(Object object) {
+        try {
+            if (object instanceof User) {
                 System.out.println("\nUSER userArrayList");
-                for (T c : userArrayList) {
+                for (Object c : userArrayList) {
                     System.out.println(c.toString());
                 }
             }
-            if (t instanceof Airplane) {
+            if (object instanceof Airplane) {
                 System.out.println("\nAIRPLANE");
-                for (T c : airplaneArrayList) {
+                for (Object c : airplaneArrayList) {
                     System.out.println(c.toString());
                 }
             }
-            if (t instanceof Flight) {
+            if (object instanceof Flight) {
                 System.out.println("\nFLIGHT");
-                for (T c : flightArrayList) {
+                for (Object c : flightArrayList) {
                     System.out.println(c.toString());
                 }
             }
-            if (t instanceof City) {
+            if (object instanceof City) {
                 System.out.println("\nCITIES");
-                for (T c : citiesArrayList) {
+                for (Object c : citiesArrayList) {
                     System.out.println(c.toString());
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
             e.getStackTrace();
         }
     }
 
-    public ArrayList<T> getUserArrayList() {
+    public ArrayList<Object> getUserArrayList() {
         return userArrayList;
     }
 
-    public void setUserArrayList(ArrayList<T> userArrayList) {
+    public void setUserArrayList(ArrayList<Object> userArrayList) {
         this.userArrayList = userArrayList;
     }
 
-    public ArrayList<T> getFlightArrayList() {
+    public ArrayList<Object> getFlightArrayList() {
         return flightArrayList;
     }
 
-    public void setFlightArrayList(ArrayList<T> flightArrayList) {
+    public void setFlightArrayList(ArrayList<Object> flightArrayList) {
         this.flightArrayList = flightArrayList;
     }
 
-    public ArrayList<T> getAirplaneArrayList() {
+    public ArrayList<Object> getAirplaneArrayList() {
         return airplaneArrayList;
     }
 
-    public void setAirplaneArrayList(ArrayList<T> airplaneArrayList) {
+    public void setAirplaneArrayList(ArrayList<Object> airplaneArrayList) {
         this.airplaneArrayList = airplaneArrayList;
     }
 
-    public ArrayList<T> getCitiesArrayList() {
+    public ArrayList<Object> getCitiesArrayList() {
         return citiesArrayList;
     }
 
-    public void setCitiesArrayList(ArrayList<T> citiesArrayList) {
+    public void setCitiesArrayList(ArrayList<Object> citiesArrayList) {
         this.citiesArrayList = citiesArrayList;
     }
 
@@ -121,7 +122,6 @@ public class Company <T>{
     public static void setMiCompany(Company miCompany) {
         Company.miCompany = miCompany;
     }
-
 
 
     @Override

@@ -1,11 +1,16 @@
 package com.company;
+
 import com.company.Airplane.Airplane;
 import com.company.Airplane.Planes.Bronze;
 import com.company.Airplane.Planes.Gold;
 import com.company.Airplane.Planes.Silver;
 import com.company.Airplane.PropulsionType;
+import com.company.City.City;
+import com.company.CompanyAdmin.Company;
 import com.company.Flight.Flight;
 import com.company.JFrames.verifyUser;
+import com.company.Questionary.Questionary;
+import com.company.User.User;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -16,7 +21,7 @@ import java.util.*;
 public class ActualFile {
 
 
-    public static void archivos() throws IOException {
+    public static void archivos() {
 
         String pathFlight = "vuelos.json";
         File myFileFlight = new File(pathFlight);
@@ -24,7 +29,7 @@ public class ActualFile {
         //Cargamos algunos usuarios al archivo
         User user1 = new User("Jazmin", "Briasco", 39338563, 23);
         user1.setRegistered(true);
-        User user2 = new User("Luciano", "Sassano", 32147896, 11);
+        User user2 = new User("Luciano", "Sassano", 41333010, 21);
         user2.setRegistered(true);
         User user3 = new User("Matias", "Gonzalez", 35789651, 58);
         user3.setRegistered(true);
@@ -35,10 +40,10 @@ public class ActualFile {
 
         //Se cargan las ciudades al archivo
         City city1 = new City("Buenos Aires", "Córdoba", 695);
-      //  City city2 = new City("Buenos Aires", "Santiago", 1400);
-      //  City city3 = new City("Buenos Aires", "Montevideo", 950);
+        City city2 = new City("Cordoba", "Buenos Aires", 695);
+        City city3 = new City("Montevideo", "Cordoba", 1190);
         City city4 = new City("Córdoba", "Montevideo", 1190);
-      //  City city5 = new City("Córdoba", "Santiago", 1050);
+        City city5 = new City("Santiago", "Montevideo", 2100);
         City city6 = new City("Montevideo", "Santiago", 2100);
 
 
@@ -70,7 +75,7 @@ public class ActualFile {
                 myFileFlight.createNewFile();
 
                 try {
-                    Thread.sleep(3*1000);
+                    Thread.sleep(3 * 1000);
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -92,36 +97,35 @@ public class ActualFile {
                 }
 
 
-
                 //Usamos Company.getInstance() para usar el objeto global, agregamos los usuarios, ciudades y aviones a las colecciones de Company.
-                Company.getSingletonInstance().addToCollection(user1);
-                Company.getSingletonInstance().addToCollection(user2);
-                Company.getSingletonInstance().addToCollection(user3);
+                Company companyInstance = Company.getSingletonInstance();
 
-                Company.getSingletonInstance().addToCollection(silver);
-                Company.getSingletonInstance().addToCollection(bronze);
-                Company.getSingletonInstance().addToCollection(gold);
-                Company.getSingletonInstance().addToCollection(silver2);
-                Company.getSingletonInstance().addToCollection(gold2);
+                companyInstance.addToCollection(user1);
+                companyInstance.addToCollection(user2);
+                companyInstance.addToCollection(user3);
 
-                Company.getSingletonInstance().addToCollection(city1);
-             //   Company.getSingletonInstance().addToCollection(city2);
-              //  Company.getSingletonInstance().addToCollection(city3);
-                Company.getSingletonInstance().addToCollection(city4);
-              //  Company.getSingletonInstance().addToCollection(city5);
-                Company.getSingletonInstance().addToCollection(city6);
+                companyInstance.addToCollection(bronze);
+                companyInstance.addToCollection(silver);
+                companyInstance.addToCollection(gold);
+
+                companyInstance.addToCollection(silver2);
+                companyInstance.addToCollection(gold2);
+
+                companyInstance.addToCollection(city1);
+                companyInstance.addToCollection(city2);
+                companyInstance.addToCollection(city3);
+                companyInstance.addToCollection(city4);
+                companyInstance.addToCollection(city5);
+                companyInstance.addToCollection(city6);
 
 
                 /**ESTO ESTA PARA VERIFICAR SI ANDA EL TEMA DEL ARCHIVO, HAY QUE HACER ADDTOFILE***********************************************/
                 Questionary q = new Questionary();
                 q.setCompanionsNumbers(5);
                 q.setAirplane(gold);
-                Flight flight = new Flight(city1, verifyUser.getSingletonInstance().getUser() , q, true);
+                Flight flight = new Flight(city1, verifyUser.getSingletonInstance().getUser(), q, true);
                 Company.getSingletonInstance().addToCollection(flight);
                 /*************************************************/
-    /*            Company.getSingletonInstance().showCollection(user1);
-                Company.getSingletonInstance().showCollection(silver);
-                Company.getSingletonInstance().showCollection(city1);*/
 
 
                 //Escritura del archivo, se guardan los usuarios
@@ -145,34 +149,34 @@ public class ActualFile {
                 //Lectura del archivo, se levantan los datos de los usuarios
                 ObjectMapper mapperReaderUser = new ObjectMapper();
                 ArrayList<User> us = mapperUser.readValue(myFileUser, mapperReaderUser.getTypeFactory().constructCollectionType(ArrayList.class, User.class));
-                for (User u: us            ) {
+                for (User u : us) {
                     System.out.println(u.toString());
                 }
 
                 //Lectura del archivo, se levantan los datos de las iudades
                 ObjectMapper mapperReaderCities = new ObjectMapper();
-                ArrayList<City> cit = mapperCities.readValue(myFileCity, mapperCities.getTypeFactory().constructCollectionType(ArrayList.class, City.class));
-                for (City c: cit            ) {
+                ArrayList<City> cit = mapperReaderCities.readValue(myFileCity, mapperCities.getTypeFactory().constructCollectionType(ArrayList.class, City.class));
+                for (City c : cit) {
                     System.out.println(c.toString());
                 }
                 //HashMap<Integer, Object> cities = mapperCities.readValue(myFileUser, mapperReaderCities.getTypeFactory().constructCollectionType((Class<? extends Collection>) HashMap.class, City.class));
                 //Map<Integer, Object> cities = mapperCities.readValue(myFileUser, new TypeReference<HashMap<Integer,Object>>(){});
                 //List<HashMap> cities = mapperReaderCities.readValue(pathCities, List.class);
 
-                 //Lectura del archivo, se levantan los datos de los aviones
+                //Lectura del archivo, se levantan los datos de los aviones
                 ObjectMapper mapperReaderAirplane = new ObjectMapper();
 
                 /**Acá no sé manejar el tema de la clase Airplane que es abstracta en realidad, cómo guardamos los aviones?*/
                 ArrayList<Airplane> air = mapperAirplane.readValue(myFileAiplane, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Airplane.class));
-                for (Airplane a: air            ) {
-                    System.out.println(a.toString());
+                for (Airplane a : air) {
+
                 }
 
                 //Lectura del archivo, se levantan los datos de los vuelos
                 ObjectMapper mapperReaderFlights = new ObjectMapper();
 
                 ArrayList<Flight> fli = mapperFlight.readValue(myFileFlight, mapperFlight.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
-                for (Flight f: fli            ) {
+                for (Flight f : fli) {
                     System.out.println(fli.toString());
                 }
 
@@ -183,9 +187,10 @@ public class ActualFile {
             e.printStackTrace();
         }
     }
-    }
+}
 
 
-    /**Creamos usuarios, los agregamos a la colección de Compnay, lo subimos al archivo.
-     * Para usarlos los bajamos del archivo a la misma colección.
-     * */
+/**
+ * Creamos usuarios, los agregamos a la colección de Compnay, lo subimos al archivo.
+ * Para usarlos los bajamos del archivo a la misma colección.
+ */
