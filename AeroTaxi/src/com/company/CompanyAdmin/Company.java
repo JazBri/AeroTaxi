@@ -1,7 +1,9 @@
-package com.company;
+package com.company.CompanyAdmin;
 
 import com.company.Airplane.Airplane;
+import com.company.City.City;
 import com.company.Flight.Flight;
+import com.company.User.User;
 
 import java.util.ArrayList;
 

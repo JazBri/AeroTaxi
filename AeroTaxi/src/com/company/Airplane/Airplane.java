@@ -1,6 +1,6 @@
 package com.company.Airplane;
 
-public  class Airplane {
+public class Airplane {
     private float fuelCapacity;
     private int costPerKilometer;
     private int passengerCapacity;
@@ -9,17 +9,20 @@ public  class Airplane {
     protected int cost;
     protected String service;
 
-    public Airplane(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available) {
+    public Airplane(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available, int cost, String service) {
         this.fuelCapacity = fuelCapacity;
         this.costPerKilometer = costPerKilometer;
         this.passengerCapacity = passengerCapacity;
         this.propulsionType = propulsionType;
         this.available = available;
+        this.cost = cost;
         this.service = service;
-
     }
 
     public Airplane() {
+    }
+
+    public Airplane(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available) {
     }
 
     public float getFuelCapacity() {
@@ -80,15 +83,13 @@ public  class Airplane {
 
     @Override
     public String toString() {
-        /*return "Airplane{" +
-                "fuelCapacity=" + fuelCapacity +
-                ", costPerKilometer=" + costPerKilometer +
-                ", passengerCapacity=" + passengerCapacity +
-                ", propulsionType=" + propulsionType +
-                ", available=" + available +
-                ", cost=" + cost +
-                ", service='" + service + '\'' +
-                '}';*/
-        return "Servicio: " + service;
+        return " Airplane ->" +
+                "fuelCapacity = " + fuelCapacity +
+                ", costPerKilometer = " + costPerKilometer +
+                ", passengerCapacity = " + passengerCapacity +
+                ", propulsionType = " + propulsionType +
+                ", available = " + available +
+                ", cost = " + cost +
+                ", service = '" + service + '\'';
     }
 }

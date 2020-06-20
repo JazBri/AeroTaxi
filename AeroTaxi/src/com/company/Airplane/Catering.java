@@ -1,4 +1,4 @@
-package com.company.Airplane.Planes;
+package com.company.Airplane;
 
 public interface Catering {
 }

@@ -1,9 +1,10 @@
 package com.company.Airplane.Planes;
 
 import com.company.Airplane.Airplane;
+import com.company.Airplane.Catering;
 import com.company.Airplane.PropulsionType;
 
-public class Silver extends Airplane implements Catering{
+public class Silver extends Airplane implements Catering {
 
 
     public Silver(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available) {

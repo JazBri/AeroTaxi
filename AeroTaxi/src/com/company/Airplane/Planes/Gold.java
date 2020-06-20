@@ -1,9 +1,11 @@
 package com.company.Airplane.Planes;
 
 import com.company.Airplane.Airplane;
+import com.company.Airplane.Catering;
 import com.company.Airplane.PropulsionType;
+import com.company.Airplane.Wifi;
 
-public class Gold extends Airplane implements Wifi, Catering{
+public class Gold extends Airplane implements Wifi, Catering {
 
 
     public Gold(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available) {

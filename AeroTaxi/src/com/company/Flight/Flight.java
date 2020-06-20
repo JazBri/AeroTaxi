@@ -1,9 +1,9 @@
 package com.company.Flight;
 
 import com.company.Airplane.Airplane;
-import com.company.City;
-import com.company.Questionary;
-import com.company.User;
+import com.company.City.City;
+import com.company.Questionary.Questionary;
+import com.company.User.User;
 
 public class Flight {
     private City citiesMap;
@@ -14,6 +14,15 @@ public class Flight {
     private boolean statusConfirm;
 
     public Flight(City citiesMap, User userM, Questionary questionary, boolean statusConfirm) {
+        this.citiesMap = citiesMap;
+        this.userM = userM;
+        this.totalCost = totalCost;
+        this.questionary = questionary;
+        this.airplane = airplane;
+        this.statusConfirm = statusConfirm;
+    }
+
+    public Flight(City citiesMap, User userM, float totalCost, Questionary questionary, Airplane airplane, boolean statusConfirm) {
         this.citiesMap = citiesMap;
         this.userM = userM;
         this.totalCost = totalCost;

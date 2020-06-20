@@ -1,9 +1,10 @@
-package com.company;
+package com.company.Questionary;
 
 import com.company.Airplane.Airplane;
 import com.company.City.City;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Questionary {
     private LocalDate date;
@@ -20,7 +21,8 @@ public class Questionary {
         this.airplane = airplane;
     }
 
-
+    public Questionary(Date localDate1, City city, int ocupantes, Airplane avion) {
+    }
 
 
     public Airplane getAirplane() {

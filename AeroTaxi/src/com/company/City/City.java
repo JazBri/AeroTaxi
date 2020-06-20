@@ -1,4 +1,4 @@
-package com.company;
+package com.company.City;
 
 public class City {
     private String origin;
@@ -10,10 +10,12 @@ public class City {
         this.destination = destination;
         this.km = km;
     }
+
     public City(String origin, String destination) {
         this.origin = origin;
         this.destination = destination;
     }
+
     public City() {
     }
 
@@ -41,14 +43,11 @@ public class City {
         this.km = km;
     }
 
-
     @Override
     public String toString() {
-       /* return "City{" +
-                "origin='" + origin + '\'' +
-                ", destination='" + destination + '\'' +
-                ", km=" + km +
-                '}';*/
-        return origin + " - " + destination;
+        return "City -> " +
+                "origin = '" + origin + '\'' +
+                ", destination = '" + destination + '\'' +
+                ", km = " + km;
     }
 }

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.MainFile;
 
 import com.company.Airplane.Airplane;
 import com.company.Airplane.Planes.Bronze;
@@ -9,10 +9,12 @@ import com.company.City.City;
 import com.company.CompanyAdmin.Company;
 import com.company.Flight.Flight;
 import com.company.JFrames.verifyUser;
+import com.company.Main;
 import com.company.Questionary.Questionary;
 import com.company.User.User;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import javax.swing.*;
 import java.io.*;
@@ -27,11 +29,11 @@ public class ActualFile {
         File myFileFlight = new File(pathFlight);
 
         //Cargamos algunos usuarios al archivo
-        User user1 = new User("Jazmin", "Briasco", 39338563, 23);
+        User user1 = new User("Jazmin", "Briasco", 39338563, 23, true, false);
         user1.setRegistered(true);
-        User user2 = new User("Luciano", "Sassano", 41333010, 21);
+        User user2 = new User("Luciano", "Sassano", 41333010, 21, true, false);
         user2.setRegistered(true);
-        User user3 = new User("Matias", "Gonzalez", 35789651, 58);
+        User user3 = new User("Matias", "Gonzalez", 35789651, 58, true, false);
         user3.setRegistered(true);
 
 
@@ -95,28 +97,47 @@ public class ActualFile {
                 if (!myFileFlight.canWrite()) {
                     myFileFlight.setWritable(true);
                 }
-
-
                 //Usamos Company.getInstance() para usar el objeto global, agregamos los usuarios, ciudades y aviones a las colecciones de Company.
                 Company companyInstance = Company.getSingletonInstance();
 
-                companyInstance.addToCollection(user1);
-                companyInstance.addToCollection(user2);
-                companyInstance.addToCollection(user3);
 
-                companyInstance.addToCollection(bronze);
-                companyInstance.addToCollection(silver);
-                companyInstance.addToCollection(gold);
+                //Lectura del archivo, se levantan los datos de los usuarios
+                ObjectMapper mapperReaderUser = new ObjectMapper();
+                ObjectMapper mapperUser1 = new ObjectMapper();
+                ArrayList<User> us = mapperUser1.readValue(myFileUser, mapperReaderUser.getTypeFactory().constructCollectionType(ArrayList.class, User.class));
+                for (User myUser : us) {
+                    companyInstance.addToCollection(myUser);
+                }
 
-                companyInstance.addToCollection(silver2);
-                companyInstance.addToCollection(gold2);
 
-                companyInstance.addToCollection(city1);
-                companyInstance.addToCollection(city2);
-                companyInstance.addToCollection(city3);
-                companyInstance.addToCollection(city4);
-                companyInstance.addToCollection(city5);
-                companyInstance.addToCollection(city6);
+                //Lectura del archivo, se levantan los datos de las ciudades
+                ObjectMapper mapperReaderCities = new ObjectMapper();
+                ObjectMapper mapperCities1 = new ObjectMapper();
+                ArrayList<City> cit = mapperReaderCities.readValue(myFileCity, mapperCities1.getTypeFactory().constructCollectionType(ArrayList.class, City.class));
+                for (City myCity : cit) {
+                    companyInstance.addToCollection(myCity);
+
+                }
+
+
+                //Lectura del archivo, se levantan los datos de los aviones
+                ObjectMapper mapperReaderAirplane = new ObjectMapper();
+                ObjectMapper mapperAirplane1 = new ObjectMapper();
+                ArrayList<Airplane> air = mapperAirplane1.readValue(myFileAiplane, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Airplane.class));
+                for (Airplane myPlane : air) {
+                    companyInstance.addToCollection(myPlane);
+
+                }
+
+                //Lectura del archivo, se levantan los datos de los vuelos
+                ObjectMapper mapperReaderFlights = new ObjectMapper();
+                ObjectMapper mapperFlight1 = new ObjectMapper();
+                ArrayList<Flight> fli = mapperFlight1.readValue(myFileFlight, mapperFlight1.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
+                for (Flight myFlight : fli) {
+                    companyInstance.addToCollection(myFlight);
+
+                }
+
 
 
                 /**ESTO ESTA PARA VERIFICAR SI ANDA EL TEMA DEL ARCHIVO, HAY QUE HACER ADDTOFILE***********************************************/
@@ -125,7 +146,6 @@ public class ActualFile {
                 q.setAirplane(gold);
                 Flight flight = new Flight(city1, verifyUser.getSingletonInstance().getUser(), q, true);
                 Company.getSingletonInstance().addToCollection(flight);
-                /*************************************************/
 
 
                 //Escritura del archivo, se guardan los usuarios
@@ -145,40 +165,6 @@ public class ActualFile {
                 ObjectMapper mapperFlight = new ObjectMapper();
                 mapperFlight.writerWithDefaultPrettyPrinter().writeValue(new File(pathFlight), Company.getSingletonInstance().getFlightArrayList());
 
-
-                //Lectura del archivo, se levantan los datos de los usuarios
-                ObjectMapper mapperReaderUser = new ObjectMapper();
-                ArrayList<User> us = mapperUser.readValue(myFileUser, mapperReaderUser.getTypeFactory().constructCollectionType(ArrayList.class, User.class));
-                for (User u : us) {
-                    System.out.println(u.toString());
-                }
-
-                //Lectura del archivo, se levantan los datos de las iudades
-                ObjectMapper mapperReaderCities = new ObjectMapper();
-                ArrayList<City> cit = mapperReaderCities.readValue(myFileCity, mapperCities.getTypeFactory().constructCollectionType(ArrayList.class, City.class));
-                for (City c : cit) {
-                    System.out.println(c.toString());
-                }
-                //HashMap<Integer, Object> cities = mapperCities.readValue(myFileUser, mapperReaderCities.getTypeFactory().constructCollectionType((Class<? extends Collection>) HashMap.class, City.class));
-                //Map<Integer, Object> cities = mapperCities.readValue(myFileUser, new TypeReference<HashMap<Integer,Object>>(){});
-                //List<HashMap> cities = mapperReaderCities.readValue(pathCities, List.class);
-
-                //Lectura del archivo, se levantan los datos de los aviones
-                ObjectMapper mapperReaderAirplane = new ObjectMapper();
-
-                /**Acá no sé manejar el tema de la clase Airplane que es abstracta en realidad, cómo guardamos los aviones?*/
-                ArrayList<Airplane> air = mapperAirplane.readValue(myFileAiplane, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Airplane.class));
-                for (Airplane a : air) {
-
-                }
-
-                //Lectura del archivo, se levantan los datos de los vuelos
-                ObjectMapper mapperReaderFlights = new ObjectMapper();
-
-                ArrayList<Flight> fli = mapperFlight.readValue(myFileFlight, mapperFlight.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
-                for (Flight f : fli) {
-                    System.out.println(fli.toString());
-                }
 
             }
         } catch (JsonMappingException e1) {

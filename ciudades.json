@@ -1,0 +1,25 @@
+[ {
+  "origin" : "Buenos Aires",
+  "destination" : "Córdoba",
+  "km" : 695
+}, {
+  "origin" : "Cordoba",
+  "destination" : "Buenos Aires",
+  "km" : 695
+}, {
+  "origin" : "Montevideo",
+  "destination" : "Cordoba",
+  "km" : 1190
+}, {
+  "origin" : "Córdoba",
+  "destination" : "Montevideo",
+  "km" : 1190
+}, {
+  "origin" : "Santiago",
+  "destination" : "Montevideo",
+  "km" : 2100
+}, {
+  "origin" : "Montevideo",
+  "destination" : "Santiago",
+  "km" : 2100
+} ]

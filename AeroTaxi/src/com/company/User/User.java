@@ -1,4 +1,4 @@
-package com.company;
+package com.company.User;
 
 import java.io.Serializable;
 
@@ -9,12 +9,15 @@ public class User implements Serializable {
     private int DNI;
     private int age;
     private boolean isRegistered;
+    private boolean isLogged;
 
-    public User(String name, String lastName, int DNI, int age) {
+    public User(String name, String lastName, int DNI, int age, boolean isRegistered, boolean isLogged) {
         this.name = name;
         this.lastName = lastName;
         this.DNI = DNI;
         this.age = age;
+        this.isRegistered = isRegistered;
+        this.isLogged = isLogged;
     }
 
     public User() {
