@@ -9,15 +9,14 @@ public class User implements Serializable {
     private int DNI;
     private int age;
     private boolean isRegistered;
-    private boolean isLogged;
 
-    public User(String name, String lastName, int DNI, int age, boolean isRegistered, boolean isLogged) {
+
+    public User(String name, String lastName, int DNI, int age, boolean isRegistered) {
         this.name = name;
         this.lastName = lastName;
         this.DNI = DNI;
         this.age = age;
         this.isRegistered = isRegistered;
-        this.isLogged = isLogged;
     }
 
     public User() {
@@ -67,20 +66,23 @@ public class User implements Serializable {
         isRegistered = registered;
     }
 
+
     public String showMessageRegistered() {
         return "Nombre: " + name +
-                "\nApellido: " + lastName  +
-                "\nDNI: " + DNI  +
+                "\nApellido: " + lastName +
+                "\nDNI: " + DNI +
                 "\nEdad: " + age;
 
     }
 
     @Override
     public String toString() {
-        return "\n\nNombre: " + name +
-                "\nApellido: " + lastName  +
-                "\nDNI: " + DNI  +
-                "\nEdad: " + age;
+        return " User ->" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", DNI=" + DNI +
+                ", age=" + age +
+                ", isRegistered=" + isRegistered ;
     }
 }
 

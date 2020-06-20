@@ -16,10 +16,4 @@
   "age" : 58,
   "registered" : true,
   "dni" : 35789651
-}, {
-  "name" : "Roberto",
-  "lastName" : "Carlos",
-  "age" : 20,
-  "registered" : true,
-  "dni" : 42333010
 } ]

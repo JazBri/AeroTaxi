@@ -1,5 +1,6 @@
 package com.company.JFrames;
 
+import com.company.CompanyAdmin.Company;
 import com.company.User.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -49,7 +50,8 @@ public class verifyUser extends JFrame {
                 boolean found = false;
                 for (User usuario : usersJson) {
                     if (usuario.getDNI() == getDniField() && usuario.isRegistered()) {
-                        //En caso de encontrarlo se abre el cuestionario del vuelo
+
+                        Company.getSingletonInstance().setCurrentLoggedUser(usuario);
                         found = true;
                         setUser(usuario);
                         JOptionPane.showMessageDialog(null, "Bienvenido/a " + usuario.getName() + " " + usuario.getLastName() + " !!! ");

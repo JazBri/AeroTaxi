@@ -20,16 +20,16 @@
   "passengerCapacity" : 0,
   "propulsionType" : null,
   "available" : false,
-  "cost" : 4000.0,
-  "service" : "Gold"
+  "cost" : 2000.0,
+  "service" : "Silver"
 }, {
   "fuelCapacity" : 0.0,
   "costPerKilometer" : 0,
   "passengerCapacity" : 0,
   "propulsionType" : null,
   "available" : false,
-  "cost" : 2000.0,
-  "service" : "Silver"
+  "cost" : 4000.0,
+  "service" : "Gold"
 }, {
   "fuelCapacity" : 0.0,
   "costPerKilometer" : 0,

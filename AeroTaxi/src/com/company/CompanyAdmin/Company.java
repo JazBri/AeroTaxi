@@ -12,6 +12,7 @@ public class Company {
     private ArrayList<Object> flightArrayList = new ArrayList<>();
     private ArrayList<Object> airplaneArrayList = new ArrayList<>();
     private ArrayList<Object> citiesArrayList = new ArrayList<>();
+    private User currentLoggedUser;
 
     //Atributo estático para usar singleton.
     private static Company miCompany;
@@ -24,9 +25,7 @@ public class Company {
     public static Company getSingletonInstance() {
         if (miCompany == null) {
             miCompany = new Company();
-            System.out.println("Objeto Company creado exitosamente!");
-        } else {
-            System.out.println("El objeto Company ya se encuentra instanciado.");
+            //System.out.println("Objeto Company creado exitosamente!");
         }
         return miCompany;
     }
@@ -125,15 +124,22 @@ public class Company {
         Company.miCompany = miCompany;
     }
 
+    public User getCurrentLoggedUser() {
+        return currentLoggedUser;
+    }
+
+    public void setCurrentLoggedUser(User currentLoggedUser) {
+        this.currentLoggedUser = currentLoggedUser;
+    }
 
     @Override
     public String toString() {
-        return "COMPANY:" +
-                "\nUSUARIOS: " + userArrayList +
-                "\n\nCIUDADES: " + citiesArrayList +
-                "\n\nVUELOS: " + flightArrayList +
-                "\n\nAVIONES: " + airplaneArrayList +
-                '}';
+        return "Company ->" +
+                "userArrayList=" + userArrayList +
+                ", flightArrayList=" + flightArrayList +
+                ", airplaneArrayList=" + airplaneArrayList +
+                ", citiesArrayList=" + citiesArrayList +
+                ", currentLogedUser=" + currentLoggedUser;
     }
 }
 

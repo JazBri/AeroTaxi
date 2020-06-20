@@ -1,31 +1,30 @@
 package com.company.City;
 
 public class City {
-    private String origin;
+    private String name;
     private String destination;
-    private int km;
 
-    public City(String origin, String destination, int km) {
-        this.origin = origin;
+
+    public City(String name, String destination) {
+        this.name = name;
         this.destination = destination;
-        this.km = km;
     }
 
-    public City(String origin, String destination) {
-        this.origin = origin;
-        this.destination = destination;
+    public City(String name) {
+        this.name = name;
     }
 
     public City() {
     }
 
-    public String getOrigin() {
-        return origin;
+    public String getName() {
+        return name;
     }
 
-    public void setOrigin(String origin) {
-        this.origin = origin;
+    public void setName(String name) {
+        this.name = name;
     }
+
 
     public String getDestination() {
         return destination;
@@ -35,19 +34,43 @@ public class City {
         this.destination = destination;
     }
 
-    public int getKm() {
-        return km;
-    }
+    public Integer getDistance() {
 
-    public void setKm(int km) {
-        this.km = km;
+        int km = 0;
+
+        if (this.name == "Buenos Aires") {
+            switch (destination) {
+                case ("Cordoba") -> km = 695;
+                case ("Santiago") -> km = 1400;
+                case ("Montevideo") -> km = 950;
+            }
+        }
+
+        if (this.name == "Cordoba") {
+            km = switch (destination) {
+                case ("Buenos Aires") -> 695;
+                case ("Montevideo") -> 1190;
+                case ("Santiago") -> 1050;
+                default -> km;
+            };
+        }
+
+        if (this.name == "Montevideo") {
+            km = switch (destination) {
+                case ("Buenos Aires") -> 950;
+                case ("Cordoba") -> 1190;
+                case ("Santiago") -> 2100;
+                default -> km;
+            };
+        }
+
+        return km;
     }
 
     @Override
     public String toString() {
-        return "City -> " +
-                "origin = '" + origin + '\'' +
-                ", destination = '" + destination + '\'' +
-                ", km = " + km;
+        return " City -> " +
+                "name = '" + name + '\'' +
+                ", destination = '" + destination + '\'';
     }
 }

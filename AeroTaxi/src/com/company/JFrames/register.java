@@ -45,7 +45,7 @@ public class register extends JFrame {
                     /**FALTARÍA QUE EL USUARIO CONFIRME LOS DATOS.*/
                     /**FALTARÍA REDIRIGIR, UNA VEZ CONFIRME DATOS A CUENTIONARIO, SI NO QUE LOS VUELVA A CARGAR.*/
                     /**VER DE VOLVER A BUSCAR EL USUARIO EN EL ARCHIVO ANTES DE AGREGARLO.*/
-                    User user1 = new User(nombreTextField.getText(), apellidoTextField.getText(), dni, edad, true, false);
+                    User user1 = new User(nombreTextField.getText(), apellidoTextField.getText(), dni, edad, true);
                     user1.setRegistered(true);
 
                     //Agregamos a la colección d eusuarios del objeto instanciado en el main.
@@ -54,8 +54,6 @@ public class register extends JFrame {
                     ObjectMapper mapperReaderUser = new ObjectMapper();
                     ArrayList<User> us = mapperUser.readValue(myFileUser, mapperReaderUser.getTypeFactory().constructCollectionType(ArrayList.class, User.class));
                     us.add(user1);
-
-
                     mapperUser.writerWithDefaultPrettyPrinter().writeValue(new File(pathUser), us);
 
                     JOptionPane.showMessageDialog(null, user1.showMessageRegistered(), "Nuevo Usuario", JOptionPane.INFORMATION_MESSAGE);
