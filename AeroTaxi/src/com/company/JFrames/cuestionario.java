@@ -4,34 +4,37 @@ import com.company.Airplane.Airplane;
 import com.company.Airplane.Planes.Bronze;
 import com.company.Airplane.Planes.Gold;
 import com.company.Airplane.Planes.Silver;
-import com.company.City;
-import com.company.Company;
+import com.company.City.City;
+import com.company.CompanyAdmin.Company;
 import com.company.Flight.Flight;
-import com.company.Questionary;
+import com.company.Questionary.Questionary;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class cuestionario extends JFrame {
     private JPanel cuestionario;
-    private JTextField fechaField;
-    private JTextField ocupantesField;
-    private JCheckBox goldCheckBox;
-    private JCheckBox bronzeCheckBox;
+    private JComboBox<Integer> ocupantesField;
     private JButton okButton;
-    private JCheckBox silverCheckBox;
-    private JComboBox destinoCB;
+    private JComboBox<String> origenCB;
+    private JComboBox<String> destinoCB;
     private JButton volverAInicioButton;
-    private JComboBox origenCB;
-    private String origen;
-    private String destino;
-    private Airplane avion;
+    private JPanel jPanCalendar;
+    private JComboBox<String> planeCategory;
+    private JLabel ciudadOrigen;
+    private JLabel ciudadDestino;
+    private JCalendar calendar;
+
+    //todo -> validar disponbilidad del avion en la fecha designada.
+
 
     public cuestionario(String title) throws HeadlessException, IOException {
         super(title);
@@ -39,137 +42,161 @@ public class cuestionario extends JFrame {
         this.setContentPane(cuestionario);
         this.pack();
 
-        //Agregamos las opciones de las ciudades
-        /**VER CÓMO AGREGAR LAS CIUDADES DESDE LA COLECCIÓN*/
+        Company companyInstance = Company.getSingletonInstance();
+        companyInstance.getCitiesArrayList();
+        Calendar calendar = Calendar.getInstance();
+        JDateChooser dateChooser = new JDateChooser(calendar.getTime());
+
+        planeCategory.addItem("Select");
+        planeCategory.addItem("Gold");
+        planeCategory.addItem("Silver");
+        planeCategory.addItem("Bronze");
+
+
+        jPanCalendar.add(dateChooser);
+        ocupantesField.addItem(1);
+        ocupantesField.addItem(2);
+        ocupantesField.addItem(3);
+        ocupantesField.addItem(4);
+        ocupantesField.addItem(5);
+        ocupantesField.addItem(6);
+        ocupantesField.addItem(7);
+        ocupantesField.addItem(8);
+        ocupantesField.addItem(9);
+        ocupantesField.addItem(10);
+
+        origenCB.addItem("Seleccionar");
         origenCB.addItem("Buenos Aires");
-        origenCB.addItem("Córdoba");
+        origenCB.addItem("Cordoba");
         origenCB.addItem("Montevideo");
-        destinoCB.addItem("Córdoba");
-        destinoCB.addItem("Santiago");
+        origenCB.addItem("Santiago");
+
+        destinoCB.addItem("Seleccionar");
+        destinoCB.addItem("Buenos Aires");
+        destinoCB.addItem("Cordoba");
         destinoCB.addItem("Montevideo");
-
-        okButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    /**ALGUNA VALIDACION PARA LA CANTIDAD DE OCUPANTES*/
-                    int ocupantes = Integer.parseInt(ocupantesField.getText());
-                    LocalDate localDate1 = LocalDate.parse(fechaField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-                    System.out.println("String -> java.time.LocalDate: " + localDate1);
+        destinoCB.addItem("Santiago");
 
 
-                    /**Esto esta HORRIBLE, pero por ahora es lo que se me ocurre.*/
-                    if(goldCheckBox.isSelected()){
-                        avion = new Gold();
-                    }else{
-                        if(silverCheckBox.isSelected()){
-                            avion = new Silver();
-                        }else{
-                            if(bronzeCheckBox.isSelected()){
-                                avion = new Bronze();
-                            }
-                        }
+        String pathAirplane = "aviones.json";
+        File myFileAiplane = new File(pathAirplane);
+
+
+        okButton.addActionListener(e -> {
+            try {
+
+                boolean valid = false;
+
+                //Fecha de viaje
+                Date localDate1 = dateChooser.getDate();
+
+                //Cantidad de ocupantes
+                int ocupantes = (int) ocupantesField.getSelectedItem();
+
+
+                //Validaciones de la seleccion de ciudad de orignen y destino
+                if (origenCB.getSelectedItem() == "Seleccionar" || destinoCB.getSelectedItem() == "Seleccionar") {
+                    JOptionPane.showMessageDialog(null, "Ingrese un recorrido válido");
+                }
+
+                if (origenCB.getSelectedItem() != "Seleccionar" && destinoCB.getSelectedItem() != "Seleccionar") {
+                    if (origenCB.getSelectedItem() == destinoCB.getSelectedItem()) {
+                        JOptionPane.showMessageDialog(null, "Origen y destino iguales , ingrese valores validos");
                     }
+                }
 
-                    if(origen == null || destino == null || origen == destino) {
-                        JOptionPane.showMessageDialog(null, "Ingrese un recorrido válido");
-                    }else {
-                        City city = new City(origen, destino);
+                if ((origenCB.getSelectedItem() != "Seleccionar" && destinoCB.getSelectedItem() != "Seleccionar") && (origenCB.getSelectedItem() != destinoCB.getSelectedItem())) {
+                    valid = true;
+                }
+
+                //Ciudad de origen
+                City cityOrigen = new City((String) origenCB.getSelectedItem());
+
+                //Ciudad de destino
+                String cityDestino = (String) destinoCB.getSelectedItem();
+
+                //Categoria de avion seleccionada
+                String planeSelection = (String) planeCategory.getSelectedItem();
+
+                Airplane selectedPlane = null;
+                int travelCost = 0;
+
+                //Asignacion del avion en base a la categoria seleccionada previamente
+                if (planeSelection == "Bronze") {
+                    selectedPlane = companyInstance.getAirplaneArrayListBronze().get(0);
+                    travelCost = (cityOrigen.getDistance(cityDestino) * Bronze.getCostPerKilometer()) + (ocupantes * 3500) + (Bronze.getFixCost());
+                    System.out.println("Selected plane -> " + selectedPlane);
+                }
+                if (planeSelection == "Silver") {
+                    selectedPlane = companyInstance.getAirplaneArrayListSilver().get(0);
+                    travelCost = (cityOrigen.getDistance(cityDestino) * Silver.getCostPerKilometer()) + (ocupantes * 3500) + (Silver.getFixCost());
+                    System.out.println("Selected plane -> " + selectedPlane);
+                }
+                if (planeSelection == "Gold") {
+                    selectedPlane = companyInstance.getAirplaneArrayListGold().get(0);
+                    travelCost = (cityOrigen.getDistance(cityDestino) * Gold.getCostPerKilometer()) + (ocupantes * 3500) + (Gold.getFixCost());
+                    System.out.println("Selected plane -> " + selectedPlane);
+                }
 
 
-                        Questionary q = new Questionary(localDate1, city, ocupantes, avion);
-                        System.out.println("q:" + q.toString());
+                Questionary q = new Questionary(localDate1, cityOrigen, ocupantes, selectedPlane, cityDestino);
+                System.out.println("q:" + q.toString());
+
+                //Carga de mi vuelo
+                City cityFlight = new City(cityDestino);
+                Flight flight = new Flight(cityOrigen, cityFlight, companyInstance.getCurrentLoggedUser(), travelCost, selectedPlane, true);
+
+                String pathFlight = "vuelos.json";
+                File myFileFlight = new File(pathFlight);
 
 
-                        int option = JOptionPane.showConfirmDialog(null, q);
+                //Si las locaciones seleccionadas son validas se procede a mostrar un mensaje con los datos del vuelo
+                if (valid == true) {
+                    int option = JOptionPane.showConfirmDialog(null, q);
 
-
-                        //0 si, 1 no, 2 cancel
-                        if (option == 0) {
+                    //Confima vuelo -> se le muestra un recuadro con la info del vuelo para confirmar
+                    if (option == 0) {
                         //Al aceptar se crea un Flight que deberá guardarse en un archivo.
-                            /**HACER MÉTODOS DE GUARDADO Y LEVANTE EN LA CLASE FILE*/
-                            Flight flight = new Flight(city, verifyUser.getSingletonInstance().getUser() ,  q, true);
-                            System.out.println("\n\n VUELOS \n");
-                            Company.getSingletonInstance().showCollection(flight);
-                            int confirm = JOptionPane.showConfirmDialog(null, flight);
-                            if(confirm == 0){
-                                Company.getSingletonInstance().addToCollection(flight);
-                                JOptionPane.showMessageDialog(null, "Vuelo reservado\nBuen viaje!!");
+
+                        System.out.println("\n\n VUELOS \n");
+                        /*Company.getSingletonInstance().showCollection(flight);*/
+                        int confirm = JOptionPane.showConfirmDialog(null, flight);
+                        if (confirm == 0) {
+                            Company.getSingletonInstance().addToCollection(flight);
+                            JOptionPane.showMessageDialog(null, "Vuelo reservado\nBuen viaje!!");
+
+                            //Persistencia en arhivo de nuestro vuelo
+
+                            if (myFileFlight.length() > 0) {
+                                ObjectMapper mapperFlight1 = new ObjectMapper();
+                                ArrayList<Flight> fli = mapperFlight1.readValue(myFileFlight, mapperFlight1.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
+                            }
+                            if (myFileFlight.length() == 0){
+                                ArrayList<Flight>flightArrayList = new ArrayList<>();
+                                flightArrayList.add(flight);
+                                ObjectMapper mapperFlight1 = new ObjectMapper();
+                                mapperFlight1.writerWithDefaultPrettyPrinter().writeValue(new File(pathFlight), flightArrayList);
                             }
 
 
-                            /*******************************************************/
-
                         }
 
-                        if (option == 1 || option == 2) {
-                            JOptionPane.showMessageDialog(null, "Volviendo, no se ha registrado ningún viaje");
-                            //cuestionario.setVisible(false);
-                            //verifyUser.setVisible(true);
-                        }
                     }
-                } catch (Exception e1) {
-                    e1.getMessage();
-                    JOptionPane.showMessageDialog(null, "Alguno de los datos ingresados es incorrecto, por favor revíselos");
+
+                    if (option == 1 || option == 2) {
+                        flight.setStatusConfirm(false);
+                        JOptionPane.showMessageDialog(null, "Volviendo, no se ha registrado ningún viaje");
+
+                    }
                 }
+
+            } catch (Exception e1) {
+                e1.getMessage();
+                e1.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Alguno de los datos ingresados es incorrecto, por favor revíselos");
             }
         });
 
-        //Estos 3 eventos manejan que solo se pueda seleccionar 1 tipo de avión.
-        goldCheckBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(goldCheckBox.isSelected()){
-                    silverCheckBox.setSelected(false);
-                    bronzeCheckBox.setSelected(false);
 
-                }
-            }
-        });
-        silverCheckBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(silverCheckBox.isSelected()){
-                    goldCheckBox.setSelected(false);
-                    bronzeCheckBox.setSelected(false);
-
-                }
-            }
-        });
-        bronzeCheckBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(bronzeCheckBox.isSelected()){
-                    silverCheckBox.setSelected(false);
-                    goldCheckBox.setSelected(false);
-
-                }
-            }
-        });
-        destinoCB.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                origen = (String) origenCB.getSelectedItem();
-
-                }
-        });
-
-        volverAInicioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                /**ESTO TAMBIÉN HAY QUE CAMBIARLO, NO SÉ COMO OCULTAR LOS OTROS FRAMES. */
-                cuestionario.setVisible(false);
-            /*    verifyUser.setBounds(650, 180, 500, 500);
-                verifyUser.setVisible(true);*/
-                verifyUser.getSingletonInstance().setBounds(650,180,500,500);
-            verifyUser.getSingletonInstance().setVisible(true);
-            }
-        });
-        origenCB.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                destino = (String) destinoCB.getSelectedItem();
-            }
-        });
     }
 }

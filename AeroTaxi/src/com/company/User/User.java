@@ -1,28 +1,27 @@
-package com.company;
+package com.company.User;
 
 import java.io.Serializable;
 
 public class User implements Serializable {
-    public static final long serialVersionUID = 1L;
+
     private String name;
     private String lastName;
     private int DNI;
     private int age;
     private boolean isRegistered;
 
-    public User(String name, String lastName, int DNI, int age) {
+
+    public User(String name, String lastName, int DNI, int age, boolean isRegistered) {
         this.name = name;
         this.lastName = lastName;
         this.DNI = DNI;
         this.age = age;
+        this.isRegistered = isRegistered;
     }
 
     public User() {
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public String getName() {
         return name;
@@ -64,20 +63,23 @@ public class User implements Serializable {
         isRegistered = registered;
     }
 
+
     public String showMessageRegistered() {
         return "Nombre: " + name +
-                "\nApellido: " + lastName  +
-                "\nDNI: " + DNI  +
+                "\nApellido: " + lastName +
+                "\nDNI: " + DNI +
                 "\nEdad: " + age;
 
     }
 
     @Override
     public String toString() {
-        return "\n\nNombre: " + name +
-                "\nApellido: " + lastName  +
-                "\nDNI: " + DNI  +
-                "\nEdad: " + age;
+        return " User ->" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", DNI=" + DNI +
+                ", age=" + age +
+                ", isRegistered=" + isRegistered;
     }
 }
 

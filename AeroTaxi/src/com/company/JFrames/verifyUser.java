@@ -1,9 +1,9 @@
 package com.company.JFrames;
-import com.company.Company;
-import com.company.User;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
+
+import com.company.CompanyAdmin.Company;
+import com.company.User.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -14,6 +14,7 @@ public class verifyUser extends JFrame {
     private JPanel verifyUser;
     private JTextField dniField;
     private JButton okButton;
+    private JButton registerButton;
     private User user;
     private int dni;
     private static verifyUser vu;
@@ -25,7 +26,16 @@ public class verifyUser extends JFrame {
         this.setContentPane(verifyUser);
         this.pack();
 
-            okButton.addActionListener(e -> {
+        registerButton.addActionListener(event -> {
+            verifyUser.setVisible(false);
+            register register = new register("Registro");
+            register.setBounds(650, 180, 500, 500);
+            register.setVisible(true);
+
+
+        });
+
+        okButton.addActionListener(e -> {
             String path = "usuarios.json";
             File myFile = new File(path);
 
@@ -40,7 +50,8 @@ public class verifyUser extends JFrame {
                 boolean found = false;
                 for (User usuario : usersJson) {
                     if (usuario.getDNI() == getDniField() && usuario.isRegistered()) {
-                        //En caso de encontrarlo se abre el cuestionario del vuelo
+
+                        Company.getSingletonInstance().setCurrentLoggedUser(usuario);
                         found = true;
                         setUser(usuario);
                         JOptionPane.showMessageDialog(null, "Bienvenido/a " + usuario.getName() + " " + usuario.getLastName() + " !!! ");
@@ -51,7 +62,7 @@ public class verifyUser extends JFrame {
                     }
                 }
 
-                if (!found){
+                if (!found) {
                     //En caso de encontrarlo se abre el registro de Usuario
                     JOptionPane.showMessageDialog(null, "DNI: " + dniField.getText() + "\nUsted no se encuentra registrado.");
                     verifyUser.setVisible(false);
@@ -63,22 +74,20 @@ public class verifyUser extends JFrame {
             } catch (NumberFormatException e1) {
                 JOptionPane.showMessageDialog(null, "Ingrese su DNI numérico, sin espacios ni puntos");
                 e1.getMessage();
-            } catch (JsonParseException jsonParseException) {
+            } catch (IOException jsonParseException) {
                 jsonParseException.printStackTrace();
-            } catch (JsonMappingException jsonMappingException) {
-                jsonMappingException.printStackTrace();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
             }
+
+
         });
     }
 
     //getSingletonInstance devuelve la instancia del objeto, de esta manera se puede llamar en distintas clases.
-    public static verifyUser getSingletonInstance(){
-        if( vu == null ){
+    public static verifyUser getSingletonInstance() {
+        if (vu == null) {
             vu = new verifyUser("Aero Taxi");
             System.out.println("Objeto Company creado exitosamente!");
-        }else{
+        } else {
             //   System.out.println("El objeto Company ya se encuentra instanciado.");
         }
         return vu;
