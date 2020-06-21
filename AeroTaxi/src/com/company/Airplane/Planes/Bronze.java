@@ -1,29 +1,39 @@
 package com.company.Airplane.Planes;
 
 import com.company.Airplane.Airplane;
+import com.company.Airplane.PlaneCategory;
 import com.company.Airplane.PropulsionType;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Bronze extends Airplane {
 
-    private static String category = "Bronze";
+    private static final int costPerKilometer = 150;
+    private static final int fixCost = 3000;
+    private static final int fuelCapacity = 200;
 
 
-    public Bronze(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available) {
-        super(fuelCapacity, costPerKilometer, passengerCapacity, propulsionType, available);
-        this.cost = 3000;
-        this.service = "Bronze";
+    public Bronze(PropulsionType propulsionType, boolean available, PlaneCategory category) {
+        super(propulsionType, available, category);
     }
 
     public Bronze() {
         super();
-        this.cost = 3000;
-        this.service = "Bronze";
     }
 
 
-    @Override
-    public String toString() {
-        return "\n\nServicio: " + this.service +
-                "\nCosto del servicio: " + cost;
+
+    public static int getCostPerKilometer() {
+        return costPerKilometer;
     }
+
+    public static int getFixCost() {
+        return fixCost;
+    }
+
+    public static int getFuelCapacity() {
+        return fuelCapacity;
+    }
+
+
+
 }

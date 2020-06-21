@@ -2,13 +2,7 @@ package com.company.City;
 
 public class City {
     private String name;
-    private String destination;
 
-
-    public City(String name, String destination) {
-        this.name = name;
-        this.destination = destination;
-    }
 
     public City(String name) {
         this.name = name;
@@ -26,24 +20,17 @@ public class City {
     }
 
 
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    public Integer getDistance() {
+    public Integer getDistance(String destination) {
 
         int km = 0;
 
         if (this.name == "Buenos Aires") {
-            switch (destination) {
+            km = switch (destination) {
                 case ("Cordoba") -> km = 695;
                 case ("Santiago") -> km = 1400;
                 case ("Montevideo") -> km = 950;
-            }
+                default -> km;
+            };
         }
 
         if (this.name == "Cordoba") {
@@ -64,13 +51,21 @@ public class City {
             };
         }
 
+        if (this.name == "Santiago") {
+            km = switch (destination) {
+                case ("Buenos Aires") -> 1400;
+                case ("Cordoba") -> 1050;
+                case ("Montevideo") -> 2100;
+                default -> km;
+            };
+        }
+
         return km;
     }
 
     @Override
     public String toString() {
         return " City -> " +
-                "name = '" + name + '\'' +
-                ", destination = '" + destination + '\'';
+                "name = '" + name + '\'';
     }
 }

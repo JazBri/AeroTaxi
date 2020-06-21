@@ -7,21 +7,19 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class Questionary {
-    private LocalDate date;
-    private City recorrido;
+    private Date date;
+    private City origen;
     private int companionsNumbers;
     private Airplane airplane;
+    private String destino;
 
 
-
-    public Questionary(LocalDate date, City recorrido, int companionsNumbers, Airplane airplane) {
+    public Questionary(Date date, City origen, int companionsNumbers, Airplane airplane, String destino) {
         this.date = date;
-        this.recorrido = recorrido;
+        this.origen = origen;
         this.companionsNumbers = companionsNumbers;
         this.airplane = airplane;
-    }
-
-    public Questionary(Date localDate1, City city, int ocupantes, Airplane avion) {
+        this.destino = destino;
     }
 
 
@@ -36,21 +34,14 @@ public class Questionary {
     public Questionary() {
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public City getRecorrido() {
-        return recorrido;
-    }
-
-    public void setRecorrido(City recorrido) {
-        this.recorrido = recorrido;
-    }
 
     public int getCompanionsNumbers() {
         return companionsNumbers;
@@ -62,16 +53,11 @@ public class Questionary {
 
     @Override
     public String toString() {
-        /*return "Questionary{" +
-                "date=" + date +
-                ", recorrido='" + recorrido + '\'' +
-                ", companionsNumbers=" + companionsNumbers +
-                '}';
-    */
-        return "Fecha: " + date +
-                "\nDestino - origen: " + recorrido +
-                "\nCantidad de ocupantes: " + companionsNumbers;
-
+        return "Fecha de viaje : " + date +
+                "\nCantidad de ocupantes: " + companionsNumbers +
+                "\nOrigen: " + origen.getName() +
+                "\nDestino: " + destino +
+                "\nDistancia al destino en km: " + origen.getDistance(destino);
 
     }
 

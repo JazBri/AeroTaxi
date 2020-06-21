@@ -6,27 +6,18 @@ import com.company.Questionary.Questionary;
 import com.company.User.User;
 
 public class Flight {
-    private City citiesMap;
-    private User userM;
-    private float totalCost;
-    private Questionary questionary;
+    private City origen;
+    private City destino;
+    private User activeLoggedUser;
+    private int totalCost;
     private Airplane airplane;
     private boolean statusConfirm;
 
-    public Flight(City citiesMap, User userM, Questionary questionary, boolean statusConfirm) {
-        this.citiesMap = citiesMap;
-        this.userM = userM;
+    public Flight(City origen, City destino, User activeLoggedUser, int totalCost, Airplane airplane, boolean statusConfirm) {
+        this.origen = origen;
+        this.destino = destino;
+        this.activeLoggedUser = activeLoggedUser;
         this.totalCost = totalCost;
-        this.questionary = questionary;
-        this.airplane = airplane;
-        this.statusConfirm = statusConfirm;
-    }
-
-    public Flight(City citiesMap, User userM, float totalCost, Questionary questionary, Airplane airplane, boolean statusConfirm) {
-        this.citiesMap = citiesMap;
-        this.userM = userM;
-        this.totalCost = totalCost;
-        this.questionary = questionary;
         this.airplane = airplane;
         this.statusConfirm = statusConfirm;
     }
@@ -34,39 +25,36 @@ public class Flight {
     public Flight() {
     }
 
-    public City getCitiesMap() {
-        return citiesMap;
+    public City getOrigen() {
+        return origen;
     }
 
-    public void setCitiesMap(City citiesMap) {
-        this.citiesMap = citiesMap;
+    public void setOrigen(City origen) {
+        this.origen = origen;
     }
 
-    public User getUserM() {
-        return userM;
+    public City getDestino() {
+        return destino;
     }
 
-    public void setUserM(User userM) {
-        this.userM = userM;
+    public void setDestino(City destino) {
+        this.destino = destino;
     }
 
-    public float getTotalCost() {
-        //float total = ((citiesMap.getKm() * 500) + (questionary.getCompanionsNumbers() * 3500) + airplane.getCost());
-        float total = ((400 * 500) + (questionary.getCompanionsNumbers() * 3500) + questionary.getAirplane().getCost());
-        setTotalCost(total);
+    public User getActiveLoggedUser() {
+        return activeLoggedUser;
+    }
+
+    public void setActiveLoggedUser(User activeLoggedUser) {
+        this.activeLoggedUser = activeLoggedUser;
+    }
+
+    public int getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(float totalCost) {
+    public void setTotalCost(int totalCost) {
         this.totalCost = totalCost;
-    }
-
-    public Questionary getQuestionary() {
-        return questionary;
-    }
-
-    public void setQuestionary(Questionary questionary) {
-        this.questionary = questionary;
     }
 
     public Airplane getAirplane() {
@@ -87,9 +75,9 @@ public class Flight {
 
     @Override
     public String toString() {
-        return  userM +
-                "\n\n" + questionary +
-                "\n\nCosto total: " + getTotalCost() +
-                "\n\n";
+        return "  origen = " + origen.getName() +
+                "\ndestino = " + destino.getName() +
+                "\nactiveLoggedUser =" + activeLoggedUser.getName() +
+                "\n totalCost =" + totalCost;
     }
 }

@@ -3,7 +3,7 @@ package com.company.User;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    public static final long serialVersionUID = 1L;
+
     private String name;
     private String lastName;
     private int DNI;
@@ -22,9 +22,6 @@ public class User implements Serializable {
     public User() {
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public String getName() {
         return name;
@@ -82,7 +79,7 @@ public class User implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", DNI=" + DNI +
                 ", age=" + age +
-                ", isRegistered=" + isRegistered ;
+                ", isRegistered=" + isRegistered;
     }
 }
 

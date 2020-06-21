@@ -1,52 +1,20 @@
 package com.company.Airplane;
 
-public class Airplane {
-    private float fuelCapacity;
-    private int costPerKilometer;
-    private int passengerCapacity;
+public abstract class Airplane {
+    private static final int passengerCapacity = 10;
     private PropulsionType propulsionType;
     private boolean available;
-    protected int cost;
-    protected String service;
+    private PlaneCategory category;
 
-    public Airplane(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available, int cost, String service) {
-        this.fuelCapacity = fuelCapacity;
-        this.costPerKilometer = costPerKilometer;
-        this.passengerCapacity = passengerCapacity;
+
+    public Airplane(PropulsionType propulsionType, boolean available, PlaneCategory category) {
         this.propulsionType = propulsionType;
         this.available = available;
-        this.cost = cost;
-        this.service = service;
+        this.category = category;
     }
 
     public Airplane() {
-    }
 
-    public Airplane(float fuelCapacity, int costPerKilometer, int passengerCapacity, PropulsionType propulsionType, boolean available) {
-    }
-
-    public float getFuelCapacity() {
-        return fuelCapacity;
-    }
-
-    public void setFuelCapacity(float fuelCapacity) {
-        this.fuelCapacity = fuelCapacity;
-    }
-
-    public int getCostPerKilometer() {
-        return costPerKilometer;
-    }
-
-    public void setCostPerKilometer(int costPerKilometer) {
-        this.costPerKilometer = costPerKilometer;
-    }
-
-    public int getPassengerCapacity() {
-        return passengerCapacity;
-    }
-
-    public void setPassengerCapacity(int passengerCapacity) {
-        this.passengerCapacity = passengerCapacity;
     }
 
     public PropulsionType getPropulsionType() {
@@ -65,31 +33,20 @@ public class Airplane {
         this.available = available;
     }
 
-    public float getCost() {
-        return cost;
+    public static int getPassengerCapacity() {
+        return passengerCapacity;
     }
 
-    public void setCost(int cost) {
-        this.cost = cost;
+    public PlaneCategory getCategory() {
+        return category;
     }
 
-    public String getService() {
-        return service;
-    }
-
-    public void setService(String service) {
-        this.service = service;
+    public void setCategory(PlaneCategory category) {
+        this.category = category;
     }
 
     @Override
     public String toString() {
-        return " Airplane ->" +
-                "fuelCapacity = " + fuelCapacity +
-                ", costPerKilometer = " + costPerKilometer +
-                ", passengerCapacity = " + passengerCapacity +
-                ", propulsionType = " + propulsionType +
-                ", available = " + available +
-                ", cost = " + cost +
-                ", service = '" + service + '\'';
+        return "Airplane -> " + "propulsionType = " + propulsionType + ", available = " + available + ", category = '" + category + '\'';
     }
 }

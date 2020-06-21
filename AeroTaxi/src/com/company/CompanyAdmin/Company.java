@@ -1,6 +1,11 @@
 package com.company.CompanyAdmin;
 
 import com.company.Airplane.Airplane;
+import com.company.Airplane.PlaneCategory;
+import com.company.Airplane.Planes.Bronze;
+import com.company.Airplane.Planes.Gold;
+import com.company.Airplane.Planes.Silver;
+import com.company.Airplane.PropulsionType;
 import com.company.City.City;
 import com.company.Flight.Flight;
 import com.company.User.User;
@@ -8,9 +13,12 @@ import com.company.User.User;
 import java.util.ArrayList;
 
 public class Company {
+
     private ArrayList<Object> userArrayList = new ArrayList<>();
     private ArrayList<Object> flightArrayList = new ArrayList<>();
-    private ArrayList<Object> airplaneArrayList = new ArrayList<>();
+    private ArrayList<Bronze> airplaneArrayListBronze = new ArrayList<>();
+    private ArrayList<Silver> airplaneArrayListSilver = new ArrayList<>();
+    private ArrayList<Gold> airplaneArrayListGold = new ArrayList<>();
     private ArrayList<Object> citiesArrayList = new ArrayList<>();
     private User currentLoggedUser;
 
@@ -37,8 +45,14 @@ public class Company {
             if (object instanceof User) {
                 userArrayList.add(object);
             }
-            if (object instanceof Airplane) {
-                airplaneArrayList.add(object);
+            if (object instanceof Bronze) {
+                airplaneArrayListBronze.add((Bronze) object);
+            }
+            if (object instanceof Silver) {
+                airplaneArrayListSilver.add((Silver) object);
+            }
+            if (object instanceof Gold) {
+                airplaneArrayListGold.add((Gold) object);
             }
             if (object instanceof Flight) {
                 flightArrayList.add(object);
@@ -62,7 +76,13 @@ public class Company {
             }
             if (object instanceof Airplane) {
                 System.out.println("\nAIRPLANE");
-                for (Object c : airplaneArrayList) {
+                for (Object c : airplaneArrayListBronze) {
+                    System.out.println(c.toString());
+                }
+                for (Object c : airplaneArrayListSilver) {
+                    System.out.println(c.toString());
+                }
+                for (Object c : airplaneArrayListGold) {
                     System.out.println(c.toString());
                 }
             }
@@ -84,6 +104,7 @@ public class Company {
         }
     }
 
+
     public ArrayList<Object> getUserArrayList() {
         return userArrayList;
     }
@@ -100,12 +121,28 @@ public class Company {
         this.flightArrayList = flightArrayList;
     }
 
-    public ArrayList<Object> getAirplaneArrayList() {
-        return airplaneArrayList;
+    public ArrayList<Bronze> getAirplaneArrayListBronze() {
+        return airplaneArrayListBronze;
     }
 
-    public void setAirplaneArrayList(ArrayList<Object> airplaneArrayList) {
-        this.airplaneArrayList = airplaneArrayList;
+    public void setAirplaneArrayListBronze(ArrayList<Bronze> airplaneArrayListBronze) {
+        this.airplaneArrayListBronze = airplaneArrayListBronze;
+    }
+
+    public ArrayList<Silver> getAirplaneArrayListSilver() {
+        return airplaneArrayListSilver;
+    }
+
+    public void setAirplaneArrayListSilver(ArrayList<Silver> airplaneArrayListSilver) {
+        this.airplaneArrayListSilver = airplaneArrayListSilver;
+    }
+
+    public ArrayList<Gold> getAirplaneArrayListGold() {
+        return airplaneArrayListGold;
+    }
+
+    public void setAirplaneArrayListGold(ArrayList<Gold> airplaneArrayListGold) {
+        this.airplaneArrayListGold = airplaneArrayListGold;
     }
 
     public ArrayList<Object> getCitiesArrayList() {
@@ -134,12 +171,15 @@ public class Company {
 
     @Override
     public String toString() {
-        return "Company ->" +
+        return "Company{" +
                 "userArrayList=" + userArrayList +
                 ", flightArrayList=" + flightArrayList +
-                ", airplaneArrayList=" + airplaneArrayList +
+                ", airplaneArrayListBronze=" + airplaneArrayListBronze +
+                ", airplaneArrayListSilver=" + airplaneArrayListSilver +
+                ", airplaneArrayListGold=" + airplaneArrayListGold +
                 ", citiesArrayList=" + citiesArrayList +
-                ", currentLogedUser=" + currentLoggedUser;
+                ", currentLoggedUser=" + currentLoggedUser +
+                '}';
     }
 }
 

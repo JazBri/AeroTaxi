@@ -1,13 +1,9 @@
 [ {
-  "name" : "Buenos Aires",
-  "destination" : null
+  "name" : "Buenos Aires"
 }, {
-  "name" : "Cordoba",
-  "destination" : null
+  "name" : "Cordoba"
 }, {
-  "name" : "Montevideo",
-  "destination" : null
+  "name" : "Montevideo"
 }, {
-  "name" : "Santiago",
-  "destination" : null
+  "name" : "Santiago"
 } ]
