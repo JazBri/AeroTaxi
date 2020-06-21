@@ -1,9 +1,9 @@
 [ {
   "origen" : {
-    "name" : "Buenos Aires"
+    "name" : "Cordoba"
   },
   "destino" : {
-    "name" : "Cordoba"
+    "name" : "Montevideo"
   },
   "activeLoggedUser" : {
     "name" : "Luciano",
@@ -12,11 +12,12 @@
     "registered" : true,
     "dni" : 41333010
   },
-  "totalCost" : 218000,
+  "flightDate" : 1592776508867,
+  "totalCost" : 275250,
   "airplane" : {
-    "propulsionType" : "REACTION",
+    "propulsionType" : "PISTONES",
     "available" : true,
-    "category" : "Gold"
+    "category" : "Silver"
   },
   "statusConfirm" : true
 } ]

@@ -144,7 +144,10 @@ public class cuestionario extends JFrame {
 
                 //Carga de mi vuelo
                 City cityFlight = new City(cityDestino);
-                Flight flight = new Flight(cityOrigen, cityFlight, companyInstance.getCurrentLoggedUser(), travelCost, selectedPlane, true);
+
+                //todo -> persistir fecha de forma correcta
+
+                Flight flight = new Flight(cityOrigen, cityFlight, companyInstance.getCurrentLoggedUser(), localDate1, travelCost, selectedPlane, true);
 
                 String pathFlight = "vuelos.json";
                 File myFileFlight = new File(pathFlight);
@@ -171,8 +174,8 @@ public class cuestionario extends JFrame {
                                 ObjectMapper mapperFlight1 = new ObjectMapper();
                                 ArrayList<Flight> fli = mapperFlight1.readValue(myFileFlight, mapperFlight1.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
                             }
-                            if (myFileFlight.length() == 0){
-                                ArrayList<Flight>flightArrayList = new ArrayList<>();
+                            if (myFileFlight.length() == 0) {
+                                ArrayList<Flight> flightArrayList = new ArrayList<>();
                                 flightArrayList.add(flight);
                                 ObjectMapper mapperFlight1 = new ObjectMapper();
                                 mapperFlight1.writerWithDefaultPrettyPrinter().writeValue(new File(pathFlight), flightArrayList);

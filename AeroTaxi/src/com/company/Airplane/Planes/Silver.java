@@ -6,8 +6,11 @@ import com.company.Airplane.PlaneCategory;
 import com.company.Airplane.PropulsionType;
 import com.company.Airplane.Wifi;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
+@JsonTypeName("Silver")
 public class Silver extends Airplane implements Catering {
+
 
     private static final int costPerKilometer = 225;
     private static final int fixCost = 4000;
