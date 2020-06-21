@@ -7,6 +7,7 @@ import com.company.Airplane.Planes.Silver;
 import com.company.Airplane.PropulsionType;
 import com.company.City.City;
 import com.company.CompanyAdmin.Company;
+import com.company.Flight.Flight;
 import com.company.Main;
 import com.company.User.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,14 +16,12 @@ import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ActualFile {
 
 
     public static void archivos() {
-
-        String pathFlight = "vuelos.json";
-        File myFileFlight = new File(pathFlight);
 
         //Cargamos algunos usuarios al archivo
         User user1 = new User("Jazmin", "Briasco", 39338563, 23, true);
@@ -66,6 +65,9 @@ public class ActualFile {
 
         String pathAirplaneGl = "avionesGold.json";
         File myFileAirplaneGl = new File(pathAirplaneGl);
+
+        String pathFlight = "vuelos.json";
+        File myFileFlight = new File(pathFlight);
 
 
         try {
@@ -236,21 +238,27 @@ public class ActualFile {
                     ArrayList<Gold> airplaneArrayListGl = mapperAirplane1.readValue(myFileAirplaneGl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Gold.class));
 
                 }
+                /*if (myFileFlight.length() == 0) {
+                    ArrayList<Flight> flightArrayList = new ArrayList<>();
+                    flightArrayList.add(flight1);
 
-                /*System.out.println("bronze " + companyInstance.getAirplaneArrayListBronze());
-                System.out.println("silver " + companyInstance.getAirplaneArrayListSilver());
-                System.out.println("gold " + companyInstance.getAirplaneArrayListGold());*/
+                    ObjectMapper mapper = new ObjectMapper();
+                    companyInstance.addToCollection(flight1);
+                    mapper.writerWithDefaultPrettyPrinter().writeValue(new File(pathFlight), flightArrayList);
+
+                }*/
 
                 //Lectura del archivo, se levantan los datos de los vuelos
-               /* ObjectMapper mapperReaderFlights = new ObjectMapper();
-                ObjectMapper mapperFlight1 = new ObjectMapper();
-                ArrayList<Flight> fli = mapperFlight1.readValue(myFileFlight, mapperFlight1.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
-                for (Flight myFlight : fli) {
-                    companyInstance.addToCollection(myFlight);
-                    System.out.println("vuelo -> " + myFlight);
-
+                if (myFileFlight.length() != 0) {
+                    ObjectMapper mapperReaderFlights = new ObjectMapper();
+                    ObjectMapper mapperFlight1 = new ObjectMapper();
+                    ArrayList<Flight> fli = mapperFlight1.readValue(myFileFlight, mapperFlight1.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
+                    for (Flight myFlight : fli) {
+                        companyInstance.addToCollection(myFlight);
+                        System.out.println(myFlight);
+                    }
                 }
-*/
+
 
             }
         } catch (IOException e) {

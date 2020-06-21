@@ -1,0 +1,22 @@
+[ {
+  "origen" : {
+    "name" : "Buenos Aires"
+  },
+  "destino" : {
+    "name" : "Cordoba"
+  },
+  "activeLoggedUser" : {
+    "name" : "Luciano",
+    "lastName" : "Sassano",
+    "age" : 21,
+    "registered" : true,
+    "dni" : 41333010
+  },
+  "totalCost" : 218000,
+  "airplane" : {
+    "propulsionType" : "REACTION",
+    "available" : true,
+    "category" : "Gold"
+  },
+  "statusConfirm" : true
+} ]

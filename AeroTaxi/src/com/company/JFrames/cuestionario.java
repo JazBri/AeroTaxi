@@ -33,6 +33,8 @@ public class cuestionario extends JFrame {
     private JLabel ciudadDestino;
     private JCalendar calendar;
 
+    //todo -> validar disponbilidad del avion en la fecha designada.
+
 
     public cuestionario(String title) throws HeadlessException, IOException {
         super(title);
@@ -84,14 +86,15 @@ public class cuestionario extends JFrame {
             try {
 
                 boolean valid = false;
+
+                //Fecha de viaje
                 Date localDate1 = dateChooser.getDate();
-                System.out.println("Selected date -> " + dateChooser.getDate());
 
-
+                //Cantidad de ocupantes
                 int ocupantes = (int) ocupantesField.getSelectedItem();
-                System.out.println("ocupantes  -> " + ocupantes);
 
 
+                //Validaciones de la seleccion de ciudad de orignen y destino
                 if (origenCB.getSelectedItem() == "Seleccionar" || destinoCB.getSelectedItem() == "Seleccionar") {
                     JOptionPane.showMessageDialog(null, "Ingrese un recorrido válido");
                 }
@@ -106,16 +109,19 @@ public class cuestionario extends JFrame {
                     valid = true;
                 }
 
-
+                //Ciudad de origen
                 City cityOrigen = new City((String) origenCB.getSelectedItem());
+
+                //Ciudad de destino
                 String cityDestino = (String) destinoCB.getSelectedItem();
 
-
+                //Categoria de avion seleccionada
                 String planeSelection = (String) planeCategory.getSelectedItem();
 
                 Airplane selectedPlane = null;
                 int travelCost = 0;
 
+                //Asignacion del avion en base a la categoria seleccionada previamente
                 if (planeSelection == "Bronze") {
                     selectedPlane = companyInstance.getAirplaneArrayListBronze().get(0);
                     travelCost = (cityOrigen.getDistance(cityDestino) * Bronze.getCostPerKilometer()) + (ocupantes * 3500) + (Bronze.getFixCost());
@@ -136,6 +142,7 @@ public class cuestionario extends JFrame {
                 Questionary q = new Questionary(localDate1, cityOrigen, ocupantes, selectedPlane, cityDestino);
                 System.out.println("q:" + q.toString());
 
+                //Carga de mi vuelo
                 City cityFlight = new City(cityDestino);
                 Flight flight = new Flight(cityOrigen, cityFlight, companyInstance.getCurrentLoggedUser(), travelCost, selectedPlane, true);
 
@@ -143,9 +150,11 @@ public class cuestionario extends JFrame {
                 File myFileFlight = new File(pathFlight);
 
 
+                //Si las locaciones seleccionadas son validas se procede a mostrar un mensaje con los datos del vuelo
                 if (valid == true) {
                     int option = JOptionPane.showConfirmDialog(null, q);
 
+                    //Confima vuelo -> se le muestra un recuadro con la info del vuelo para confirmar
                     if (option == 0) {
                         //Al aceptar se crea un Flight que deberá guardarse en un archivo.
 
@@ -156,11 +165,19 @@ public class cuestionario extends JFrame {
                             Company.getSingletonInstance().addToCollection(flight);
                             JOptionPane.showMessageDialog(null, "Vuelo reservado\nBuen viaje!!");
 
-                            //Persistencia en arhivo
-                            ObjectMapper mapperFlight1 = new ObjectMapper();
-                            ArrayList<Flight> fli = mapperFlight1.readValue(myFileFlight, mapperFlight1.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
-                            fli.add(flight);
-                            mapperFlight1.writerWithDefaultPrettyPrinter().writeValue(new File(pathFlight), fli);
+                            //Persistencia en arhivo de nuestro vuelo
+
+                            if (myFileFlight.length() > 0) {
+                                ObjectMapper mapperFlight1 = new ObjectMapper();
+                                ArrayList<Flight> fli = mapperFlight1.readValue(myFileFlight, mapperFlight1.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
+                            }
+                            if (myFileFlight.length() == 0){
+                                ArrayList<Flight>flightArrayList = new ArrayList<>();
+                                flightArrayList.add(flight);
+                                ObjectMapper mapperFlight1 = new ObjectMapper();
+                                mapperFlight1.writerWithDefaultPrettyPrinter().writeValue(new File(pathFlight), flightArrayList);
+                            }
+
 
                         }
 
@@ -175,21 +192,11 @@ public class cuestionario extends JFrame {
 
             } catch (Exception e1) {
                 e1.getMessage();
+                e1.printStackTrace();
                 JOptionPane.showMessageDialog(null, "Alguno de los datos ingresados es incorrecto, por favor revíselos");
             }
         });
 
 
-       /* destinoCB.addActionListener(e -> origen = (String) origenCB.getSelectedItem());
-
-        volverAInicioButton.addActionListener(e -> {
-            *//**ESTO TAMBIÉN HAY QUE CAMBIARLO, NO SÉ COMO OCULTAR LOS OTROS FRAMES. *//*
-            cuestionario.setVisible(false);
-        *//*    verifyUser.setBounds(650, 180, 500, 500);
-            verifyUser.setVisible(true);*//*
-            verifyUser.getSingletonInstance().setBounds(650, 180, 500, 500);
-            verifyUser.getSingletonInstance().setVisible(true);
-        });
-        origenCB.addActionListener(e -> destino = (String) destinoCB.getSelectedItem());*/
     }
 }
