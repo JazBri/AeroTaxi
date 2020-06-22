@@ -1,19 +1,14 @@
 package com.company.JFrames;
 
-import com.company.CompanyAdmin.Company;
-import com.company.Flight.Flight;
 import com.company.MainFile.ActualFile;
-import com.company.Userr.User;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.company.User.User;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class listado extends JFrame{
     private JPanel listado;

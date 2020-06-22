@@ -4,9 +4,9 @@ import com.company.Airplane.Airplane;
 import com.company.Airplane.Planes.Bronze;
 import com.company.Airplane.Planes.Gold;
 import com.company.Airplane.Planes.Silver;
-import com.company.Cityy.City;
+import com.company.City.City;
 import com.company.Flight.Flight;
-import com.company.Userr.User;
+import com.company.User.User;
 
 import java.util.ArrayList;
 

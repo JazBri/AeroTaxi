@@ -5,17 +5,15 @@ import com.company.Airplane.Planes.Bronze;
 import com.company.Airplane.Planes.Gold;
 import com.company.Airplane.Planes.Silver;
 import com.company.Airplane.PropulsionType;
-import com.company.Cityy.City;
+import com.company.City.City;
 import com.company.CompanyAdmin.Company;
-import com.company.Flight.Flight;
 import com.company.Main;
-import com.company.Userr.User;
+import com.company.User.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ActualFile {

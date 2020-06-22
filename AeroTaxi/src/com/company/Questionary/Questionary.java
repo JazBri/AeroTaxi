@@ -1,7 +1,7 @@
-package com.company.Questionaryy;
+package com.company.Questionary;
 
 import com.company.Airplane.Airplane;
-import com.company.Cityy.City;
+import com.company.City.City;
 
 import java.util.Date;
 

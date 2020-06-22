@@ -2,7 +2,7 @@ package com.company.JFrames;
 
 
 import com.company.CompanyAdmin.Company;
-import com.company.Userr.User;
+import com.company.User.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 

@@ -1,8 +1,8 @@
 package com.company.Flight;
 
 import com.company.Airplane.Airplane;
-import com.company.Cityy.City;
-import com.company.Userr.User;
+import com.company.City.City;
+import com.company.User.User;
 
 public class Flight {
     private City origen;
