@@ -24,6 +24,7 @@ public class verifyUser extends JFrame {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(verifyUser);
+        this.setResizable(false);
         this.pack();
 
         registerButton.addActionListener(event -> {
@@ -56,9 +57,9 @@ public class verifyUser extends JFrame {
                         setUser(usuario);
                         JOptionPane.showMessageDialog(null, "Bienvenido/a " + usuario.getName() + " " + usuario.getLastName() + " !!! ");
                         verifyUser.setVisible(false);
-                        cuestionario questionary = new cuestionario("Vuelo");
-                        questionary.setBounds(650, 180, 500, 500);
-                        questionary.setVisible(true);
+                        userMenu userMenu = new userMenu();
+                        userMenu.setBounds(650, 180, 500, 500);
+                        userMenu.setVisible(true);
                     }
                 }
 

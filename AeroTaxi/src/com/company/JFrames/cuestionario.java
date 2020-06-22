@@ -15,7 +15,6 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -36,10 +35,11 @@ public class cuestionario extends JFrame {
     //todo -> validar disponbilidad del avion en la fecha designada.
 
 
-    public cuestionario(String title) throws HeadlessException, IOException {
+    public cuestionario(String title) throws HeadlessException {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(cuestionario);
+        this.setResizable(false);
         this.pack();
 
         Company companyInstance = Company.getSingletonInstance();
@@ -117,6 +117,7 @@ public class cuestionario extends JFrame {
 
                 //Categoria de avion seleccionada
                 String planeSelection = (String) planeCategory.getSelectedItem();
+                boolean availablePlane = false;
 
                 Airplane selectedPlane = null;
                 int travelCost = 0;
@@ -145,27 +146,47 @@ public class cuestionario extends JFrame {
                 //Carga de mi vuelo
                 City cityFlight = new City(cityDestino);
 
-                //todo -> persistir fecha de forma correcta
+                ArrayList<Flight> flightArrayList2 = companyInstance.getFlightArrayList();
+                for (Flight flightInCompany : flightArrayList2) {
+
+                    if (flightInCompany.getFlightDate() == localDate1 && flightInCompany.getAirplane().getCategory() == selectedPlane.getCategory()) {
+                        System.out.println("hola3 entro");
+                        System.out.println(flightInCompany.getAirplane().getCategory());
+                        System.out.println(selectedPlane.getCategory());
+                        selectedPlane.setAvailable(false);
+                        availablePlane = false;
+                        JOptionPane.showMessageDialog(null, "El avion seleccionado se encuentra ocupado en la fecha especificada");
+                    }
+                    if (flightInCompany.getFlightDate() == localDate1 && flightInCompany.getAirplane().getCategory() != selectedPlane.getCategory()) {
+                        System.out.println("entro capoeira");
+                        selectedPlane.setAvailable(false);
+                        availablePlane = true;
+                    }
+
+                }
+
+                System.out.println("Avion seleccionado " + selectedPlane);
 
                 Flight flight = new Flight(cityOrigen, cityFlight, companyInstance.getCurrentLoggedUser(), localDate1, travelCost, selectedPlane, true);
+
 
                 String pathFlight = "vuelos.json";
                 File myFileFlight = new File(pathFlight);
 
+                int option = JOptionPane.showConfirmDialog(null, q);
 
-                //Si las locaciones seleccionadas son validas se procede a mostrar un mensaje con los datos del vuelo
-                if (valid == true) {
-                    int option = JOptionPane.showConfirmDialog(null, q);
 
-                    //Confima vuelo -> se le muestra un recuadro con la info del vuelo para confirmar
+                if (valid ) {
                     if (option == 0) {
-                        //Al aceptar se crea un Flight que deberá guardarse en un archivo.
 
                         System.out.println("\n\n VUELOS \n");
-                        /*Company.getSingletonInstance().showCollection(flight);*/
+
                         int confirm = JOptionPane.showConfirmDialog(null, flight);
+
                         if (confirm == 0) {
+
                             Company.getSingletonInstance().addToCollection(flight);
+
                             JOptionPane.showMessageDialog(null, "Vuelo reservado\nBuen viaje!!");
 
                             //Persistencia en arhivo de nuestro vuelo
@@ -173,6 +194,8 @@ public class cuestionario extends JFrame {
                             if (myFileFlight.length() > 0) {
                                 ObjectMapper mapperFlight1 = new ObjectMapper();
                                 ArrayList<Flight> fli = mapperFlight1.readValue(myFileFlight, mapperFlight1.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
+                                fli.add(flight);
+                                mapperFlight1.writerWithDefaultPrettyPrinter().writeValue(new File(pathFlight), fli);
                             }
                             if (myFileFlight.length() == 0) {
                                 ArrayList<Flight> flightArrayList = new ArrayList<>();
@@ -191,7 +214,9 @@ public class cuestionario extends JFrame {
                         JOptionPane.showMessageDialog(null, "Volviendo, no se ha registrado ningún viaje");
 
                     }
+
                 }
+
 
             } catch (Exception e1) {
                 e1.getMessage();

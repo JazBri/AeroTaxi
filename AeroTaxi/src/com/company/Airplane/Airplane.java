@@ -18,10 +18,10 @@ public abstract class Airplane {
     private static final int passengerCapacity = 10;
     private PropulsionType propulsionType;
     private boolean available;
-    private PlaneCategory category;
+    private String category;
 
 
-    public Airplane(PropulsionType propulsionType, boolean available, PlaneCategory category) {
+    public Airplane(PropulsionType propulsionType, boolean available, String category) {
         this.propulsionType = propulsionType;
         this.available = available;
         this.category = category;
@@ -51,11 +51,11 @@ public abstract class Airplane {
         return passengerCapacity;
     }
 
-    public PlaneCategory getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(PlaneCategory category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 

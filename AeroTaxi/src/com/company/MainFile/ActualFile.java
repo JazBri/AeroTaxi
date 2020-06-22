@@ -1,7 +1,5 @@
 package com.company.MainFile;
 
-import com.company.Airplane.Airplane;
-import com.company.Airplane.PlaneCategory;
 import com.company.Airplane.Planes.Bronze;
 import com.company.Airplane.Planes.Gold;
 import com.company.Airplane.Planes.Silver;
@@ -12,13 +10,11 @@ import com.company.Flight.Flight;
 import com.company.Main;
 import com.company.User.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ActualFile {
 
@@ -50,13 +46,9 @@ public class ActualFile {
         PropulsionType helice = PropulsionType.HELICE;
         PropulsionType reaction = PropulsionType.REACTION;
 
-        PlaneCategory bronzeC = PlaneCategory.Bronze;
-        PlaneCategory silverC = PlaneCategory.Silver;
-        PlaneCategory goldC = PlaneCategory.Gold;
-
-        Bronze bronze = new Bronze(helice, true, bronzeC);
-        Silver silver = new Silver(pistones, true, silverC);
-        Gold gold = new Gold(reaction, true, goldC);
+        Bronze bronze = new Bronze(helice, true, "Bronze");
+        Silver silver = new Silver(pistones, true, "Silver");
+        Gold gold = new Gold(reaction, true, "Gold");
 
 
         String pathAirplaneBr = "avionesBronze.json";
@@ -182,7 +174,12 @@ public class ActualFile {
                     ObjectMapper mapperAirplane1 = new ObjectMapper();
                     mapperAirplane1.enableDefaultTyping(ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE);
                     ArrayList<Bronze> airplaneArrayListBr = mapperAirplane1.readValue(myFileAirplaneBr, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Bronze.class));
+                    for (Bronze brPlane : airplaneArrayListBr) {
+                        brPlane.setCategory("Bronze");
+                        companyInstance.addToCollection(brPlane);
+                        System.out.println(companyInstance.getAirplaneArrayListBronze());
 
+                    }
                 }
 
 
@@ -201,8 +198,13 @@ public class ActualFile {
                     //Lectura del archivo, se levantan los datos de los aviones
                     ObjectMapper mapperReaderAirplane = new ObjectMapper();
                     ObjectMapper mapperAirplane1 = new ObjectMapper();
-                    ArrayList<Silver> airplaneArrayListBr = mapperAirplane1.readValue(myFileAirplaneSl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Silver.class));
+                    ArrayList<Silver> airplaneArrayListSl = mapperAirplane1.readValue(myFileAirplaneSl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Silver.class));
+                    for (Silver slPlane : airplaneArrayListSl) {
+                        slPlane.setCategory("Silver");
+                        companyInstance.addToCollection(slPlane);
+                        System.out.println(companyInstance.getAirplaneArrayListSilver());
 
+                    }
                 }
 
                 if (myFileAirplaneGl.length() == 0) {
@@ -221,7 +223,11 @@ public class ActualFile {
                     ObjectMapper mapperReaderAirplane = new ObjectMapper();
                     ObjectMapper mapperAirplane1 = new ObjectMapper();
                     ArrayList<Gold> airplaneArrayListGl = mapperAirplane1.readValue(myFileAirplaneGl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Gold.class));
-
+                    for (Gold glPlane : airplaneArrayListGl) {
+                        glPlane.setCategory("Gold");
+                        companyInstance.addToCollection(glPlane);
+                        System.out.println(companyInstance.getAirplaneArrayListGold());
+                    }
                 }
 
                 //Lectura del archivo, se levantan los datos de los vuelos
@@ -232,7 +238,6 @@ public class ActualFile {
                     ArrayList<Flight> fli = mapperFlight1.readValue(myFileFlight, mapperFlight1.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
                     for (Flight myFlight : fli) {
                         companyInstance.addToCollection(myFlight);
-                        System.out.println(myFlight);
                     }
                 }
 

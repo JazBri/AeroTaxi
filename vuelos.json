@@ -1,6 +1,29 @@
 [ {
   "origen" : {
+    "name" : "Buenos Aires"
+  },
+  "destino" : {
     "name" : "Cordoba"
+  },
+  "activeLoggedUser" : {
+    "name" : "Luciano",
+    "lastName" : "Sassano",
+    "age" : 21,
+    "registered" : true,
+    "dni" : 41333010
+  },
+  "flightDate" : 1592967600000,
+  "totalCost" : 239000,
+  "airplane" : {
+    "category" : "Gold",
+    "propulsionType" : "REACTION",
+    "available" : true,
+    "category" : "Gold"
+  },
+  "statusConfirm" : true
+}, {
+  "origen" : {
+    "name" : "Buenos Aires"
   },
   "destino" : {
     "name" : "Montevideo"
@@ -12,9 +35,10 @@
     "registered" : true,
     "dni" : 41333010
   },
-  "flightDate" : 1592776508867,
-  "totalCost" : 275250,
+  "flightDate" : 1593054000000,
+  "totalCost" : 242250,
   "airplane" : {
+    "category" : "Silver",
     "propulsionType" : "PISTONES",
     "available" : true,
     "category" : "Silver"
