@@ -29,6 +29,7 @@ public class register extends JFrame {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(register);
+        this.setResizable(false);
         this.pack();
 
         String pathUser = "usuarios.json";

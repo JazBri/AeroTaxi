@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Company {
 
     private ArrayList<Object> userArrayList = new ArrayList<>();
-    private ArrayList<Object> flightArrayList = new ArrayList<>();
+    private ArrayList<Flight> flightArrayList = new ArrayList<>();
     private ArrayList<Bronze> airplaneArrayListBronze = new ArrayList<>();
     private ArrayList<Silver> airplaneArrayListSilver = new ArrayList<>();
     private ArrayList<Gold> airplaneArrayListGold = new ArrayList<>();
@@ -53,7 +53,7 @@ public class Company {
                 airplaneArrayListGold.add((Gold) object);
             }
             if (object instanceof Flight) {
-                flightArrayList.add(object);
+                flightArrayList.add((Flight) object);
             }
             if (object instanceof City) {
                 citiesArrayList.add(object);
@@ -111,11 +111,11 @@ public class Company {
         this.userArrayList = userArrayList;
     }
 
-    public ArrayList<Object> getFlightArrayList() {
+    public ArrayList<Flight> getFlightArrayList() {
         return flightArrayList;
     }
 
-    public void setFlightArrayList(ArrayList<Object> flightArrayList) {
+    public void setFlightArrayList(ArrayList<Flight> flightArrayList) {
         this.flightArrayList = flightArrayList;
     }
 
@@ -166,6 +166,7 @@ public class Company {
     public void setCurrentLoggedUser(User currentLoggedUser) {
         this.currentLoggedUser = currentLoggedUser;
     }
+
 
     @Override
     public String toString() {
