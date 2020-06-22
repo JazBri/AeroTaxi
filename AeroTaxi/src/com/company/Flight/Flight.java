@@ -1,9 +1,8 @@
 package com.company.Flight;
 
 import com.company.Airplane.Airplane;
-import com.company.City.City;
-import com.company.Questionary.Questionary;
-import com.company.User.User;
+import com.company.Cityy.City;
+import com.company.Userr.User;
 
 public class Flight {
     private City origen;
@@ -71,6 +70,11 @@ public class Flight {
 
     public void setStatusConfirm(boolean statusConfirm) {
         this.statusConfirm = statusConfirm;
+    }
+
+    public String showList(){
+        return "  origen = " + origen.getName() +
+                "\ndestino = " + destino.getName();
     }
 
     @Override

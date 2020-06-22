@@ -4,10 +4,10 @@ import com.company.Airplane.Airplane;
 import com.company.Airplane.Planes.Bronze;
 import com.company.Airplane.Planes.Gold;
 import com.company.Airplane.Planes.Silver;
-import com.company.City.City;
+import com.company.Cityy.City;
 import com.company.CompanyAdmin.Company;
 import com.company.Flight.Flight;
-import com.company.Questionary.Questionary;
+import com.company.Questionaryy.Questionary;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
@@ -148,6 +148,13 @@ public class cuestionario extends JFrame {
 
                 String pathFlight = "vuelos.json";
                 File myFileFlight = new File(pathFlight);
+
+                ArrayList<Flight> flightArrayLis = new ArrayList<>();
+                flightArrayLis.add(flight);
+
+                ObjectMapper mapper = new ObjectMapper();
+                Company.getSingletonInstance().addToCollection(flight);
+                mapper.writerWithDefaultPrettyPrinter().writeValue(new File(pathFlight), flightArrayLis);
 
 
                 //Si las locaciones seleccionadas son validas se procede a mostrar un mensaje con los datos del vuelo

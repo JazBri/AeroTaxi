@@ -1,9 +1,8 @@
-package com.company.Questionary;
+package com.company.Questionaryy;
 
 import com.company.Airplane.Airplane;
-import com.company.City.City;
+import com.company.Cityy.City;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Questionary {

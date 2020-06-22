@@ -1,11 +1,13 @@
 package com.company.JFrames;
 
 import com.company.CompanyAdmin.Company;
-import com.company.User.User;
+import com.company.Userr.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ public class verifyUser extends JFrame {
     private JTextField dniField;
     private JButton okButton;
     private JButton registerButton;
+    private JButton másOpcionesButton;
     private User user;
     private int dni;
     private static verifyUser vu;
@@ -79,6 +82,15 @@ public class verifyUser extends JFrame {
             }
 
 
+        });
+        másOpcionesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listado listado = new listado("Listado");
+                verifyUser.setVisible(false);
+                listado.setBounds(650, 180, 800, 500);
+                listado.setVisible(true);
+            }
         });
     }
 

@@ -1,4 +1,4 @@
-package com.company.User;
+package com.company.Userr;
 
 import java.io.Serializable;
 
@@ -65,10 +65,14 @@ public class User implements Serializable {
 
 
     public String showMessageRegistered() {
-        return "Nombre: " + name +
+        return "\nNombre: " + name +
                 "\nApellido: " + lastName +
                 "\nDNI: " + DNI +
                 "\nEdad: " + age;
+    }
+
+    public String showList() {
+        return  "Nombre completo: " + name + " " + lastName +  " DNI: " + DNI + " Edad: " + age;
 
     }
 
