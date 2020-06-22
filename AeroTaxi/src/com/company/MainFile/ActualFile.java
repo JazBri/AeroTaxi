@@ -1,6 +1,5 @@
 package com.company.MainFile;
 
-import com.company.Airplane.PlaneCategory;
 import com.company.Airplane.Planes.Bronze;
 import com.company.Airplane.Planes.Gold;
 import com.company.Airplane.Planes.Silver;
@@ -16,7 +15,6 @@ import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ActualFile {
 
@@ -48,13 +46,9 @@ public class ActualFile {
         PropulsionType helice = PropulsionType.HELICE;
         PropulsionType reaction = PropulsionType.REACTION;
 
-        PlaneCategory bronzeC = PlaneCategory.Bronze;
-        PlaneCategory silverC = PlaneCategory.Silver;
-        PlaneCategory goldC = PlaneCategory.Gold;
-
-        Bronze bronze = new Bronze(helice, true, bronzeC);
-        Silver silver = new Silver(pistones, true, silverC);
-        Gold gold = new Gold(reaction, true, goldC);
+        Bronze bronze = new Bronze(helice, true, "Bronze");
+        Silver silver = new Silver(pistones, true, "Silver");
+        Gold gold = new Gold(reaction, true, "Gold");
 
 
         String pathAirplaneBr = "avionesBronze.json";
@@ -123,11 +117,7 @@ public class ActualFile {
                 }
                 if (myFileUser.length() != 0) {
                     //Lectura del archivo, se levantan los datos de los usuarios
-                    if (companyInstance.getUserArrayList().size() == 0) {
-                        companyInstance.getUserArrayList().add(user1);
-                        companyInstance.getUserArrayList().add(user2);
-                        companyInstance.getUserArrayList().add(user3);
-                    }
+
 
                     ObjectMapper mapperReaderUser = new ObjectMapper();
                     ObjectMapper mapperUser1 = new ObjectMapper();
@@ -154,19 +144,12 @@ public class ActualFile {
 
                 if (myFileCity.length() != 0) {
 
-                    if (companyInstance.getCitiesArrayList().size() == 0) {
-                        companyInstance.getCitiesArrayList().add(city1);
-                        companyInstance.getCitiesArrayList().add(city2);
-                        companyInstance.getCitiesArrayList().add(city3);
-                        companyInstance.getCitiesArrayList().add(city4);
-                    }
                     //Lectura del archivo, se levantan los datos de las ciudades
                     ObjectMapper mapperReaderCities = new ObjectMapper();
                     ObjectMapper mapperCities1 = new ObjectMapper();
                     ArrayList<City> cit = mapperReaderCities.readValue(myFileCity, mapperCities1.getTypeFactory().constructCollectionType(ArrayList.class, City.class));
                     for (City myCity : cit) {
                         companyInstance.addToCollection(myCity);
-
                     }
 
                 }
@@ -184,14 +167,19 @@ public class ActualFile {
                 }
                 if (myFileAirplaneBr.length() != 0) {
 
-                    if (companyInstance.getAirplaneArrayListBronze().size() == 0) {
-                        companyInstance.addToCollection(bronze);
-                    }
+
                     //Lectura del archivo, se levantan los datos de los aviones
                     ObjectMapper mapperReaderAirplane = new ObjectMapper();
+                    mapperReaderAirplane.enableDefaultTyping(ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE);
                     ObjectMapper mapperAirplane1 = new ObjectMapper();
+                    mapperAirplane1.enableDefaultTyping(ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE);
                     ArrayList<Bronze> airplaneArrayListBr = mapperAirplane1.readValue(myFileAirplaneBr, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Bronze.class));
+                    for (Bronze brPlane : airplaneArrayListBr) {
+                        brPlane.setCategory("Bronze");
+                        companyInstance.addToCollection(brPlane);
+                        System.out.println(companyInstance.getAirplaneArrayListBronze());
 
+                    }
                 }
 
 
@@ -207,14 +195,16 @@ public class ActualFile {
                 }
                 if (myFileAirplaneSl.length() != 0) {
 
-                    if (companyInstance.getAirplaneArrayListSilver().size() == 0) {
-                        companyInstance.addToCollection(silver);
-                    }
                     //Lectura del archivo, se levantan los datos de los aviones
                     ObjectMapper mapperReaderAirplane = new ObjectMapper();
                     ObjectMapper mapperAirplane1 = new ObjectMapper();
-                    ArrayList<Silver> airplaneArrayListBr = mapperAirplane1.readValue(myFileAirplaneSl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Silver.class));
+                    ArrayList<Silver> airplaneArrayListSl = mapperAirplane1.readValue(myFileAirplaneSl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Silver.class));
+                    for (Silver slPlane : airplaneArrayListSl) {
+                        slPlane.setCategory("Silver");
+                        companyInstance.addToCollection(slPlane);
+                        System.out.println(companyInstance.getAirplaneArrayListSilver());
 
+                    }
                 }
 
                 if (myFileAirplaneGl.length() == 0) {
@@ -229,33 +219,25 @@ public class ActualFile {
                 }
                 if (myFileAirplaneGl.length() != 0) {
 
-                    if (companyInstance.getAirplaneArrayListGold().size() == 0) {
-                        companyInstance.addToCollection(gold);
-                    }
                     //Lectura del archivo, se levantan los datos de los aviones
                     ObjectMapper mapperReaderAirplane = new ObjectMapper();
                     ObjectMapper mapperAirplane1 = new ObjectMapper();
                     ArrayList<Gold> airplaneArrayListGl = mapperAirplane1.readValue(myFileAirplaneGl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Gold.class));
-
+                    for (Gold glPlane : airplaneArrayListGl) {
+                        glPlane.setCategory("Gold");
+                        companyInstance.addToCollection(glPlane);
+                        System.out.println(companyInstance.getAirplaneArrayListGold());
+                    }
                 }
-                /*if (myFileFlight.length() == 0) {
-                    ArrayList<Flight> flightArrayList = new ArrayList<>();
-                    flightArrayList.add(flight1);
-
-                    ObjectMapper mapper = new ObjectMapper();
-                    companyInstance.addToCollection(flight1);
-                    mapper.writerWithDefaultPrettyPrinter().writeValue(new File(pathFlight), flightArrayList);
-
-                }*/
 
                 //Lectura del archivo, se levantan los datos de los vuelos
                 if (myFileFlight.length() != 0) {
                     ObjectMapper mapperReaderFlights = new ObjectMapper();
                     ObjectMapper mapperFlight1 = new ObjectMapper();
+
                     ArrayList<Flight> fli = mapperFlight1.readValue(myFileFlight, mapperFlight1.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
                     for (Flight myFlight : fli) {
                         companyInstance.addToCollection(myFlight);
-                        System.out.println(myFlight);
                     }
                 }
 

@@ -2,11 +2,11 @@ package com.company.Airplane.Planes;
 
 import com.company.Airplane.Airplane;
 import com.company.Airplane.Catering;
-import com.company.Airplane.PlaneCategory;
 import com.company.Airplane.PropulsionType;
 import com.company.Airplane.Wifi;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
+@JsonTypeName("Gold")
 public class Gold extends Airplane implements Wifi, Catering {
 
     private static final int costPerKilometer = 300;
@@ -15,12 +15,14 @@ public class Gold extends Airplane implements Wifi, Catering {
     private static final String serviceGold = Wifi.wifi + " , " + Catering.catering;
 
 
-    public Gold(PropulsionType propulsionType, boolean available, PlaneCategory category) {
+    public Gold(PropulsionType propulsionType, boolean available, String category) {
         super(propulsionType, available, category);
     }
 
     public Gold() {
-    };
+    }
+
+    ;
 
 
     public static int getCostPerKilometer() {
@@ -38,7 +40,6 @@ public class Gold extends Airplane implements Wifi, Catering {
     public static String getServiceGold() {
         return serviceGold;
     }
-
 
 
     @Override

@@ -2,19 +2,19 @@ package com.company.Airplane.Planes;
 
 import com.company.Airplane.Airplane;
 import com.company.Airplane.Catering;
-import com.company.Airplane.PlaneCategory;
 import com.company.Airplane.PropulsionType;
-import com.company.Airplane.Wifi;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
+@JsonTypeName("Silver")
 public class Silver extends Airplane implements Catering {
+
 
     private static final int costPerKilometer = 225;
     private static final int fixCost = 4000;
     private static final int fuelCapacity = 300;
     private static final String serviceSilver = Catering.catering;
 
-    public Silver(PropulsionType propulsionType, boolean available, PlaneCategory category) {
+    public Silver(PropulsionType propulsionType, boolean available, String category) {
         super(propulsionType, available, category);
     }
 

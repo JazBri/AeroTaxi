@@ -4,25 +4,38 @@ import com.company.Airplane.Airplane;
 import com.company.City.City;
 import com.company.Questionary.Questionary;
 import com.company.User.User;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+import java.util.Date;
 
 public class Flight {
     private City origen;
     private City destino;
     private User activeLoggedUser;
+    private Date flightDate;
     private int totalCost;
     private Airplane airplane;
     private boolean statusConfirm;
 
-    public Flight(City origen, City destino, User activeLoggedUser, int totalCost, Airplane airplane, boolean statusConfirm) {
+    public Flight(City origen, City destino, User activeLoggedUser, Date flightDate, int totalCost, Airplane airplane, boolean statusConfirm) {
         this.origen = origen;
         this.destino = destino;
         this.activeLoggedUser = activeLoggedUser;
+        this.flightDate = flightDate;
         this.totalCost = totalCost;
         this.airplane = airplane;
         this.statusConfirm = statusConfirm;
     }
 
     public Flight() {
+    }
+
+    public Date getFlightDate() {
+        return flightDate;
+    }
+
+    public void setFlightDate(Date flightDate) {
+        this.flightDate = flightDate;
     }
 
     public City getOrigen() {
@@ -77,6 +90,7 @@ public class Flight {
     public String toString() {
         return "  origen = " + origen.getName() +
                 "\ndestino = " + destino.getName() +
+                "\nfecha de vuelo =" + flightDate +
                 "\nactiveLoggedUser =" + activeLoggedUser.getName() +
                 "\n totalCost =" + totalCost;
     }
