@@ -1,70 +1,25 @@
 [ {
   "origen" : {
-    "name" : "Montevideo"
-  },
-  "destino" : {
     "name" : "Cordoba"
   },
-  "activeLoggedUser" : {
-    "name" : "Jazmin",
-    "lastName" : "Briasco",
-    "age" : 23,
-    "registered" : true,
-    "dni" : 39338563
+  "destino" : {
+    "name" : "Montevideo"
   },
-  "totalCost" : 13000,
+  "activeLoggedUser" : {
+    "name" : "Luciano",
+    "lastName" : "Sassano",
+    "age" : 21,
+    "totalSpent" : 15000.0,
+    "bestAirplane" : null,
+    "registered" : true,
+    "dni" : 41333010
+  },
+  "totalCost" : 7500,
   "airplane" : {
-    "propulsionType" : "REACTION",
+    "propulsionType" : "PISTONES",
     "available" : true,
-    "category" : "Gold"
+    "category" : "Silver"
   },
   "statusConfirm" : true,
-  "date" : 1607742000000
-},
-  {
-    "origen" : {
-      "name" : "Santiago"
-    },
-    "destino" : {
-      "name" : "Cordoba"
-    },
-    "activeLoggedUser" : {
-      "name" : "Jazmin",
-      "lastName" : "Briasco",
-      "age" : 23,
-      "registered" : true,
-      "dni" : 32147852
-    },
-    "totalCost" : 13000,
-    "airplane" : {
-      "propulsionType" : "REACTION",
-      "available" : true,
-      "category" : "Gold"
-    },
-    "statusConfirm" : true,
-    "date" : 1607742000000
-  },
-  {
-    "origen" : {
-      "name" : "Santiago"
-    },
-    "destino" : {
-      "name" : "Cordoba"
-    },
-    "activeLoggedUser" : {
-      "name" : "Nicolas",
-      "lastName" : "Villarino",
-      "age" : 23,
-      "registered" : true,
-      "dni" : 32147852
-    },
-    "totalCost" : 13000,
-    "airplane" : {
-      "propulsionType" : "REACTION",
-      "available" : true,
-      "category" : "Gold"
-    },
-    "statusConfirm" : true,
-    "date" : 1607742000000
-  }
-]
+  "date" : 1592794800000
+} ]

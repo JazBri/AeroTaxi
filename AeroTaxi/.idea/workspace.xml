@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2f95c7af-121c-4b05-8961-c44d63bde80a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Airplane/Airplane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Airplane/Airplane.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Flight/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Flight/Flight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/cuestionario$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/cuestionario$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/cuestionario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/cuestionario.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/listado$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/listado$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/listado$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/listado$2.class" afterDir="false" />
@@ -12,15 +12,19 @@
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/verifyUser$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/JFrames/verifyUser$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/MainFile/ActualFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/MainFile/ActualFile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Userr/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AeroTaxi/com/company/Userr/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/City/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/City/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Airplane/Airplane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Airplane/Airplane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/City/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Cityy/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/CompanyAdmin/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CompanyAdmin/Company.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Flight/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Flight/Flight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/JFrames/cuestionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/cuestionario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/JFrames/listado.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/listado.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/JFrames/listado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/listado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/JFrames/register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/JFrames/verifyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/JFrames/verifyUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/MainFile/ActualFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MainFile/ActualFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Questionary/Questionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Questionaryy/Questionary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Questionaryy/Questionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Questionaryy/Questionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Userr/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios.json" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vuelos.json" beforeDir="false" afterPath="$PROJECT_DIR$/vuelos.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,11 +107,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1592745675858" />
-    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1592804252007">
+    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1592836509829">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1592243041545" />
-    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1592804252007" />
+    <state x="189" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1592836509829" />
     <state x="951" y="300" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591629837485">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -129,46 +133,46 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1591815069235" />
-    <state width="1493" height="168" key="GridCell.Tab.0.bottom" timestamp="1592804149465">
+    <state width="1493" height="171" key="GridCell.Tab.0.bottom" timestamp="1592836679426">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="112" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1592243929024" />
     <state width="1493" height="112" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1592243155910" />
-    <state width="1493" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592804149465" />
-    <state width="1493" height="168" key="GridCell.Tab.0.center" timestamp="1592804149464">
+    <state width="1493" height="171" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592836679426" />
+    <state width="1493" height="171" key="GridCell.Tab.0.center" timestamp="1592836679426">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="112" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1592243929024" />
     <state width="1493" height="112" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1592243155910" />
-    <state width="1493" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592804149464" />
-    <state width="1493" height="168" key="GridCell.Tab.0.left" timestamp="1592804149464">
+    <state width="1493" height="171" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592836679426" />
+    <state width="1493" height="171" key="GridCell.Tab.0.left" timestamp="1592836679426">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="112" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1592243929024" />
     <state width="1493" height="112" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1592243155909" />
-    <state width="1493" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592804149464" />
-    <state width="1493" height="168" key="GridCell.Tab.0.right" timestamp="1592804149465">
+    <state width="1493" height="171" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592836679426" />
+    <state width="1493" height="171" key="GridCell.Tab.0.right" timestamp="1592836679426">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="112" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1592243929024" />
     <state width="1493" height="112" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1592243155910" />
-    <state width="1493" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592804149465" />
-    <state width="1493" height="112" key="GridCell.Tab.1.bottom" timestamp="1592786019346">
+    <state width="1493" height="171" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592836679426" />
+    <state width="1493" height="112" key="GridCell.Tab.1.bottom" timestamp="1592804596023">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="112" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592786019346" />
-    <state width="1493" height="112" key="GridCell.Tab.1.center" timestamp="1592786019346">
+    <state width="1493" height="112" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592804596023" />
+    <state width="1493" height="112" key="GridCell.Tab.1.center" timestamp="1592804596023">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="112" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592786019346" />
-    <state width="1493" height="112" key="GridCell.Tab.1.left" timestamp="1592786019346">
+    <state width="1493" height="112" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592804596023" />
+    <state width="1493" height="112" key="GridCell.Tab.1.left" timestamp="1592804596023">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="112" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592786019346" />
-    <state width="1493" height="112" key="GridCell.Tab.1.right" timestamp="1592786019346">
+    <state width="1493" height="112" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592804596023" />
+    <state width="1493" height="112" key="GridCell.Tab.1.right" timestamp="1592804596023">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="112" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592786019346" />
+    <state width="1493" height="112" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592804596023" />
     <state x="277" y="55" key="SettingsEditor" timestamp="1592782110539">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -177,11 +181,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="647" y="207" key="UIDesigner.ListEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1592316385652" />
-    <state x="94" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1592780356471">
+    <state x="94" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1592830887228">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="94" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1592236933551" />
-    <state x="94" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1592780356471" />
+    <state x="94" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1592830887228" />
     <state x="555" y="293" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1591661405525">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

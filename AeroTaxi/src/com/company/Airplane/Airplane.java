@@ -1,6 +1,6 @@
 package com.company.Airplane;
 
-public abstract class Airplane {
+public  class Airplane {
     private static final int passengerCapacity = 10;
     private PropulsionType propulsionType;
     private boolean available;

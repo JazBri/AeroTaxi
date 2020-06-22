@@ -1,5 +1,8 @@
 package com.company.User;
 
+import com.company.Airplane.PlaneCategory;
+
+import java.io.IOException;
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -10,14 +13,19 @@ public class User implements Serializable {
     private int age;
     private boolean isRegistered;
     private float totalSpent;
+    private PlaneCategory  bestAirplane;
 
 
-    public User(String name, String lastName, int DNI, int age, boolean isRegistered) {
+
+    public User(String name, String lastName, int DNI, int age, boolean isRegistered) throws IOException {
         this.name = name;
         this.lastName = lastName;
         this.DNI = DNI;
         this.age = age;
         this.isRegistered = isRegistered;
+        this.totalSpent = 0;
+        this.bestAirplane = null;
+
     }
 
     public User() {
@@ -77,6 +85,16 @@ public class User implements Serializable {
         this.totalSpent = totalSpent;
     }
 
+
+    public PlaneCategory getBestAirplane() {
+        return bestAirplane;
+    }
+
+    public void setBestAirplane(PlaneCategory bestAirplane) {
+        this.bestAirplane = bestAirplane;
+    }
+
+
     public String showMessageRegistered() {
         return "\nNombre: " + name +
                 "\nApellido: " + lastName +
@@ -84,11 +102,13 @@ public class User implements Serializable {
                 "\nEdad: " + age;
     }
 
-    public String showList() {
-        return  "Nombre completo: " + name + " " + lastName +  " DNI " + DNI + " Edad: " + age;
+    public String showListUser() {
+        return  "Nombre completo:   " + name + " " + lastName +  "    DNI  " + DNI + "    Edad:  " + age + "    Total gastado:  " + getTotalSpent() + "   Mejor avión utilizado:  " + getBestAirplane();
     }
+    public String showListFlights() {
+        return  "Nombre completo:   " + name + " " + lastName +  "    DNI  " + DNI + "    Edad:  " + age;
 
-
+    }
     @Override
     public String toString() {
         return " User ->" +
@@ -96,7 +116,8 @@ public class User implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", DNI=" + DNI +
                 ", age=" + age +
-                ", isRegistered=" + isRegistered;
+                ", isRegistered=" + isRegistered +
+                ", totalSpent: " + totalSpent;
     }
 }
 

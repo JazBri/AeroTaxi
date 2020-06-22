@@ -103,7 +103,7 @@ public class ActualFile {
         mapperCities.writerWithDefaultPrettyPrinter().writeValue(new File(pathCities), city);
     }
 
-    public static void archivos() {
+    public static void archivos() throws IOException {
 
         //Cargamos algunos usuarios al archivo
         User user1 = new User("Jazmin", "Briasco", 39338563, 23, true);

@@ -21,6 +21,7 @@ public class listado extends JFrame{
     private JList listUser;
     private JList listFlights;
     private JPanel jPanCalendar;
+    private JButton volverButton;
 
     public listado(String title) throws HeadlessException {
         super(title);
@@ -44,7 +45,7 @@ public class listado extends JFrame{
 
                     //Listar los datos personales
                     for (User jl : userList) {
-                        lista.addElement(jl.showList());
+                        lista.addElement(jl.showListUser());
                     }
 
                     //Mejor avión utilizado
@@ -53,13 +54,13 @@ public class listado extends JFrame{
 
 
                     //Total invertido
-                    float totalSpent = 0;
+               /*     float totalSpent = 0;
                     for (int i = 1; i < flights.size(); i++) {
                         if(flights.get(i).getActiveLoggedUser().equals(flights.get(i+1).getActiveLoggedUser())) {
                             totalSpent += flights.get(i).getTotalCost();
                             lista.addElement("Total Invertido: " + totalSpent);
                         }
-                    }
+                    }*/
 
 
 
@@ -91,6 +92,13 @@ public class listado extends JFrame{
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+            }
+        });
+        volverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listado.setVisible(false);
+                verifyUser.getSingletonInstance().setVisible(true);
             }
         });
     }

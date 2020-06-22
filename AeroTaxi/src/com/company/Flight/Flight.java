@@ -89,7 +89,7 @@ public class Flight {
                 "\n  Destino:  " + destino.getName() +
                 "\n  Servicio: " + airplane.getCategory() +
                 "\n  Costo Total:  " + totalCost +
-                "\n  Datos del Usuario:  " + activeLoggedUser.showList();
+                "\n  Datos del Usuario:  " + activeLoggedUser.showListFlights();
 
     }
 

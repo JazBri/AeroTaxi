@@ -88,7 +88,7 @@ public class verifyUser extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 listado listado = new listado("Listado");
                 verifyUser.setVisible(false);
-                listado.setBounds(650, 180, 1200, 500);
+                listado.setBounds(100, 180, 1650, 500);
                 listado.setVisible(true);
             }
         });
@@ -99,6 +99,7 @@ public class verifyUser extends JFrame {
         if (vu == null) {
             vu = new verifyUser("Aero Taxi");
             System.out.println("Objeto Company creado exitosamente!");
+            vu.setVisible(true);
         } else {
             //   System.out.println("El objeto Company ya se encuentra instanciado.");
         }

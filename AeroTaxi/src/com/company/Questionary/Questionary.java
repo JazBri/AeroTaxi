@@ -1,4 +1,4 @@
-package com.company.Questionaryy;
+package com.company.Questionary;
 
 import com.company.Airplane.Airplane;
 import com.company.City.City;

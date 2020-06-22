@@ -2,18 +2,24 @@
   "name" : "Jazmin",
   "lastName" : "Briasco",
   "age" : 23,
+  "totalSpent" : 136500.0,
+  "bestAirplane" : "Silver",
   "registered" : true,
   "dni" : 39338563
 }, {
   "name" : "Luciano",
   "lastName" : "Sassano",
   "age" : 21,
+  "totalSpent" : 15000.0,
+  "bestAirplane" : "Silver",
   "registered" : true,
   "dni" : 41333010
 }, {
   "name" : "Matias",
   "lastName" : "Gonzalez",
   "age" : 58,
+  "totalSpent" : 0.0,
+  "bestAirplane" : null,
   "registered" : true,
   "dni" : 35789651
 } ]
