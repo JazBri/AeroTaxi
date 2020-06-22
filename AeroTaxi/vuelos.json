@@ -1,0 +1,25 @@
+[ {
+  "origen" : {
+    "name" : "Cordoba"
+  },
+  "destino" : {
+    "name" : "Montevideo"
+  },
+  "activeLoggedUser" : {
+    "name" : "Luciano",
+    "lastName" : "Sassano",
+    "age" : 21,
+    "totalSpent" : 15000.0,
+    "bestAirplane" : null,
+    "registered" : true,
+    "dni" : 41333010
+  },
+  "totalCost" : 7500,
+  "airplane" : {
+    "propulsionType" : "PISTONES",
+    "available" : true,
+    "category" : "Silver"
+  },
+  "statusConfirm" : true,
+  "date" : 1592794800000
+} ]

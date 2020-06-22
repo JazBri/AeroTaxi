@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ public class verifyUser extends JFrame {
     private JTextField dniField;
     private JButton okButton;
     private JButton registerButton;
+    private JButton másOpcionesButton;
     private User user;
     private int dni;
     private static verifyUser vu;
@@ -81,6 +84,15 @@ public class verifyUser extends JFrame {
 
 
         });
+        másOpcionesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listado listado = new listado("Listado");
+                verifyUser.setVisible(false);
+                listado.setBounds(100, 180, 1650, 500);
+                listado.setVisible(true);
+            }
+        });
     }
 
     //getSingletonInstance devuelve la instancia del objeto, de esta manera se puede llamar en distintas clases.
@@ -88,6 +100,7 @@ public class verifyUser extends JFrame {
         if (vu == null) {
             vu = new verifyUser("Aero Taxi");
             System.out.println("Objeto Company creado exitosamente!");
+            vu.setVisible(true);
         } else {
             //   System.out.println("El objeto Company ya se encuentra instanciado.");
         }

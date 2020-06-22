@@ -1,5 +1,6 @@
 package com.company.Airplane;
 
+
 import com.company.Airplane.Planes.Bronze;
 import com.company.Airplane.Planes.Gold;
 import com.company.Airplane.Planes.Silver;
@@ -15,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class Airplane {
+
     private static final int passengerCapacity = 10;
     private PropulsionType propulsionType;
     private boolean available;

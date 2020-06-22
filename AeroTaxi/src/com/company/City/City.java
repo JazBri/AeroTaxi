@@ -25,38 +25,38 @@ public class City {
         int km = 0;
 
         if (this.name == "Buenos Aires") {
-            km = switch (destination) {
-                case ("Cordoba") -> km = 695;
-                case ("Santiago") -> km = 1400;
-                case ("Montevideo") -> km = 950;
-                default -> km;
+            switch (destination) {
+                case ("Cordoba") : km = 695;
+                case ("Santiago") : km = 1400;
+                case ("Montevideo") : km = 950;
+                default : km = 0;
             };
         }
 
         if (this.name == "Cordoba") {
-            km = switch (destination) {
-                case ("Buenos Aires") -> 695;
-                case ("Montevideo") -> 1190;
-                case ("Santiago") -> 1050;
-                default -> km;
+             switch (destination) {
+                 case ("Buenos Aires") : km = 695;
+                 case ("Montevideo") : km = 1190;
+                 case ("Santiago") : km = 1050;
+                 default : km = 0;
             };
         }
 
         if (this.name == "Montevideo") {
-            km = switch (destination) {
-                case ("Buenos Aires") -> 950;
-                case ("Cordoba") -> 1190;
-                case ("Santiago") -> 2100;
-                default -> km;
+             switch (destination) {
+                 case ("Buenos Aires") : km = 950;
+                case ("Cordoba") : km = 1190;
+                case ("Santiago") : km = 2100;
+                 default : km = 0;
             };
         }
 
         if (this.name == "Santiago") {
-            km = switch (destination) {
-                case ("Buenos Aires") -> 1400;
-                case ("Cordoba") -> 1050;
-                case ("Montevideo") -> 2100;
-                default -> km;
+             switch (destination) {
+                case ("Buenos Aires") : km = 1400;
+                case ("Cordoba") : km = 1050;
+                case ("Montevideo") : km = 2100;
+                default : km = 0;
             };
         }
 

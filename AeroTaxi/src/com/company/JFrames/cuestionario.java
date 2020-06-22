@@ -1,19 +1,24 @@
 package com.company.JFrames;
 
 import com.company.Airplane.Airplane;
+import com.company.Airplane.PlaneCategory;
 import com.company.Airplane.Planes.Bronze;
 import com.company.Airplane.Planes.Gold;
 import com.company.Airplane.Planes.Silver;
 import com.company.City.City;
 import com.company.CompanyAdmin.Company;
 import com.company.Flight.Flight;
+import com.company.MainFile.ActualFile;
 import com.company.Questionary.Questionary;
+import com.company.User.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -141,10 +146,45 @@ public class cuestionario extends JFrame {
 
 
                 Questionary q = new Questionary(localDate1, cityOrigen, ocupantes, selectedPlane, cityDestino);
-                System.out.println("q:" + q.toString());
 
                 //Carga de mi vuelo
                 City cityFlight = new City(cityDestino);
+
+//revisar
+                //Se modifica el valor del costo total invertido
+                Flight flight = new Flight(cityOrigen, cityFlight, companyInstance.getCurrentLoggedUser(), travelCost, selectedPlane, true, localDate1);
+                ArrayList<User>arrayListUser = ActualFile.readUserFile();
+                for(User u : arrayListUser){
+                    if(u.getDNI() == (companyInstance.getCurrentLoggedUser().getDNI())){
+                        u.addTotalSpent(travelCost);
+                        companyInstance.getCurrentLoggedUser().addTotalSpent(travelCost);
+                    }
+                }
+                ActualFile.writeUserFile(arrayListUser);
+
+                //Se modifica el mejor avión utilizado.
+                ArrayList<User>arrayListUserAirplane = ActualFile.readUserFile();
+                for(User u : arrayListUserAirplane){
+                    if(u.getDNI() == (companyInstance.getCurrentLoggedUser().getDNI())){
+                        if(u.getBestAirplane() == null){
+                            System.out.println(u.getBestAirplane());
+                            u.setBestAirplane(selectedPlane.getCategory());
+                            System.out.println(u.getBestAirplane());
+                        }else{
+                            if(u.getBestAirplane().equals(selectedPlane.getCategory())){
+                                u.setBestAirplane(selectedPlane.getCategory());
+                            }
+                            if(u.getBestAirplane().equals(PlaneCategory.Bronze) || selectedPlane.getCategory().equals(PlaneCategory.Silver)){
+                                u.setBestAirplane(selectedPlane.getCategory());
+                            }
+                            if(selectedPlane.getCategory().equals(PlaneCategory.Gold)){
+                                u.setBestAirplane(selectedPlane.getCategory());
+                            }
+                        }
+                        ActualFile.writeUserFile(arrayListUserAirplane);
+                    }
+                }
+              //revisar
 
                 ArrayList<Flight> flightArrayList2 = companyInstance.getFlightArrayList();
                 for (Flight flightInCompany : flightArrayList2) {
@@ -170,10 +210,24 @@ public class cuestionario extends JFrame {
                 Flight flight = new Flight(cityOrigen, cityFlight, companyInstance.getCurrentLoggedUser(), localDate1, travelCost, selectedPlane, true);
 
 
+
                 String pathFlight = "vuelos.json";
                 File myFileFlight = new File(pathFlight);
 
+                
+                //posible error
+                ArrayList<Flight> flightArrayLis = new ArrayList<>();
+                flightArrayLis.add(flight);
+
+                ObjectMapper mapper = new ObjectMapper();
+                Company.getSingletonInstance().addToCollection(flight);
+                mapper.writerWithDefaultPrettyPrinter().writeValue(new File(pathFlight), flightArrayLis);
+                //ActualFile.writeFlight(flightArrayLis);
+                 //posible error
+
+
                 int option = JOptionPane.showConfirmDialog(null, q);
+
 
 
                 if (valid ) {
@@ -226,5 +280,12 @@ public class cuestionario extends JFrame {
         });
 
 
+        volverAInicioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cuestionario.setVisible(false);
+               verifyUser.getSingletonInstance().setVisible(true);
+            }
+        });
     }
 }
