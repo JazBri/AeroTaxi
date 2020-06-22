@@ -88,7 +88,7 @@ public class verifyUser extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 listado listado = new listado("Listado");
                 verifyUser.setVisible(false);
-                listado.setBounds(650, 180, 800, 500);
+                listado.setBounds(650, 180, 1200, 500);
                 listado.setVisible(true);
             }
         });

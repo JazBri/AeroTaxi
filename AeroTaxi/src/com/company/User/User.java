@@ -9,6 +9,7 @@ public class User implements Serializable {
     private int DNI;
     private int age;
     private boolean isRegistered;
+    private float totalSpent;
 
 
     public User(String name, String lastName, int DNI, int age, boolean isRegistered) {
@@ -63,6 +64,18 @@ public class User implements Serializable {
         isRegistered = registered;
     }
 
+    public float getTotalSpent() {
+        return totalSpent;
+    }
+
+    public void addTotalSpent(float cost){
+        float spent = this.getTotalSpent() + cost;
+        setTotalSpent(spent);
+    }
+
+    public void setTotalSpent(float totalSpent) {
+        this.totalSpent = totalSpent;
+    }
 
     public String showMessageRegistered() {
         return "\nNombre: " + name +
@@ -72,9 +85,9 @@ public class User implements Serializable {
     }
 
     public String showList() {
-        return  "Nombre completo: " + name + " " + lastName +  " DNI: " + DNI + " Edad: " + age;
-
+        return  "Nombre completo: " + name + " " + lastName +  " DNI " + DNI + " Edad: " + age;
     }
+
 
     @Override
     public String toString() {

@@ -7,18 +7,16 @@ import com.company.Airplane.Planes.Silver;
 import com.company.Airplane.PropulsionType;
 import com.company.City.City;
 import com.company.CompanyAdmin.Company;
+import com.company.Flight.Flight;
 import com.company.Main;
 import com.company.User.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class ActualFile {
-
-
 
     public static ArrayList readUserFile() throws IOException {
         String pathUser = "usuarios.json";
@@ -59,6 +57,20 @@ public class ActualFile {
         ObjectMapper mapperReaderAirplane = new ObjectMapper();
         ArrayList<Bronze> airplaneArrayListBr = mapperReaderAirplane.readValue(myFileAirplaneBr, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Bronze.class));
         return airplaneArrayListBr;
+    }
+
+    public static ArrayList readFlightFile() throws IOException {
+        String pathFlight = "vuelos.json";
+        File myFileFlight = new File(pathFlight);
+        ObjectMapper mapperReaderUser = new ObjectMapper();
+        ArrayList<Flight> flights = mapperReaderUser.readValue(myFileFlight, mapperReaderUser.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
+        return flights;
+    }
+
+    public static void writeFlight(ArrayList<Flight> flight) throws IOException {
+        String pathFlight = "vuelos.json";
+        ObjectMapper mapperReaderFlight = new ObjectMapper();
+        mapperReaderFlight.writerWithDefaultPrettyPrinter().writeValue(new File(pathFlight), flight);
     }
 
     public static void writeBronze(ArrayList<Bronze> airplanesBr) throws IOException {

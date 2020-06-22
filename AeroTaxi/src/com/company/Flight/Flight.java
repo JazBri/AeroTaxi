@@ -4,6 +4,8 @@ import com.company.Airplane.Airplane;
 import com.company.City.City;
 import com.company.User.User;
 
+import java.util.Date;
+
 public class Flight {
     private City origen;
     private City destino;
@@ -11,14 +13,16 @@ public class Flight {
     private int totalCost;
     private Airplane airplane;
     private boolean statusConfirm;
+    private Date date;
 
-    public Flight(City origen, City destino, User activeLoggedUser, int totalCost, Airplane airplane, boolean statusConfirm) {
+    public Flight(City origen, City destino, User activeLoggedUser, int totalCost, Airplane airplane, boolean statusConfirm, Date date) {
         this.origen = origen;
         this.destino = destino;
         this.activeLoggedUser = activeLoggedUser;
         this.totalCost = totalCost;
         this.airplane = airplane;
         this.statusConfirm = statusConfirm;
+        this.date = date;
     }
 
     public Flight() {
@@ -72,16 +76,30 @@ public class Flight {
         this.statusConfirm = statusConfirm;
     }
 
-    public String showList(){
-        return "  origen = " + origen.getName() +
-                "\ndestino = " + destino.getName();
+    public Date getDate() {
+        return date;
     }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String showList(){
+        return " \nOrigen:  " + origen.getName() +
+                "\n  Destino:  " + destino.getName() +
+                "\n  Servicio: " + airplane.getCategory() +
+                "\n  Costo Total:  " + totalCost +
+                "\n  Datos del Usuario:  " + activeLoggedUser.showList();
+
+    }
+
 
     @Override
     public String toString() {
         return "  origen = " + origen.getName() +
                 "\ndestino = " + destino.getName() +
                 "\nactiveLoggedUser =" + activeLoggedUser.getName() +
-                "\n totalCost =" + totalCost;
+                "\ntotalCost =" + totalCost +
+                "\nDate = " + date;
     }
 }

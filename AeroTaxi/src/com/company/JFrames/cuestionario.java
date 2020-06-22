@@ -7,7 +7,7 @@ import com.company.Airplane.Planes.Silver;
 import com.company.City.City;
 import com.company.CompanyAdmin.Company;
 import com.company.Flight.Flight;
-import com.company.Questionary.Questionary;
+import com.company.Questionaryy.Questionary;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
@@ -144,7 +144,7 @@ public class cuestionario extends JFrame {
 
                 //Carga de mi vuelo
                 City cityFlight = new City(cityDestino);
-                Flight flight = new Flight(cityOrigen, cityFlight, companyInstance.getCurrentLoggedUser(), travelCost, selectedPlane, true);
+                Flight flight = new Flight(cityOrigen, cityFlight, companyInstance.getCurrentLoggedUser(), travelCost, selectedPlane, true, localDate1);
 
                 String pathFlight = "vuelos.json";
                 File myFileFlight = new File(pathFlight);

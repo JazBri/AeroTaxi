@@ -1,0 +1,70 @@
+[ {
+  "origen" : {
+    "name" : "Montevideo"
+  },
+  "destino" : {
+    "name" : "Cordoba"
+  },
+  "activeLoggedUser" : {
+    "name" : "Jazmin",
+    "lastName" : "Briasco",
+    "age" : 23,
+    "registered" : true,
+    "dni" : 39338563
+  },
+  "totalCost" : 13000,
+  "airplane" : {
+    "propulsionType" : "REACTION",
+    "available" : true,
+    "category" : "Gold"
+  },
+  "statusConfirm" : true,
+  "date" : 1607742000000
+},
+  {
+    "origen" : {
+      "name" : "Santiago"
+    },
+    "destino" : {
+      "name" : "Cordoba"
+    },
+    "activeLoggedUser" : {
+      "name" : "Jazmin",
+      "lastName" : "Briasco",
+      "age" : 23,
+      "registered" : true,
+      "dni" : 32147852
+    },
+    "totalCost" : 13000,
+    "airplane" : {
+      "propulsionType" : "REACTION",
+      "available" : true,
+      "category" : "Gold"
+    },
+    "statusConfirm" : true,
+    "date" : 1607742000000
+  },
+  {
+    "origen" : {
+      "name" : "Santiago"
+    },
+    "destino" : {
+      "name" : "Cordoba"
+    },
+    "activeLoggedUser" : {
+      "name" : "Nicolas",
+      "lastName" : "Villarino",
+      "age" : 23,
+      "registered" : true,
+      "dni" : 32147852
+    },
+    "totalCost" : 13000,
+    "airplane" : {
+      "propulsionType" : "REACTION",
+      "available" : true,
+      "category" : "Gold"
+    },
+    "statusConfirm" : true,
+    "date" : 1607742000000
+  }
+]
