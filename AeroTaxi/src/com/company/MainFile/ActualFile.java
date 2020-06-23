@@ -25,7 +25,10 @@ public class ActualFile {
         File myFileUser = new File(pathUser);
         ObjectMapper mapperReaderUser = new ObjectMapper();
         ObjectMapper mapperUser1 = new ObjectMapper();
-        ArrayList<User> users = mapperUser1.readValue(myFileUser, mapperReaderUser.getTypeFactory().constructCollectionType(ArrayList.class, User.class));
+        ArrayList<User> users = new ArrayList<>();
+        if (myFileUser.length() != 0) {
+            users = mapperUser1.readValue(myFileUser, mapperReaderUser.getTypeFactory().constructCollectionType(ArrayList.class, User.class));
+        }
         return users;
     }
 
@@ -33,7 +36,10 @@ public class ActualFile {
         String pathCities = "ciudades.json";
         File myFileCity = new File(pathCities);
         ObjectMapper mapperReaderCities = new ObjectMapper();
-        ArrayList<City> cities = mapperReaderCities.readValue(myFileCity, mapperReaderCities.getTypeFactory().constructCollectionType(ArrayList.class, City.class));
+        ArrayList<City> cities = new ArrayList<>();
+        if (myFileCity.length() != 0) {
+            cities = mapperReaderCities.readValue(myFileCity, mapperReaderCities.getTypeFactory().constructCollectionType(ArrayList.class, City.class));
+        }
         return cities;
     }
 
@@ -41,7 +47,10 @@ public class ActualFile {
         String pathAirplaneBr = "avionesBronze.json";
         File myFileAirplaneBr = new File(pathAirplaneBr);
         ObjectMapper mapperReaderAirplane = new ObjectMapper();
-        ArrayList<Bronze> airplaneArrayListBr = mapperReaderAirplane.readValue(myFileAirplaneBr, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Bronze.class));
+        ArrayList<Bronze> airplaneArrayListBr = new ArrayList<>();
+        if (myFileAirplaneBr.length() != 0) {
+            airplaneArrayListBr = mapperReaderAirplane.readValue(myFileAirplaneBr, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Bronze.class));
+        }
         return airplaneArrayListBr;
     }
 
@@ -49,23 +58,32 @@ public class ActualFile {
         String pathAirplaneSl = "avionesSilver.json";
         File myFileAirplaneSl = new File(pathAirplaneSl);
         ObjectMapper mapperReaderAirplane = new ObjectMapper();
-        ArrayList<Bronze> airplaneArrayListBr = mapperReaderAirplane.readValue(myFileAirplaneSl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Silver.class));
-        return airplaneArrayListBr;
+        ArrayList<Silver> airplaneArrayListSl = new ArrayList<>();
+        if (myFileAirplaneSl.length() != 0) {
+            airplaneArrayListSl = mapperReaderAirplane.readValue(myFileAirplaneSl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Silver.class));
+        }
+        return airplaneArrayListSl;
     }
 
     public static ArrayList readGold() throws IOException {
         String pathAirplaneGl = "avionesGold.json";
         File myFileAirplaneGl = new File(pathAirplaneGl);
         ObjectMapper mapperReaderAirplane = new ObjectMapper();
-        ArrayList<Bronze> airplaneArrayListBr = mapperReaderAirplane.readValue(myFileAirplaneGl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Gold.class));
-        return airplaneArrayListBr;
+        ArrayList<Gold> airplaneArrayListGl = new ArrayList<>();
+        if (myFileAirplaneGl.length() != 0) {
+            airplaneArrayListGl = mapperReaderAirplane.readValue(myFileAirplaneGl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Gold.class));
+        }
+        return airplaneArrayListGl;
     }
 
     public static ArrayList readFlightFile() throws IOException {
         String pathFlight = "vuelos.json";
         File myFileFlight = new File(pathFlight);
         ObjectMapper mapperReaderUser = new ObjectMapper();
-        ArrayList<Flight> flights = mapperReaderUser.readValue(myFileFlight, mapperReaderUser.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
+        ArrayList<Flight> flights = new ArrayList<>();
+        if (myFileFlight.length() != 0) {
+            flights = mapperReaderUser.readValue(myFileFlight, mapperReaderUser.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
+        }
         return flights;
     }
 
