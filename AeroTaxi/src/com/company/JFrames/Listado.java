@@ -1,5 +1,6 @@
 package com.company.JFrames;
 
+import com.company.CompanyAdmin.Company;
 import com.company.Flight.Flight;
 import com.company.MainFile.ActualFile;
 import com.company.User.User;
@@ -13,7 +14,7 @@ import java.util.*;
 
 import com.toedter.calendar.JDateChooser;
 
-public class listado extends JFrame{
+public class Listado extends JFrame {
     private JPanel listado;
     private JButton clientesButton;
     private JButton vuelosButton;
@@ -23,7 +24,7 @@ public class listado extends JFrame{
     private JPanel jPanCalendar;
     private JButton volverButton;
 
-    public listado(String title) throws HeadlessException {
+    public Listado(String title) throws HeadlessException {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(listado);
@@ -49,19 +50,17 @@ public class listado extends JFrame{
                     }
 
                     //Mejor avión utilizado
-                    ArrayList<Flight> flights = ActualFile.readFlightFile();
-
+                    ArrayList<Flight> flights = Company.getSingletonInstance().getFlightArrayList();
 
 
                     //Total invertido
-               /*     float totalSpent = 0;
+                    float totalSpent = 0;
                     for (int i = 1; i < flights.size(); i++) {
-                        if(flights.get(i).getActiveLoggedUser().equals(flights.get(i+1).getActiveLoggedUser())) {
+                        if (flights.get(i).getActiveLoggedUser().getDNI() == Company.getSingletonInstance().getCurrentLoggedUser().getDNI()) {
                             totalSpent += flights.get(i).getTotalCost();
                             lista.addElement("Total Invertido: " + totalSpent);
                         }
-                    }*/
-
+                    }
 
 
                 } catch (IOException ex) {
@@ -69,7 +68,7 @@ public class listado extends JFrame{
                 }
 
 
-          }
+            }
         });
         vuelosButton.addActionListener(new ActionListener() {
             @Override
@@ -81,14 +80,14 @@ public class listado extends JFrame{
                     DefaultListModel lista = new DefaultListModel();
                     listFlights.setModel(lista);
                     for (Flight flight : flights) {
-                        if (flight.getDate().equals(localDate)) {
+                        if (flight.getFlightDate().equals(localDate)) {
                             flag = 1;
                             lista.addElement(flight.showList());
                         }
                     }
-                        if (flag == 0) {
-                            lista.addElement("No se han encontrado vuelos en la fecha seleccionada");
-                        }
+                    if (flag == 0) {
+                        lista.addElement("No se han encontrado vuelos en la fecha seleccionada");
+                    }
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -98,7 +97,7 @@ public class listado extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 listado.setVisible(false);
-                verifyUser.getSingletonInstance().setVisible(true);
+                VerifyUser.getSingletonInstance().setVisible(true);
             }
         });
     }

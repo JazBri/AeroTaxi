@@ -10,12 +10,15 @@ import com.company.Flight.Flight;
 import com.company.Main;
 import com.company.User.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class ActualFile {
+
+    Company companyInstance = Company.getSingletonInstance();
 
     public static ArrayList readUserFile() throws IOException {
         String pathUser = "usuarios.json";
@@ -44,17 +47,17 @@ public class ActualFile {
 
     public static ArrayList readSilver() throws IOException {
         String pathAirplaneSl = "avionesSilver.json";
-        File myFileAirplaneBr = new File(pathAirplaneSl);
+        File myFileAirplaneSl = new File(pathAirplaneSl);
         ObjectMapper mapperReaderAirplane = new ObjectMapper();
-        ArrayList<Bronze> airplaneArrayListBr = mapperReaderAirplane.readValue(myFileAirplaneBr, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Bronze.class));
+        ArrayList<Bronze> airplaneArrayListBr = mapperReaderAirplane.readValue(myFileAirplaneSl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Silver.class));
         return airplaneArrayListBr;
     }
 
     public static ArrayList readGold() throws IOException {
         String pathAirplaneGl = "avionesGold.json";
-        File myFileAirplaneBr = new File(pathAirplaneGl);
+        File myFileAirplaneGl = new File(pathAirplaneGl);
         ObjectMapper mapperReaderAirplane = new ObjectMapper();
-        ArrayList<Bronze> airplaneArrayListBr = mapperReaderAirplane.readValue(myFileAirplaneBr, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Bronze.class));
+        ArrayList<Bronze> airplaneArrayListBr = mapperReaderAirplane.readValue(myFileAirplaneGl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Gold.class));
         return airplaneArrayListBr;
     }
 
@@ -245,9 +248,9 @@ public class ActualFile {
                     //mapperAirplane1.enableDefaultTyping(ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE);
                     //ArrayList<Bronze> airplaneArrayListBr = mapperAirplane1.readValue(myFileAirplaneBr, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Bronze.class));
                     //for (Bronze brPlane : airplaneArrayListBr) {
-                       // brPlane.setCategory("Bronze");
-                        //companyInstance.addToCollection(brPlane);
-                        //System.out.println(companyInstance.getAirplaneArrayListBronze());
+                    // brPlane.setCategory("Bronze");
+                    //companyInstance.addToCollection(brPlane);
+                    //System.out.println(companyInstance.getAirplaneArrayListBronze());
 
                     //}
 
@@ -264,14 +267,12 @@ public class ActualFile {
                 if (myFileAirplaneSl.length() != 0) {
 
                     //Lectura del archivo, se levantan los datos de los aviones
-                   /* ObjectMapper mapperReaderAirplane = new ObjectMapper();
-                    ObjectMapper mapperAirplane1 = new ObjectMapper();
-
-                    ArrayList<Silver> airplaneArrayListBr = mapperAirplane1.readValue(myFileAirplaneSl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Silver.class));
-*/
                     ArrayList<Silver> airplaneArrayListSl = readSilver();
+                    for (Silver silverPlane : airplaneArrayListSl) {
+                        companyInstance.addToCollection(silverPlane);
 
-                   
+                    }
+
 
                 }
 
@@ -280,42 +281,38 @@ public class ActualFile {
                     ArrayList<Gold> airplanesGl = new ArrayList<>();
                     airplanesGl.add(gold);
 
-                 /*   ObjectMapper mapperAirplane = new ObjectMapper();
-                    companyInstance.addToCollection(gold);
-                    mapperAirplane.writerWithDefaultPrettyPrinter().writeValue(new File(pathAirplaneGl), airplanesGl);*/
-                 writeGold(airplanesGl);
+                    writeGold(airplanesGl);
 
                 }
                 if (myFileAirplaneGl.length() != 0) {
 
                     //Lectura del archivo, se levantan los datos de los aviones
-                   /* ObjectMapper mapperReaderAirplane = new ObjectMapper();
-                    ObjectMapper mapperAirplane1 = new ObjectMapper();
 
-                    ArrayList<Gold> airplaneArrayListGl = mapperAirplane1.readValue(myFileAirplaneGl, mapperReaderAirplane.getTypeFactory().constructCollectionType(ArrayList.class, Gold.class));*/
                     ArrayList<Gold> airplaneArrayListGl = readGold();
+                    for (Gold goldPLane : airplaneArrayListGl) {
+                        companyInstance.addToCollection(goldPLane);
 
-                  
                     }
+
 
                 }
 
-                //Lectura del archivo, se levantan los datos de los vuelos
-               /* if (myFileFlight.length() != 0) {
-                    ObjectMapper mapperReaderFlights = new ObjectMapper();
-
-
-                    ArrayList<Flight> fligtsArray = mapperReaderFlights.readValue(myFileFlight, mapperReaderFlights.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
-                    for (Flight myFlight : fligtsArray) {
-
-                        companyInstance.addToCollection(myFlight);
-                    }
-                }*/
-
-
             }
-        } catch (IOException e) {
-            System.out.println("No se pudo leer o escrbir el archivo " + e.getMessage());
+
+            //Lectura del archivo, se levantan los datos de los vuelos
+            if (myFileFlight.length() != 0) {
+                ObjectMapper mapperReaderFlights = new ObjectMapper();
+
+
+                ArrayList<Flight> fligtsArray = mapperReaderFlights.readValue(myFileFlight, mapperReaderFlights.getTypeFactory().constructCollectionType(ArrayList.class, Flight.class));
+                for (Flight myFlight : fligtsArray) {
+
+                    Company.getSingletonInstance().addToCollection(myFlight);
+                }
+            }
+
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

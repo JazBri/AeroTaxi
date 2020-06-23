@@ -56,7 +56,7 @@ public class Questionary {
                 "\nCantidad de ocupantes: " + companionsNumbers +
                 "\nOrigen: " + origen.getName() +
                 "\nDestino: " + destino +
-                "\nDistancia al destino en km: " + origen.getDistance(destino);
+                "\nDistancia al destino en km: " + origen.getDistance(this.destino);
 
     }
 

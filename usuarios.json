@@ -2,18 +2,40 @@
   "name" : "Jazmin",
   "lastName" : "Briasco",
   "age" : 23,
+  "totalSpent" : 0.0,
+  "bestAirplane" : "",
   "registered" : true,
   "dni" : 39338563
 }, {
   "name" : "Luciano",
   "lastName" : "Sassano",
   "age" : 21,
+  "totalSpent" : 408250.0,
+  "bestAirplane" : "",
   "registered" : true,
   "dni" : 41333010
 }, {
   "name" : "Matias",
   "lastName" : "Gonzalez",
   "age" : 58,
+  "totalSpent" : 0.0,
+  "bestAirplane" : "",
   "registered" : true,
   "dni" : 35789651
+}, {
+  "name" : "Roberto ",
+  "lastName" : "Carlos",
+  "age" : 60,
+  "totalSpent" : 0.0,
+  "bestAirplane" : "",
+  "registered" : true,
+  "dni" : 14262452
+}, {
+  "name" : "Martina ",
+  "lastName" : "Sereno",
+  "age" : 21,
+  "totalSpent" : 0.0,
+  "bestAirplane" : "",
+  "registered" : true,
+  "dni" : 41854122
 } ]
