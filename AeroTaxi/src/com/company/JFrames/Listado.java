@@ -93,12 +93,12 @@ public class Listado extends JFrame {
                 }
             }
         });
-        volverButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                listado.setVisible(false);
-                VerifyUser.getSingletonInstance().setVisible(true);
-            }
+        volverButton.addActionListener(e -> {
+            listado.setVisible(false);
+            this.dispose();
+            UserMenu userMenu = new UserMenu();
+            userMenu.setBounds(650, 180, 500, 500);
+            userMenu.setVisible(true);
         });
     }
 
