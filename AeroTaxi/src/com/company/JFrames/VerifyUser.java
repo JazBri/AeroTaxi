@@ -6,24 +6,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class verifyUser extends JFrame {
+public class VerifyUser extends JFrame {
     private JPanel verifyUser;
     private JTextField dniField;
     private JButton okButton;
     private JButton registerButton;
-    private JButton másOpcionesButton;
     private User user;
     private int dni;
-    private static verifyUser vu;
+    private static VerifyUser vu;
 
 
-    private verifyUser(String title) throws HeadlessException {
+    public VerifyUser(String title) throws HeadlessException {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(verifyUser);
@@ -32,7 +29,7 @@ public class verifyUser extends JFrame {
 
         registerButton.addActionListener(event -> {
             verifyUser.setVisible(false);
-            register register = new register("Registro");
+            Register register = new Register("Registro");
             register.setBounds(650, 180, 500, 500);
             register.setVisible(true);
 
@@ -60,7 +57,7 @@ public class verifyUser extends JFrame {
                         setUser(usuario);
                         JOptionPane.showMessageDialog(null, "Bienvenido/a " + usuario.getName() + " " + usuario.getLastName() + " !!! ");
                         verifyUser.setVisible(false);
-                        userMenu userMenu = new userMenu();
+                        UserMenu userMenu = new UserMenu();
                         userMenu.setBounds(650, 180, 500, 500);
                         userMenu.setVisible(true);
                     }
@@ -70,7 +67,7 @@ public class verifyUser extends JFrame {
                     //En caso de encontrarlo se abre el registro de Usuario
                     JOptionPane.showMessageDialog(null, "DNI: " + dniField.getText() + "\nUsted no se encuentra registrado.");
                     verifyUser.setVisible(false);
-                    register register = new register("Registro");
+                    Register register = new Register("Registro");
                     register.setBounds(650, 180, 500, 500);
                     register.setVisible(true);
                 }
@@ -84,21 +81,13 @@ public class verifyUser extends JFrame {
 
 
         });
-        másOpcionesButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                listado listado = new listado("Listado");
-                verifyUser.setVisible(false);
-                listado.setBounds(100, 180, 1650, 500);
-                listado.setVisible(true);
-            }
-        });
+
     }
 
     //getSingletonInstance devuelve la instancia del objeto, de esta manera se puede llamar en distintas clases.
-    public static verifyUser getSingletonInstance() {
+    public static VerifyUser getSingletonInstance() {
         if (vu == null) {
-            vu = new verifyUser("Aero Taxi");
+            vu = new VerifyUser("Aero Taxi");
             System.out.println("Objeto Company creado exitosamente!");
             vu.setVisible(true);
         } else {

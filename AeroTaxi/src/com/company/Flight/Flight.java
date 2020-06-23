@@ -17,7 +17,7 @@ public class Flight {
     private int totalCost;
     private Airplane airplane;
     private boolean statusConfirm;
-    private Date date;
+
 
 
     public Flight(City origen, City destino, User activeLoggedUser, Date flightDate, int totalCost, Airplane airplane, boolean statusConfirm) {
@@ -29,7 +29,6 @@ public class Flight {
         this.totalCost = totalCost;
         this.airplane = airplane;
         this.statusConfirm = statusConfirm;
-        this.date = date;
     }
 
     public Flight() {
@@ -91,14 +90,6 @@ public class Flight {
         this.statusConfirm = statusConfirm;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     public String showList(){
         return " \nOrigen:  " + origen.getName() +
                 "\n  Destino:  " + destino.getName() +
@@ -115,7 +106,6 @@ public class Flight {
                 "\ndestino = " + destino.getName() +
                 "\nfecha de vuelo =" + flightDate +
                 "\nactiveLoggedUser =" + activeLoggedUser.getName() +
-                "\ntotalCost =" + totalCost +
-                "\nDate = " + date;
+                "\ntotalCost =" + totalCost ;
     }
 }

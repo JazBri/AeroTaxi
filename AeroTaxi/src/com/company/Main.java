@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.JFrames.verifyUser;
+import com.company.JFrames.VerifyUser;
 import com.company.MainFile.ActualFile;
 
 import javax.swing.*;
@@ -18,8 +18,8 @@ public class Main {
             @Override
             public void run() {
 
-                verifyUser.getSingletonInstance().setBounds(650, 180, 500, 500);
-                verifyUser.getSingletonInstance().setVisible(true);
+                VerifyUser.getSingletonInstance().setBounds(650, 180, 500, 500);
+                VerifyUser.getSingletonInstance().setVisible(true);
             }
         });
     }

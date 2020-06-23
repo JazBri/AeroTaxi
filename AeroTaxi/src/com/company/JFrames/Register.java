@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class register extends JFrame {
+public class Register extends JFrame {
     private JPanel register;
     private JLabel labelRegister;
     private JTextField nombreTextField;
@@ -25,7 +25,7 @@ public class register extends JFrame {
     private JTextField apellidoTextField;
     private JLabel salida;
 
-    public register(String title) throws HeadlessException {
+    public Register(String title) throws HeadlessException {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(register);
@@ -43,9 +43,6 @@ public class register extends JFrame {
                     int dni = Integer.parseInt(dniTextField.getText());
                     int edad = Integer.parseInt(edadTextField.getText());
 
-                    /**FALTARÍA QUE EL USUARIO CONFIRME LOS DATOS.*/
-                    /**FALTARÍA REDIRIGIR, UNA VEZ CONFIRME DATOS A CUENTIONARIO, SI NO QUE LOS VUELVA A CARGAR.*/
-                    /**VER DE VOLVER A BUSCAR EL USUARIO EN EL ARCHIVO ANTES DE AGREGARLO.*/
                     User user1 = new User(nombreTextField.getText(), apellidoTextField.getText(), dni, edad, true);
                     user1.setRegistered(true);
 
@@ -54,10 +51,27 @@ public class register extends JFrame {
                     ObjectMapper mapperUser = new ObjectMapper();
                     ObjectMapper mapperReaderUser = new ObjectMapper();
                     ArrayList<User> us = mapperUser.readValue(myFileUser, mapperReaderUser.getTypeFactory().constructCollectionType(ArrayList.class, User.class));
-                    us.add(user1);
-                    mapperUser.writerWithDefaultPrettyPrinter().writeValue(new File(pathUser), us);
+                    boolean canRegister = true;
+                    for (int i = 0; i < us.size(); i++) {
+                        if (dni == us.get(i).getDNI()) {
+                            canRegister = false;
+                            JOptionPane.showMessageDialog(null, "El dni ingresad ya se encuentra registrado , ingrese un valor valido");
 
-                    JOptionPane.showMessageDialog(null, user1.showMessageRegistered(), "Nuevo Usuario", JOptionPane.INFORMATION_MESSAGE);
+
+                        }
+
+                    }
+
+                    if (canRegister) {
+                        us.add(user1);
+                        mapperUser.writerWithDefaultPrettyPrinter().writeValue(new File(pathUser), us);
+                        JOptionPane.showMessageDialog(null, user1.showMessageRegistered(), "Nuevo Usuario", JOptionPane.INFORMATION_MESSAGE);
+                        register.setVisible(false);
+                        VerifyUser verifyUser = new VerifyUser("menu");
+                        verifyUser.setBounds(650,180,500,500);
+                        verifyUser.setVisible(true);
+                    }
+
 
                 } catch (NumberFormatException | IOException e1) {
                     JOptionPane.showMessageDialog(null, " Por favor introduzca valores válidos ");

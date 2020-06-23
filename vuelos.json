@@ -3,17 +3,19 @@
     "name" : "Buenos Aires"
   },
   "destino" : {
-    "name" : "Cordoba"
+    "name" : "Montevideo"
   },
   "activeLoggedUser" : {
     "name" : "Luciano",
     "lastName" : "Sassano",
     "age" : 21,
+    "totalSpent" : 73000.0,
+    "bestAirplane" : "",
     "registered" : true,
     "dni" : 41333010
   },
-  "flightDate" : 1592967600000,
-  "totalCost" : 239000,
+  "flightDate" : 1592794800000,
+  "totalCost" : 9500,
   "airplane" : {
     "category" : "Gold",
     "propulsionType" : "REACTION",
@@ -23,24 +25,51 @@
   "statusConfirm" : true
 }, {
   "origen" : {
-    "name" : "Buenos Aires"
+    "name" : "Cordoba"
   },
   "destino" : {
-    "name" : "Montevideo"
+    "name" : "Buenos Aires"
   },
   "activeLoggedUser" : {
     "name" : "Luciano",
     "lastName" : "Sassano",
     "age" : 21,
+    "totalSpent" : 244375.0,
+    "bestAirplane" : "",
     "registered" : true,
     "dni" : 41333010
   },
-  "flightDate" : 1593054000000,
-  "totalCost" : 242250,
+  "flightDate" : 1592881200000,
+  "totalCost" : 163875,
   "airplane" : {
     "category" : "Silver",
     "propulsionType" : "PISTONES",
-    "available" : true,
+    "available" : false,
+    "category" : "Silver"
+  },
+  "statusConfirm" : true
+}, {
+  "origen" : {
+    "name" : "Buenos Aires"
+  },
+  "destino" : {
+    "name" : "Cordoba"
+  },
+  "activeLoggedUser" : {
+    "name" : "Luciano",
+    "lastName" : "Sassano",
+    "age" : 21,
+    "totalSpent" : 408250.0,
+    "bestAirplane" : "",
+    "registered" : true,
+    "dni" : 41333010
+  },
+  "flightDate" : 1592881200000,
+  "totalCost" : 163875,
+  "airplane" : {
+    "category" : "Silver",
+    "propulsionType" : "PISTONES",
+    "available" : false,
     "category" : "Silver"
   },
   "statusConfirm" : true
