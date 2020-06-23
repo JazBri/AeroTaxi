@@ -49,19 +49,6 @@ public class Listado extends JFrame {
                         lista.addElement(jl.showListUser());
                     }
 
-                    //Mejor avión utilizado
-                    ArrayList<Flight> flights = Company.getSingletonInstance().getFlightArrayList();
-
-
-                    //Total invertido
-                    float totalSpent = 0;
-                    for (int i = 1; i < flights.size(); i++) {
-                        if (flights.get(i).getActiveLoggedUser().getDNI() == Company.getSingletonInstance().getCurrentLoggedUser().getDNI()) {
-                            totalSpent += flights.get(i).getTotalCost();
-                            lista.addElement("Total Invertido: " + totalSpent);
-                        }
-                    }
-
 
                 } catch (IOException ex) {
                     ex.printStackTrace();
